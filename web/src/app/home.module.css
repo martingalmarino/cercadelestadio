@@ -1,5 +1,5 @@
 .grid {
-  align-items: end;
+  align-items: start;
 }
 
 .kicker {
@@ -7,8 +7,12 @@
   margin: 0;
 }
 
-.title {
+.copy {
   grid-column: 1 / 9;
+  align-self: start;
+}
+
+.title {
   margin: var(--s-4) 0 0;
   font-size: var(--fs-display);
   line-height: var(--lh-tight);
@@ -17,7 +21,6 @@
 }
 
 .lede {
-  grid-column: 1 / 7;
   margin: var(--s-5) 0 0;
   color: var(--text-inverse-muted);
   font-size: var(--fs-md);
@@ -55,7 +58,7 @@
   grid-column: 1 / -1;
   display: grid;
   grid-template-columns: 1fr 220px auto;
-  margin-top: var(--s-7);
+  margin-top: calc(var(--s-6) + var(--s-2));
   background: var(--surface);
 }
 
@@ -148,13 +151,13 @@
 }
 
 @media (max-width: 1023px) {
-  .title,
-  .lede,
+  .copy,
   .next {
     grid-column: 1 / -1;
   }
 
   .next {
+    align-self: start;
     margin-top: var(--s-6);
     padding: var(--s-4) 0 0;
     border-left: 0;

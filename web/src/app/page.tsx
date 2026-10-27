@@ -133,11 +133,13 @@ async function HomeContent({
           <p className={`label inverse ${styles.kicker}`}>
             Hoteles cerca de estadios · Argentina
           </p>
-          <h1 className={styles.title}>Dormí cerca del show.</h1>
-          <p className={styles.lede}>
-            Hoteles por distancia, cómo llegar y cómo volver, para cada estadio
-            y recital del país.
-          </p>
+          <div className={styles.copy}>
+            <h1 className={styles.title}>Dormí cerca del show.</h1>
+            <p className={styles.lede}>
+              Hoteles por distancia, cómo llegar y cómo volver, para cada estadio
+              y recital del país.
+            </p>
+          </div>
           {next ? (
             <div className={styles.next}>
               <span className="label">Próximo show</span>
