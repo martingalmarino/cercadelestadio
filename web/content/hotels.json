@@ -11,7 +11,9 @@
     "pricePerNight": 58000,
     "example": true,
     "mapX": 319,
-    "mapY": 219
+    "mapY": 219,
+    "lat": -34.540665,
+    "lng": -58.456431
   },
   {
     "slug": "apart-modelo-libertador",
@@ -25,7 +27,9 @@
     "pricePerNight": 64500,
     "example": true,
     "mapX": 239,
-    "mapY": 289
+    "mapY": 289,
+    "lat": -34.537023,
+    "lng": -58.441319
   },
   {
     "slug": "hotel-muestra-belgrano",
@@ -39,7 +43,9 @@
     "pricePerNight": 71200,
     "example": true,
     "mapX": 379,
-    "mapY": 159
+    "mapY": 159,
+    "lat": -34.557428,
+    "lng": -58.467307
   },
   {
     "slug": "hosteria-tipo-cabildo",
@@ -53,7 +59,9 @@
     "pricePerNight": 49900,
     "example": true,
     "mapX": 189,
-    "mapY": 319
+    "mapY": 319,
+    "lat": -34.567875,
+    "lng": -58.433904
   },
   {
     "slug": "suites-demo-palermo",
@@ -63,11 +71,13 @@
     "neighborhood": "Palermo",
     "walkMinutes": 50,
     "driveMinutes": 15,
-    "distanceKm": 4.0,
+    "distanceKm": 4,
     "pricePerNight": 82000,
     "example": true,
     "mapX": 149,
-    "mapY": 409
+    "mapY": 409,
+    "lat": -34.551529,
+    "lng": -58.406727
   },
   {
     "slug": "hotel-generico-plaza",
@@ -81,7 +91,9 @@
     "pricePerNight": 56400,
     "example": true,
     "mapX": 429,
-    "mapY": 109
+    "mapY": 109,
+    "lat": -34.50557,
+    "lng": -58.467283
   },
   {
     "slug": "hotel-ejemplo-humbolt",
@@ -93,7 +105,9 @@
     "driveMinutes": 3,
     "distanceKm": 0.6,
     "pricePerNight": 62000,
-    "example": true
+    "example": true,
+    "lat": -34.590792,
+    "lng": -58.453158
   },
   {
     "slug": "apart-modelo-corrientes",
@@ -105,7 +119,9 @@
     "driveMinutes": 5,
     "distanceKm": 1.1,
     "pricePerNight": 54000,
-    "example": true
+    "example": true,
+    "lat": -34.586682,
+    "lng": -58.440413
   },
   {
     "slug": "hotel-muestra-palermo",
@@ -117,7 +133,9 @@
     "driveMinutes": 8,
     "distanceKm": 1.8,
     "pricePerNight": 79000,
-    "example": true
+    "example": true,
+    "lat": -34.604665,
+    "lng": -58.463203
   },
   {
     "slug": "hosteria-tipo-caballito",
@@ -129,7 +147,9 @@
     "driveMinutes": 14,
     "distanceKm": 3.2,
     "pricePerNight": 47000,
-    "example": true
+    "example": true,
+    "lat": -34.619182,
+    "lng": -58.430652
   },
   {
     "slug": "hotel-ejemplo-liniers",
@@ -141,7 +161,9 @@
     "driveMinutes": 4,
     "distanceKm": 0.9,
     "pricePerNight": 41000,
-    "example": true
+    "example": true,
+    "lat": -34.630135,
+    "lng": -58.528214
   },
   {
     "slug": "apart-modelo-justo",
@@ -153,7 +175,9 @@
     "driveMinutes": 6,
     "distanceKm": 1.4,
     "pricePerNight": 46000,
-    "example": true
+    "example": true,
+    "lat": -34.625693,
+    "lng": -58.510844
   },
   {
     "slug": "hotel-muestra-villa-luro",
@@ -165,7 +189,9 @@
     "driveMinutes": 9,
     "distanceKm": 2.2,
     "pricePerNight": 39000,
-    "example": true
+    "example": true,
+    "lat": -34.648054,
+    "lng": -58.539102
   },
   {
     "slug": "suites-demo-versalles",
@@ -177,7 +203,9 @@
     "driveMinutes": 12,
     "distanceKm": 3.6,
     "pricePerNight": 52000,
-    "example": true
+    "example": true,
+    "lat": -34.663375,
+    "lng": -58.500998
   },
   {
     "slug": "hotel-ejemplo-patricios",
@@ -189,7 +217,9 @@
     "driveMinutes": 4,
     "distanceKm": 0.9,
     "pricePerNight": 44000,
-    "example": true
+    "example": true,
+    "lat": -34.638251,
+    "lng": -58.404039
   },
   {
     "slug": "apart-modelo-alcorta",
@@ -201,7 +231,9 @@
     "driveMinutes": 6,
     "distanceKm": 1.3,
     "pricePerNight": 48000,
-    "example": true
+    "example": true,
+    "lat": -34.634498,
+    "lng": -58.387369
   },
   {
     "slug": "hotel-muestra-barracas",
@@ -213,7 +245,9 @@
     "driveMinutes": 10,
     "distanceKm": 2.4,
     "pricePerNight": 42000,
-    "example": true
+    "example": true,
+    "lat": -34.657326,
+    "lng": -58.416603
   },
   {
     "slug": "hosteria-tipo-constitucion",
@@ -225,7 +259,9 @@
     "driveMinutes": 14,
     "distanceKm": 3.4,
     "pricePerNight": 38000,
-    "example": true
+    "example": true,
+    "lat": -34.669933,
+    "lng": -58.377914
   },
   {
     "slug": "hotel-ejemplo-chateau",
@@ -237,7 +273,9 @@
     "driveMinutes": 5,
     "distanceKm": 1.1,
     "pricePerNight": 51000,
-    "example": true
+    "example": true,
+    "lat": -31.362488,
+    "lng": -64.25502
   },
   {
     "slug": "apart-modelo-cerro",
@@ -249,7 +287,9 @@
     "driveMinutes": 8,
     "distanceKm": 1.8,
     "pricePerNight": 47000,
-    "example": true
+    "example": true,
+    "lat": -31.356446,
+    "lng": -64.23396
   },
   {
     "slug": "hotel-muestra-nueva-cordoba",
@@ -261,7 +301,9 @@
     "driveMinutes": 16,
     "distanceKm": 4.2,
     "pricePerNight": 58000,
-    "example": true
+    "example": true,
+    "lat": -31.393121,
+    "lng": -64.280042
   },
   {
     "slug": "hosteria-tipo-centro-cba",
@@ -273,7 +315,9 @@
     "driveMinutes": 18,
     "distanceKm": 4.8,
     "pricePerNight": 43000,
-    "example": true
+    "example": true,
+    "lat": -31.406228,
+    "lng": -64.220856
   },
   {
     "slug": "hotel-ejemplo-32",
@@ -285,7 +329,9 @@
     "driveMinutes": 4,
     "distanceKm": 0.9,
     "pricePerNight": 45000,
-    "example": true
+    "example": true,
+    "lat": -34.908638,
+    "lng": -57.996608
   },
   {
     "slug": "apart-modelo-tolosa",
@@ -297,7 +343,9 @@
     "driveMinutes": 8,
     "distanceKm": 1.9,
     "pricePerNight": 42000,
-    "example": true
+    "example": true,
+    "lat": -34.900751,
+    "lng": -57.975656
   },
   {
     "slug": "hotel-muestra-centro-lp",
@@ -309,7 +357,9 @@
     "driveMinutes": 14,
     "distanceKm": 3.3,
     "pricePerNight": 56000,
-    "example": true
+    "example": true,
+    "lat": -34.932914,
+    "lng": -58.016778
   },
   {
     "slug": "hosteria-tipo-bosque",
@@ -321,6 +371,8 @@
     "driveMinutes": 16,
     "distanceKm": 4.1,
     "pricePerNight": 39000,
-    "example": true
+    "example": true,
+    "lat": -34.945771,
+    "lng": -57.966556
   }
 ]

@@ -43,24 +43,49 @@
         "label": "20 min",
         "title": "Congreso de Tucumán",
         "detail": "Subte Línea D, cabecera. 20 min a pie al estadio.",
-        "badges": [{ "label": "D", "tone": "D" }]
+        "badges": [
+          {
+            "label": "D",
+            "tone": "D"
+          }
+        ]
       },
       {
         "label": "12 min",
         "title": "Estación Núñez / Rivadavia",
         "detail": "Tren Mitre, ramal Tigre o Mitre. 10 – 15 min a pie.",
-        "badges": [{ "label": "MI", "tone": "M" }]
+        "badges": [
+          {
+            "label": "MI",
+            "tone": "M"
+          }
+        ]
       },
       {
         "label": "5 min",
         "title": "",
         "detail": "Colectivos por Av. Libertador y Av. Cabildo.",
         "badges": [
-          { "label": "15", "tone": "C" },
-          { "label": "29", "tone": "C" },
-          { "label": "42", "tone": "C" },
-          { "label": "107", "tone": "C" },
-          { "label": "130", "tone": "C" }
+          {
+            "label": "15",
+            "tone": "C"
+          },
+          {
+            "label": "29",
+            "tone": "C"
+          },
+          {
+            "label": "42",
+            "tone": "C"
+          },
+          {
+            "label": "107",
+            "tone": "C"
+          },
+          {
+            "label": "130",
+            "tone": "C"
+          }
         ]
       }
     ],
@@ -112,7 +137,13 @@
         "question": "¿Hay cortes de calle los días de evento?",
         "answer": "Sí. Figueroa Alcorta y Lugones suelen cortarse horas antes. Los horarios de esta guía son de ejemplo."
       }
-    ]
+    ],
+    "lat": -34.54529,
+    "lng": -58.44974,
+    "osm": {
+      "type": "relation",
+      "id": 1646999
+    }
   },
   {
     "slug": "movistar-arena",
@@ -158,7 +189,12 @@
         "label": "Subte",
         "title": "Línea B",
         "detail": "Malabia y Dorrego son las estaciones más usadas para llegar.",
-        "badges": [{ "label": "B", "tone": "D" }]
+        "badges": [
+          {
+            "label": "B",
+            "tone": "D"
+          }
+        ]
       },
       {
         "label": "A pie",
@@ -198,7 +234,13 @@
         "question": "¿Los precios de los hoteles son reales?",
         "answer": "No. Son ejemplos para ordenar por distancia. La disponibilidad se ve en el sitio del alojamiento."
       }
-    ]
+    ],
+    "lat": -34.5942604,
+    "lng": -58.4481368,
+    "osm": {
+      "type": "way",
+      "id": 702175944
+    }
   },
   {
     "slug": "jose-amalfitani",
@@ -244,7 +286,12 @@
         "label": "Tren",
         "title": "Estación Liniers",
         "detail": "Tren Sarmiento. La estación queda al lado del estadio.",
-        "badges": [{ "label": "SA", "tone": "M" }]
+        "badges": [
+          {
+            "label": "SA",
+            "tone": "M"
+          }
+        ]
       },
       {
         "label": "A pie",
@@ -284,7 +331,13 @@
         "question": "¿Los cortes están confirmados?",
         "answer": "No. La tabla es de ejemplo para mostrar cómo se informan el día del evento."
       }
-    ]
+    ],
+    "lat": -34.6353382,
+    "lng": -58.5206788,
+    "osm": {
+      "type": "way",
+      "id": 23243149
+    }
   },
   {
     "slug": "tomas-duco",
@@ -330,13 +383,23 @@
         "label": "Subte",
         "title": "Parque Patricios",
         "detail": "Línea H. Desde ahí se camina hacia Amancio Alcorta.",
-        "badges": [{ "label": "H", "tone": "D" }]
+        "badges": [
+          {
+            "label": "H",
+            "tone": "D"
+          }
+        ]
       },
       {
         "label": "Tren",
         "title": "Constitución",
         "detail": "El Roca sirve si dormís más cerca de Constitución.",
-        "badges": [{ "label": "RO", "tone": "M" }]
+        "badges": [
+          {
+            "label": "RO",
+            "tone": "M"
+          }
+        ]
       }
     ],
     "returnAdvice": {
@@ -371,7 +434,13 @@
         "question": "¿Puedo quedarme en Constitución?",
         "answer": "Sirve si priorizás oferta y el tren. No es una vuelta caminando."
       }
-    ]
+    ],
+    "lat": -34.6434539,
+    "lng": -58.3965026,
+    "osm": {
+      "type": "relation",
+      "id": 17351933
+    }
   },
   {
     "slug": "mario-kempes",
@@ -456,7 +525,13 @@
         "question": "¿Los hoteles de la lista existen?",
         "answer": "No. Están marcados como ejemplo para mostrar distancia y un precio de referencia."
       }
-    ]
+    ],
+    "lat": -31.3688468,
+    "lng": -64.2461451,
+    "osm": {
+      "type": "way",
+      "id": 154248210
+    }
   },
   {
     "slug": "estadio-unico-la-plata",
@@ -502,7 +577,12 @@
         "label": "Tren",
         "title": "Tolosa",
         "detail": "El Roca deja en Tolosa. Desde ahí falta un tramo hasta el estadio.",
-        "badges": [{ "label": "RO", "tone": "M" }]
+        "badges": [
+          {
+            "label": "RO",
+            "tone": "M"
+          }
+        ]
       },
       {
         "label": "Centro",
@@ -542,6 +622,12 @@
         "question": "¿Puedo fiarme de los precios?",
         "answer": "No. Son precios de ejemplo. Esta página ordena por distancia."
       }
-    ]
+    ],
+    "lat": -34.9138408,
+    "lng": -57.9890476,
+    "osm": {
+      "type": "way",
+      "id": 119937010
+    }
   }
 ]

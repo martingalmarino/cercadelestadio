@@ -23,6 +23,9 @@ export type Venue = {
   slug: string;
   name: string;
   address: string;
+  lat: number;
+  lng: number;
+  osm?: { type: "way" | "relation"; id: number };
   citySlug: string;
   neighborhood: string;
   capacity: number;
@@ -57,7 +60,11 @@ export type Hotel = {
   distanceKm: number;
   pricePerNight: number;
   example: true;
+  lat?: number;
+  lng?: number;
+  /** @deprecated Se borra en el paso 6. Coordenada de pantalla del plano esquemático. */
   mapX?: number;
+  /** @deprecated Se borra en el paso 6. Coordenada de pantalla del plano esquemático. */
   mapY?: number;
 };
 
