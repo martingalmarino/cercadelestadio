@@ -33,6 +33,9 @@ export const metadata: Metadata = {
     url: absoluteUrl("/"),
   },
   twitter: { card: "summary_large_image" },
+  verification: {
+    google: "YrsGpkRGrqOvPCkB8aZsxNscQZSsnoMa4WC8fGbfYXQ",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
