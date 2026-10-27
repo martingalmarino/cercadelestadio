@@ -2,7 +2,12 @@
   {
     "slug": "estadio-monumental",
     "name": "Estadio Monumental",
+    "seoName": "Estadio Monumental",
+    "nickname": "River",
     "address": "Av. Figueroa Alcorta 7597, Núñez, CABA",
+    "street": "Av. Figueroa Alcorta 7597",
+    "locality": "Núñez",
+    "region": "CABA",
     "citySlug": "buenos-aires",
     "neighborhood": "Núñez",
     "capacity": 84567,
@@ -122,20 +127,24 @@
     ],
     "faq": [
       {
-        "question": "¿Qué hotel queda más cerca del estadio?",
-        "answer": "En este ejemplo, Hotel Ejemplo Norte, a 0,8 km (unos 10 minutos a pie)."
+        "question": "¿Qué hoteles hay cerca del Estadio Monumental?",
+        "answer": "A 3 km del Estadio Monumental hay 42 hoteles. El más cercano de esta guía está a 0,8 km, unos 10 minutos a pie, en Núñez."
       },
       {
-        "question": "¿Se puede volver en Subte después del show?",
-        "answer": "El Subte D suele cerrar cerca de las 23:00. Confirmá si hay horario extendido. El Mitre tiene más frecuencia a la salida."
+        "question": "¿Cómo llegar al Estadio Monumental en subte o colectivo?",
+        "answer": "Hay subte y colectivos. Congreso de Tucumán (20 min): Subte Línea D, cabecera. 20 min a pie al estadio. Estación Núñez / Rivadavia (12 min): Tren Mitre, ramal Tigre o Mitre. 10 – 15 min a pie."
       },
       {
-        "question": "¿Conviene quedarse en Palermo?",
-        "answer": "Si sumás días de turismo, sí. Para volver apenas termina el show, Núñez o Belgrano evitan el traslado."
+        "question": "¿Cómo volver del Estadio Monumental después del recital?",
+        "answer": "El Subte D suele cerrar cerca de las 23:00: confirmá horario extendido. El Mitre tiene más frecuencia. Las apps de viaje aplican tarifa dinámica; caminá 6 – 8 cuadras hacia Av. Cabildo o Libertador antes de pedir."
       },
       {
-        "question": "¿Hay cortes de calle los días de evento?",
-        "answer": "Sí. Figueroa Alcorta y Lugones suelen cortarse horas antes. Los horarios de esta guía son de ejemplo."
+        "question": "¿A qué hora termina un recital en el Estadio Monumental?",
+        "answer": "A confirmar. Depende de cada show; esta ficha no publica una hora de final."
+      },
+      {
+        "question": "¿Conviene dormir en Núñez o Palermo?",
+        "answer": "Núñez: Residencial y tranquilo. Volvés caminando después del show. Palermo: Más vida y más hoteles. Ideal si sumás días de turismo."
       }
     ],
     "lat": -34.54529,
@@ -143,12 +152,18 @@
     "osm": {
       "type": "relation",
       "id": 1646999
-    }
+    },
+    "updatedAt": "2026-10-27"
   },
   {
     "slug": "movistar-arena",
     "name": "Movistar Arena",
+    "seoName": "Movistar Arena",
+    "nickname": null,
     "address": "Humboldt 450, Villa Crespo, CABA",
+    "street": "Humboldt 450",
+    "locality": "Villa Crespo",
+    "region": "CABA",
     "citySlug": "buenos-aires",
     "neighborhood": "Villa Crespo",
     "capacity": 15000,
@@ -223,16 +238,24 @@
     ],
     "faq": [
       {
-        "question": "¿Se puede volver caminando?",
-        "answer": "Si dormís en Villa Crespo, sí. Desde Palermo conviene el Subte B o un auto."
+        "question": "¿Qué hoteles hay cerca del Movistar Arena?",
+        "answer": "A 3 km del Movistar Arena hay 68 hoteles. El más cercano de esta guía está a 0,6 km, unos 8 minutos a pie, en Villa Crespo."
       },
       {
-        "question": "¿Qué línea de Subte uso?",
-        "answer": "La Línea B. Malabia y Dorrego son las estaciones de referencia."
+        "question": "¿Cómo llegar al Movistar Arena en subte o colectivo?",
+        "answer": "Hay subte. Esta ficha no carga una línea de colectivo. Línea B (Subte): Malabia y Dorrego son las estaciones más usadas para llegar. Villa Crespo (A pie): Si dormís en el barrio, el regreso es caminando."
       },
       {
-        "question": "¿Los precios de los hoteles son reales?",
-        "answer": "No. Son ejemplos para ordenar por distancia. La disponibilidad se ve en el sitio del alojamiento."
+        "question": "¿Cómo volver del Movistar Arena después del recital?",
+        "answer": "Corrientes se llena apenas termina. Caminá unas cuadras antes de pedir un auto. El Subte B confirma horario en la noche del show."
+      },
+      {
+        "question": "¿A qué hora termina un recital en el Movistar Arena?",
+        "answer": "A confirmar. Depende de cada show; esta ficha no publica una hora de final."
+      },
+      {
+        "question": "¿Conviene dormir en Villa Crespo o Caballito?",
+        "answer": "Villa Crespo: Quedás al lado del recinto, entre Corrientes y las vías. Caballito: Más tranquilo y suele ser más barato."
       }
     ],
     "lat": -34.5942604,
@@ -240,12 +263,18 @@
     "osm": {
       "type": "way",
       "id": 702175944
-    }
+    },
+    "updatedAt": "2026-10-27"
   },
   {
     "slug": "jose-amalfitani",
     "name": "José Amalfitani (Vélez)",
+    "seoName": "Estadio José Amalfitani (Vélez)",
+    "nickname": "Vélez",
     "address": "Av. Juan B. Justo 9200, Liniers, CABA",
+    "street": "Av. Juan B. Justo 9200",
+    "locality": "Liniers",
+    "region": "CABA",
     "citySlug": "buenos-aires",
     "neighborhood": "Liniers",
     "capacity": 49540,
@@ -320,16 +349,24 @@
     ],
     "faq": [
       {
-        "question": "¿Conviene dormir en Liniers?",
-        "answer": "Sí, si encontrás lugar: volvés a pie. La oferta es chica, por eso los ejemplos incluyen Villa Luro y Versalles."
+        "question": "¿Qué hoteles hay cerca del Estadio José Amalfitani (Vélez)?",
+        "answer": "A 3 km del Estadio José Amalfitani (Vélez) hay 14 hoteles. El más cercano de esta guía está a 0,9 km, unos 12 minutos a pie, en Liniers."
       },
       {
-        "question": "¿Cómo llego en tren?",
-        "answer": "Línea Sarmiento, estación Liniers. Desde Once es directo."
+        "question": "¿Cómo llegar al Estadio José Amalfitani (Vélez) en subte o colectivo?",
+        "answer": "Subte y colectivo están a confirmar. Estación Liniers (Tren): Tren Sarmiento. La estación queda al lado del estadio. Liniers (A pie): Si dormís en el barrio, volvés caminando."
       },
       {
-        "question": "¿Los cortes están confirmados?",
-        "answer": "No. La tabla es de ejemplo para mostrar cómo se informan el día del evento."
+        "question": "¿Cómo volver del Estadio José Amalfitani (Vélez) después del recital?",
+        "answer": "La estación Liniers concentra a casi todo el mundo. Si podés, alejarte unas cuadras por Juan B. Justo antes de pedir un auto."
+      },
+      {
+        "question": "¿A qué hora termina un recital en el Estadio José Amalfitani (Vélez)?",
+        "answer": "A confirmar. Depende de cada show; esta ficha no publica una hora de final."
+      },
+      {
+        "question": "¿Conviene dormir en Liniers o Versalles?",
+        "answer": "Liniers: Al lado del estadio y de la estación de tren. Versalles: Otra opción del oeste, con menos movimiento de show."
       }
     ],
     "lat": -34.6353382,
@@ -337,12 +374,18 @@
     "osm": {
       "type": "way",
       "id": 23243149
-    }
+    },
+    "updatedAt": "2026-10-27"
   },
   {
     "slug": "tomas-duco",
     "name": "Tomás A. Ducó (Huracán)",
+    "seoName": "Estadio Tomás A. Ducó (Huracán)",
+    "nickname": "Huracán",
     "address": "Av. Amancio Alcorta 2570, Parque Patricios, CABA",
+    "street": "Av. Amancio Alcorta 2570",
+    "locality": "Parque Patricios",
+    "region": "CABA",
     "citySlug": "buenos-aires",
     "neighborhood": "Parque Patricios",
     "capacity": 48314,
@@ -423,16 +466,24 @@
     ],
     "faq": [
       {
-        "question": "¿Hay hoteles al lado del Ducó?",
-        "answer": "Pocos. En esta guía los nombres y precios son de ejemplo, ordenados por distancia."
+        "question": "¿Qué hoteles hay cerca del Estadio Tomás A. Ducó (Huracán)?",
+        "answer": "A 3 km del Estadio Tomás A. Ducó (Huracán) hay 21 hoteles. El más cercano de esta guía está a 0,9 km, unos 11 minutos a pie, en Parque Patricios."
       },
       {
-        "question": "¿Qué Subte me deja cerca?",
-        "answer": "La Línea H, estación Parque Patricios."
+        "question": "¿Cómo llegar al Estadio Tomás A. Ducó (Huracán) en subte o colectivo?",
+        "answer": "Hay subte. Esta ficha no carga una línea de colectivo. Parque Patricios (Subte): Línea H. Desde ahí se camina hacia Amancio Alcorta. Constitución (Tren): El Roca sirve si dormís más cerca de Constitución."
       },
       {
-        "question": "¿Puedo quedarme en Constitución?",
-        "answer": "Sirve si priorizás oferta y el tren. No es una vuelta caminando."
+        "question": "¿Cómo volver del Estadio Tomás A. Ducó (Huracán) después del recital?",
+        "answer": "Amancio Alcorta queda cargada. Si vas a pedir un auto, caminá hacia la estación de Subte H o hacia avenidas más anchas."
+      },
+      {
+        "question": "¿A qué hora termina un recital en el Estadio Tomás A. Ducó (Huracán)?",
+        "answer": "A confirmar. Depende de cada show; esta ficha no publica una hora de final."
+      },
+      {
+        "question": "¿Conviene dormir en Parque Patricios o Constitución?",
+        "answer": "Parque Patricios: El barrio del estadio. Lo más simple para la vuelta. Constitución: Más hoteles y combinación de tren, más movimiento."
       }
     ],
     "lat": -34.6434539,
@@ -440,12 +491,18 @@
     "osm": {
       "type": "relation",
       "id": 17351933
-    }
+    },
+    "updatedAt": "2026-10-27"
   },
   {
     "slug": "mario-kempes",
     "name": "Mario Alberto Kempes",
+    "seoName": "Estadio Mario Alberto Kempes",
+    "nickname": "Kempes",
     "address": "Av. Cárcano s/n, Córdoba",
+    "street": "Av. Cárcano s/n",
+    "locality": "Córdoba",
+    "region": "Córdoba",
     "citySlug": "cordoba",
     "neighborhood": "Chateau Carreras",
     "capacity": 57000,
@@ -514,16 +571,24 @@
     ],
     "faq": [
       {
-        "question": "¿Hay subte en Córdoba?",
-        "answer": "No. Se llega en colectivo, auto o taxi."
+        "question": "¿Qué hoteles hay cerca del Estadio Mario Alberto Kempes?",
+        "answer": "A 3 km del Estadio Mario Alberto Kempes hay 19 hoteles. El más cercano de esta guía está a 1,1 km, unos 14 minutos a pie, en Chateau Carreras."
       },
       {
-        "question": "¿Dónde conviene dormir?",
-        "answer": "Cerca del estadio si solo vas al show. En Nueva Córdoba si además recorrés la ciudad."
+        "question": "¿Cómo llegar al Estadio Mario Alberto Kempes en subte o colectivo?",
+        "answer": "Hay subte y colectivos. Chateau Carreras (Norte): Si dormís en el norte, el estadio te queda cerca. Colectivos al Kempes (Centro): Desde Nueva Córdoba y el centro se llega en colectivo o auto. No hay subte."
       },
       {
-        "question": "¿Los hoteles de la lista existen?",
-        "answer": "No. Están marcados como ejemplo para mostrar distancia y un precio de referencia."
+        "question": "¿Cómo volver del Estadio Mario Alberto Kempes después del recital?",
+        "answer": "A la salida hay poca oferta de autos y los colectivos van llenos. Si dormís en el centro, salí con tiempo o alejarte del predio antes de pedir."
+      },
+      {
+        "question": "¿A qué hora termina un recital en el Estadio Mario Alberto Kempes?",
+        "answer": "A confirmar. Depende de cada show; esta ficha no publica una hora de final."
+      },
+      {
+        "question": "¿Conviene dormir en Chateau Carreras o Nueva Córdoba?",
+        "answer": "Chateau Carreras: La zona del estadio, al norte de la ciudad. Nueva Córdoba: La oferta hotelera grande de Córdoba. Conviene si te quedás varios días."
       }
     ],
     "lat": -31.3688468,
@@ -531,12 +596,18 @@
     "osm": {
       "type": "way",
       "id": 154248210
-    }
+    },
+    "updatedAt": "2026-10-27"
   },
   {
     "slug": "estadio-unico-la-plata",
     "name": "Estadio Único Diego A. Maradona",
+    "seoName": "Estadio Único de La Plata",
+    "nickname": null,
     "address": "Av. 32 y 25, La Plata",
+    "street": "Av. 32 y 25",
+    "locality": "La Plata",
+    "region": "Buenos Aires",
     "citySlug": "la-plata",
     "neighborhood": "Zona del estadio",
     "capacity": 53000,
@@ -611,16 +682,24 @@
     ],
     "faq": [
       {
-        "question": "¿El estadio queda en el centro?",
-        "answer": "No. Está al noreste, en 32 y 25. El centro tiene más hoteles y queda a varios kilómetros."
+        "question": "¿Qué hoteles hay cerca del Estadio Único de La Plata?",
+        "answer": "A 3 km del Estadio Único de La Plata hay 27 hoteles. El más cercano de esta guía está a 0,9 km, unos 12 minutos a pie, en Zona del estadio."
       },
       {
-        "question": "¿Hay subte?",
-        "answer": "No. Se usa colectivo, tren hasta Tolosa o auto."
+        "question": "¿Cómo llegar al Estadio Único de La Plata en subte o colectivo?",
+        "answer": "Hay subte y colectivos. Tolosa (Tren): El Roca deja en Tolosa. Desde ahí falta un tramo hasta el estadio. Colectivos (Centro): Desde el centro de La Plata se llega en colectivo. No hay subte."
       },
       {
-        "question": "¿Puedo fiarme de los precios?",
-        "answer": "No. Son precios de ejemplo. Esta página ordena por distancia."
+        "question": "¿Cómo volver del Estadio Único de La Plata después del recital?",
+        "answer": "El predio queda aislado de noche. Si dormís en el centro, coordiná la vuelta antes: colectivo, auto o una caminata hasta una avenida con más movimiento."
+      },
+      {
+        "question": "¿A qué hora termina un recital en el Estadio Único de La Plata?",
+        "answer": "A confirmar. Depende de cada show; esta ficha no publica una hora de final."
+      },
+      {
+        "question": "¿Conviene dormir en Zona del estadio o Centro?",
+        "answer": "Zona del estadio: El predio está al noreste de la ciudad, lejos del centro. Centro: Ahí está la mayoría de los hoteles de La Plata."
       }
     ],
     "lat": -34.9138408,
@@ -628,6 +707,7 @@
     "osm": {
       "type": "way",
       "id": 119937010
-    }
+    },
+    "updatedAt": "2026-10-27"
   }
 ]

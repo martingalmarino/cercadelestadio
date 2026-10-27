@@ -18,15 +18,29 @@ import {
   hotelsFor,
   upcomingForVenue,
 } from "@/lib/content";
-import { formatCount, withArticle } from "@/lib/format";
+import { venueAnswer, venueFaqs } from "@/lib/answers";
+import { formatCount, formatFullDate } from "@/lib/format";
+import {
+  alVenue,
+  deVenue,
+  enVenue,
+  venueDescription,
+  venueIntro,
+  openGraphPage,
+  venueTitle,
+  withBrand,
+} from "@/lib/seo";
 import {
   breadcrumbList,
   faqPage,
   hotelItemList,
-  venueEventList,
+  stadium,
+  stadiumId,
+  webPage,
 } from "@/lib/structured-data";
 import { getCachedNow } from "@/lib/time";
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import styles from "./page.module.css";
 
@@ -40,10 +54,14 @@ export async function generateMetadata({
   const { slug } = await params;
   const venue = getVenue(slug);
   if (!venue) return { title: "Estadio" };
+  const title = withBrand(venueTitle(venue));
+  const description = venueDescription(venue);
+  const path = `/estadio/${venue.slug}`;
   return {
-    title: venue.name,
-    description: `Hoteles por distancia, cómo llegar y cómo volver de ${venue.name}. ${venue.address}`,
-    alternates: { canonical: `/estadio/${venue.slug}` },
+    title,
+    description,
+    alternates: { canonical: path },
+    openGraph: openGraphPage(title, description, path),
   };
 }
 
@@ -57,23 +75,29 @@ export default async function StadiumPage(props: PageProps<"/estadio/[slug]">) {
   const now = await getCachedNow();
   const upcoming = upcomingForVenue(venue.slug, now);
   const place = city?.name ?? venue.neighborhood;
+  const faqs = venueFaqs(venue, hotels);
+  const caption = `Distancias a ${venue.seoName}: kilómetros, minutos a pie y minutos en auto.`;
 
   return (
     <main>
       <JsonLd
         data={[
+          webPage({
+            path: `/estadio/${venue.slug}`,
+            name: venueTitle(venue),
+            dateModified: venue.updatedAt,
+            aboutId: stadiumId(venue),
+          }),
           breadcrumbList([
             { name: "Inicio", path: "/" },
             ...(city
               ? [{ name: city.name, path: `/ciudad/${city.slug}` }]
               : []),
-            { name: venue.name, path: `/estadio/${venue.slug}` },
+            { name: venue.seoName, path: `/estadio/${venue.slug}` },
           ]),
-          hotelItemList(`Hoteles cerca de ${venue.name}`, hotels, place),
-          faqPage(venue.faq),
-          ...(upcoming.length > 0
-            ? [venueEventList(upcoming, venue.name)]
-            : []),
+          stadium(venue),
+          hotelItemList(`Hoteles cerca de ${venue.seoName}`, hotels),
+          faqPage(faqs, `/estadio/${venue.slug}`),
         ]}
       />
       <section className={`${frame.hero} inverse`}>
@@ -82,11 +106,19 @@ export default async function StadiumPage(props: PageProps<"/estadio/[slug]">) {
             items={[
               { href: "/", label: "Inicio" },
               { href: "/#estadios", label: "Estadios" },
-              { label: city?.name ?? venue.name },
+              ...(city
+                ? [{ href: `/ciudad/${city.slug}`, label: city.name }]
+                : [{ label: venue.name }]),
             ]}
           />
-          <h1 className={frame.venueTitle}>{venue.name}</h1>
-          <p className={frame.lede}>{venue.address}</p>
+          <h1 className={frame.venueTitle}>{venueTitle(venue)}</h1>
+          {venue.updatedAt ? (
+            <time className={frame.updated} dateTime={venue.updatedAt}>
+              Actualizado el {formatFullDate(venue.updatedAt)}
+            </time>
+          ) : null}
+          <p className={frame.answer}>{venueAnswer(venue, hotels)}</p>
+          <p className={frame.lede}>{venueIntro(venue)}</p>
           <StatRow
             items={[
               { label: "Capacidad", value: formatCount(venue.capacity) },
@@ -103,9 +135,19 @@ export default async function StadiumPage(props: PageProps<"/estadio/[slug]">) {
       </section>
 
       <section aria-labelledby="hoteles">
-        <SectionBand index="01" title="Hoteles por distancia" titleId="hoteles" />
+        <SectionBand
+          index="01"
+          title={`${venueTitle(venue)} por distancia`}
+          titleId="hoteles"
+        />
         <div className="container">
-          <SectionIntro>Precios de ejemplo, noche estándar.</SectionIntro>
+          <SectionIntro>
+            {city ? (
+              <Link href={`/ciudad/${city.slug}`}>Recitales y estadios en {city.name}</Link>
+            ) : (
+              "Precios de referencia, noche estándar."
+            )}
+          </SectionIntro>
           <div className={styles.stack}>
             <VenueHotels
               venue={{ name: venue.name, lat: venue.lat, lng: venue.lng }}
@@ -113,19 +155,24 @@ export default async function StadiumPage(props: PageProps<"/estadio/[slug]">) {
               hotels={hotels}
               subId={upcoming[0]?.slug ?? venue.slug}
               place={place}
+              caption={caption}
             />
           </div>
         </div>
       </section>
 
       <section aria-labelledby="barrios">
-        <SectionBand index="02" title="Barrios recomendados" titleId="barrios" />
+        <SectionBand
+          index="02"
+          title={`Barrios para dormir cerca ${deVenue(venue)}`}
+          titleId="barrios"
+        />
         <div className={`container ${styles.block}`}>
           <div className={styles.areas}>
             {venue.neighborhoods.map((area) => (
               <article key={area.name}>
                 <span className="label">{area.range}</span>
-                <h3>{area.name}</h3>
+                <h3>Hoteles en {area.name}</h3>
                 <p>{area.summary}</p>
                 <p className={styles.note}>
                   <b>A favor:</b> {area.pros}. <b>En contra:</b> {area.cons}.
@@ -137,21 +184,33 @@ export default async function StadiumPage(props: PageProps<"/estadio/[slug]">) {
       </section>
 
       <section aria-labelledby="llegar">
-        <SectionBand index="03" title="Cómo llegar y volver" titleId="llegar" />
+        <SectionBand
+          index="03"
+          title={`Cómo llegar ${alVenue(venue)}`}
+          titleId="llegar"
+        />
         <div className="container">
-          <div className={styles.split}>
-            <Timeline steps={venue.transit} />
-            <div className={styles.advice}>
-              <span className="label">{venue.returnAdvice.label}</span>
-              <h3>{venue.returnAdvice.title}</h3>
-              <p>{venue.returnAdvice.text}</p>
-            </div>
+          <Timeline steps={venue.transit} />
+        </div>
+      </section>
+
+      <section aria-labelledby="volver">
+        <SectionBand
+          index="04"
+          title={`Cómo volver ${deVenue(venue)} después del show`}
+          titleId="volver"
+        />
+        <div className="container">
+          <div className={styles.advice}>
+            <span className="label">{venue.returnAdvice.label}</span>
+            <h3>{venue.returnAdvice.title}</h3>
+            <p>{venue.returnAdvice.text}</p>
           </div>
         </div>
       </section>
 
       <section aria-labelledby="cortes">
-        <SectionBand index="04" title="Cortes y seguridad" titleId="cortes" />
+        <SectionBand index="05" title="Cortes de calle el día del evento" titleId="cortes" />
         <div className="container">
           <SectionIntro>Días de evento.</SectionIntro>
           <ClosureTable rows={venue.closures} />
@@ -160,8 +219,8 @@ export default async function StadiumPage(props: PageProps<"/estadio/[slug]">) {
 
       <section aria-labelledby="proximos">
         <SectionBand
-          index="05"
-          title={`Próximos eventos en ${withArticle(venue.name)}`}
+          index="06"
+          title={`Próximos eventos ${enVenue(venue)}`}
           titleId="proximos"
         />
         <div className={`container ${styles.block}`}>
@@ -186,9 +245,9 @@ export default async function StadiumPage(props: PageProps<"/estadio/[slug]">) {
       </section>
 
       <section aria-labelledby="faq">
-        <SectionBand index="06" title="Preguntas frecuentes" titleId="faq" />
+        <SectionBand index="07" title="Preguntas frecuentes" titleId="faq" />
         <div className={`container ${styles.block}`}>
-          <FaqList items={venue.faq} />
+          <FaqList items={faqs} />
         </div>
       </section>
     </main>

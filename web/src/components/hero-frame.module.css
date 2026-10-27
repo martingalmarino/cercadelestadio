@@ -30,9 +30,26 @@
   border-bottom-color: var(--accent-on-dark);
 }
 
-.lede {
-  max-width: 40ch;
+.updated {
+  display: block;
+  margin-top: var(--s-3);
+  color: var(--text-inverse-muted);
+  font-size: var(--fs-label);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+}
+
+.answer {
+  max-width: 62ch;
   margin-top: var(--s-4);
+  color: var(--text-inverse);
+  font-size: var(--fs-md);
+}
+
+.lede {
+  max-width: 62ch;
+  margin-top: var(--s-3);
   color: var(--text-inverse-muted);
   font-size: var(--fs-md);
 }

@@ -1,9 +1,11 @@
-type Structured = Record<string, unknown>;
+type Structured = Record<string, unknown> | null | undefined | false;
 
 export function JsonLd({ data }: { data: Structured[] }) {
+  const graph = data.filter((node): node is Record<string, unknown> => Boolean(node));
+  if (graph.length === 0) return null;
   const payload = {
     "@context": "https://schema.org",
-    "@graph": data,
+    "@graph": graph,
   };
 
   return (

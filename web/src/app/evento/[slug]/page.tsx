@@ -7,6 +7,7 @@ import { HotelList } from "@/components/hotel-list";
 import { JsonLd } from "@/components/json-ld";
 import { RowList } from "@/components/row-list";
 import { SectionBand } from "@/components/section-band";
+import { FaqList } from "@/components/faq-list";
 import { Note, SectionIntro } from "@/components/section-intro";
 import { StatRow } from "@/components/stat-row";
 import { Timeline } from "@/components/timeline";
@@ -36,8 +37,22 @@ import {
 import {
   breadcrumbList,
   concertEvent,
+  eventId,
+  faqPage,
   hotelItemList,
+  stadium,
+  stadiumId,
+  webPage,
 } from "@/lib/structured-data";
+import {
+  eventDescription,
+  eventPlace,
+  eventTitle,
+  openGraphPage,
+  venueTitle,
+  withBrand,
+} from "@/lib/seo";
+import { eventAnswer, eventFaqs } from "@/lib/answers";
 import { getCachedNow } from "@/lib/time";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -61,13 +76,15 @@ export async function generateMetadata({
   const event = getEvent(slug);
   if (!event) return { title: "Evento" };
   const venue = event.venueSlug ? getVenue(event.venueSlug) : null;
-  const place = venue
-    ? withArticle(venue.name)
-    : (getCity(event.citySlug)?.name ?? "Argentina");
+  const cityName = getCity(event.citySlug)?.name ?? "Argentina";
+  const title = withBrand(eventTitle(event, venue, cityName));
+  const description = eventDescription(event, venue, cityName);
+  const path = `/evento/${event.slug}`;
   return {
-    title: `${event.artist} en ${place}`,
-    description: `Dónde dormir para ver a ${event.artist} en ${place}. Hoteles por distancia, con precios de ejemplo.`,
-    alternates: { canonical: `/evento/${event.slug}` },
+    title,
+    description,
+    alternates: { canonical: path },
+    openGraph: openGraphPage(title, description, path),
   };
 }
 
@@ -105,39 +122,45 @@ export default async function EventPage(props: PageProps<"/evento/[slug]">) {
   const placeName = venue
     ? withArticle(venue.name)
     : (city?.name ?? "Argentina");
+  const place = eventPlace(venue, city?.name ?? "");
+  const faqs = eventFaqs(event, venue, place, hotels);
+  const caption = venue
+    ? `Distancias a ${venue.seoName}: kilómetros, minutos a pie y minutos en auto.`
+    : "Distancias a confirmar.";
+  const musicEvent = concertEvent({
+    event,
+    venue,
+    cityName: city?.name ?? "Argentina",
+    description: `Dónde dormir para ver a ${event.artist} en ${placeName}.`,
+  });
 
   return (
     <main>
       <JsonLd
         data={[
+          webPage({
+            path: `/evento/${event.slug}`,
+            name: eventTitle(event, venue, city?.name ?? "Argentina"),
+            dateModified: event.updatedAt,
+            aboutId: musicEvent
+              ? eventId(event)
+              : venue
+                ? stadiumId(venue)
+                : undefined,
+          }),
           breadcrumbList([
             { name: "Inicio", path: "/" },
             ...(venue
-              ? [{ name: venue.name, path: `/estadio/${venue.slug}` }]
+              ? [{ name: venue.seoName, path: `/estadio/${venue.slug}` }]
               : city
                 ? [{ name: city.name, path: `/ciudad/${city.slug}` }]
                 : []),
             { name: event.artist, path: `/evento/${event.slug}` },
           ]),
-          concertEvent({
-            name: `${event.artist} en ${placeName}`,
-            path: `/evento/${event.slug}`,
-            startDate: countdownTarget(event),
-            description: `Dónde dormir para ver a ${event.artist} en ${placeName}.`,
-            finished,
-            venue,
-            cityName: city?.name ?? "Argentina",
-            artist: event.artist,
-          }),
-          ...(hotels.length > 0
-            ? [
-                hotelItemList(
-                  `Dónde dormir para ${event.artist}`,
-                  hotels,
-                  city?.name ?? "",
-                ),
-              ]
-            : []),
+          musicEvent,
+          !musicEvent && venue ? stadium(venue) : null,
+          hotelItemList(`Dónde dormir para ${event.artist}`, hotels),
+          faqPage(faqs, `/evento/${event.slug}`),
         ]}
       />
       <section className={`${frame.hero} inverse`}>
@@ -166,10 +189,21 @@ export default async function EventPage(props: PageProps<"/evento/[slug]">) {
             </div>
             <div className={styles.copy}>
               <h1>
-                {event.artist} en{" "}
-                {venue ? withArticle(venue.name) : (city?.name ?? "")}
+                {event.artist} en {place}: dónde dormir
               </h1>
+              {event.updatedAt ? (
+                <time className={frame.updated} dateTime={event.updatedAt}>
+                  Actualizado el {formatFullDate(event.updatedAt)}
+                </time>
+              ) : null}
+              <p className={frame.answer}>
+                {eventAnswer(event, venue, city?.name ?? "Argentina", hotels)}
+              </p>
               <p>
+                {event.dateExact
+                  ? formatFullDate(event.date)
+                  : `En ${monthName(event.date)} de ${event.date.slice(0, 4)}`}
+                {" · "}
                 {schedule} · {placeLine}
               </p>
             </div>
@@ -217,9 +251,11 @@ export default async function EventPage(props: PageProps<"/evento/[slug]">) {
         <SectionBand
           index={index()}
           title={
-            event.dateExact
-              ? `Dónde dormir la noche del ${formatDayMonth(event.date)}`
-              : `Dónde dormir en ${when}`
+            venue
+              ? `${venueTitle(venue)} por distancia`
+              : event.dateExact
+                ? `Dónde dormir la noche del ${formatDayMonth(event.date)}`
+                : `Dónde dormir en ${when}`
           }
           titleId="dormir"
         />
@@ -234,6 +270,7 @@ export default async function EventPage(props: PageProps<"/evento/[slug]">) {
                 hotels={hotels}
                 subId={event.slug}
                 place={city?.name ?? venue?.neighborhood ?? ""}
+                caption={caption}
               />
             </>
           ) : (
@@ -268,7 +305,7 @@ export default async function EventPage(props: PageProps<"/evento/[slug]">) {
         <section aria-labelledby="cortes-evento">
           <SectionBand
             index={index()}
-            title="Cortes de calle"
+            title="Cortes de calle el día del evento"
             titleId="cortes-evento"
           />
           <div className={`container ${styles.block}`}>
@@ -276,6 +313,13 @@ export default async function EventPage(props: PageProps<"/evento/[slug]">) {
           </div>
         </section>
       ) : null}
+
+      <section aria-labelledby="faq-evento">
+        <SectionBand index={index()} title="Preguntas frecuentes" titleId="faq-evento" />
+        <div className={`container ${styles.block}`}>
+          <FaqList items={faqs} />
+        </div>
+      </section>
 
       <section aria-labelledby="consejos">
         <SectionBand index={index()} title="Consejos" titleId="consejos" />
@@ -305,8 +349,8 @@ export default async function EventPage(props: PageProps<"/evento/[slug]">) {
           {venue ? (
             <Link className={styles.guide} href={`/estadio/${venue.slug}`}>
               <span>
-                <b>Guía del {venue.name}</b>
-                <small>Barrios, transporte y FAQ</small>
+                <b>{venueTitle(venue)}</b>
+                <small>Barrios, transporte y preguntas frecuentes</small>
               </span>
               <ArrowLabel>Ver estadio</ArrowLabel>
             </Link>

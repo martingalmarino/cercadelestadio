@@ -15,8 +15,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowLink } from "@/components/ui/text-link";
 import { getCity, getEvents, getVenue, getVenues } from "@/lib/content";
 import { upcomingEvents } from "@/lib/events";
-import { countdownTarget } from "@/lib/format";
-import { breadcrumbList, eventItemList } from "@/lib/structured-data";
+import { eventItemList, webPage } from "@/lib/structured-data";
 import { getCachedNow } from "@/lib/time";
 import type { ShowEvent } from "@/lib/types";
 import type { Metadata } from "next";
@@ -94,13 +93,15 @@ export default async function Home() {
     <main>
       <JsonLd
         data={[
-          breadcrumbList([{ name: "Inicio", path: "/" }]),
+          webPage({
+            path: "/",
+            name: "Hoteles cerca de estadios y recitales en Argentina",
+          }),
           eventItemList(
             "Próximos eventos",
             upcoming.map((event) => ({
               name: event.artist,
               path: `/evento/${event.slug}`,
-              startDate: countdownTarget(event),
             })),
           ),
         ]}
@@ -113,8 +114,8 @@ export default async function Home() {
           <div className={styles.copy}>
             <h1 className={styles.title}>Dormí cerca del show.</h1>
             <p className={styles.lede}>
-              Hoteles por distancia, cómo llegar y cómo volver, para cada estadio
-              y recital del país.
+              Hoteles a 1, 3 y 5 km del estadio, con subte, tren o colectivo
+              según el recinto. Cómo llegar, cómo volver y dónde dormir.
             </p>
           </div>
           {next ? (
@@ -181,6 +182,9 @@ export default async function Home() {
           <p className={styles.disclosure}>
             Algunos enlaces son de afiliado. Si reservás a través de ellos
             podemos recibir una comisión, sin costo extra para vos.
+          </p>
+          <p>
+            <ArrowLink href="/como-funciona">Cómo medimos las distancias</ArrowLink>
           </p>
         </div>
       </section>

@@ -8,7 +8,9 @@
     "dateExact": true,
     "doors": null,
     "showTime": null,
-    "type": "Recital"
+    "type": "Recital",
+    "performerType": "person",
+    "updatedAt": "2026-10-27"
   },
   {
     "slug": "mana-estadio-monumental",
@@ -21,6 +23,7 @@
     "showTime": "21:00",
     "duration": "2 h 15 min",
     "type": "Recital",
+    "performerType": "group",
     "plan": [
       {
         "label": "16:00",
@@ -32,10 +35,24 @@
         "title": "Salida hacia el estadio",
         "detail": "Colectivos 15, 29, 42, 107, 130.",
         "segments": [
-          { "badge": { "label": "D", "tone": "D" } },
-          { "text": " hasta Congreso de Tucumán o " },
-          { "badge": { "label": "MI", "tone": "M" } },
-          { "text": " hasta Núñez. Colectivos 15, 29, 42, 107, 130." }
+          {
+            "badge": {
+              "label": "D",
+              "tone": "D"
+            }
+          },
+          {
+            "text": " hasta Congreso de Tucumán o "
+          },
+          {
+            "badge": {
+              "label": "MI",
+              "tone": "M"
+            }
+          },
+          {
+            "text": " hasta Núñez. Colectivos 15, 29, 42, 107, 130."
+          }
         ]
       },
       {
@@ -74,7 +91,8 @@
         "type": "Peatonal",
         "example": true
       }
-    ]
+    ],
+    "updatedAt": "2026-10-27"
   },
   {
     "slug": "karol-g-estadio-monumental",
@@ -85,7 +103,9 @@
     "dateExact": true,
     "doors": null,
     "showTime": null,
-    "type": "Recital"
+    "type": "Recital",
+    "performerType": "person",
+    "updatedAt": "2026-10-27"
   },
   {
     "slug": "foo-fighters-estadio-monumental",
@@ -96,7 +116,9 @@
     "dateExact": true,
     "doors": null,
     "showTime": null,
-    "type": "Recital"
+    "type": "Recital",
+    "performerType": "group",
+    "updatedAt": "2026-10-27"
   },
   {
     "slug": "montaner-movistar-arena",
@@ -107,7 +129,9 @@
     "dateExact": false,
     "doors": null,
     "showTime": null,
-    "type": "Recital"
+    "type": "Recital",
+    "performerType": "person",
+    "updatedAt": "2026-10-27"
   },
   {
     "slug": "montaner-mendoza",
@@ -118,7 +142,9 @@
     "dateExact": false,
     "doors": null,
     "showTime": null,
-    "type": "Recital"
+    "type": "Recital",
+    "performerType": "person",
+    "updatedAt": "2026-10-27"
   },
   {
     "slug": "montaner-mar-del-plata",
@@ -129,6 +155,8 @@
     "dateExact": false,
     "doors": null,
     "showTime": null,
-    "type": "Recital"
+    "type": "Recital",
+    "performerType": "person",
+    "updatedAt": "2026-10-27"
   }
 ]

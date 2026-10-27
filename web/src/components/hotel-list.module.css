@@ -1,13 +1,21 @@
-.list {
-  position: relative;
+.table {
+  width: 100%;
+  border-collapse: collapse;
   background: var(--surface);
   border-top: var(--bw-strong) solid var(--border-strong);
 }
 
-.head,
-.row {
+.caption {
+  caption-side: top;
+  padding: var(--s-4) var(--s-5) var(--s-3);
+  color: var(--text-muted);
+  font-size: var(--fs-sm);
+  text-align: left;
+}
+
+.table tr {
   display: grid;
-  grid-template-columns: 48px minmax(0, 2.2fr) minmax(0, 1fr) minmax(0, 1.2fr) 88px 132px auto;
+  grid-template-columns: 48px minmax(0, 2.2fr) minmax(0, 1fr) 96px minmax(0, 1fr) minmax(0, 1fr) 132px auto;
   gap: var(--s-4);
   align-items: center;
   padding: var(--s-4) var(--s-5);
@@ -15,18 +23,24 @@
   border-left: 3px solid transparent;
 }
 
-.row:global(.is-active) {
-  border-left-color: var(--accent);
-  background: var(--c-green-50);
-}
-
-.head {
+.table thead tr {
   font-size: var(--fs-label);
   font-weight: var(--fw-semibold);
   letter-spacing: var(--ls-label);
   text-transform: uppercase;
   color: var(--text-muted);
   border-bottom: var(--bw-strong) solid var(--border-strong);
+}
+
+.table th,
+.table td {
+  font-weight: inherit;
+  text-align: left;
+}
+
+.active {
+  border-left-color: var(--accent);
+  background: var(--c-green-50);
 }
 
 .name {
@@ -37,6 +51,9 @@
   display: block;
   color: var(--text-muted);
   font-size: var(--fs-label);
+  font-weight: var(--fw-medium);
+  letter-spacing: 0;
+  text-transform: none;
 }
 
 .figure {
@@ -50,18 +67,15 @@
 }
 
 @media (max-width: 1023px) {
-  .head,
-  .row {
-    grid-template-columns: 40px minmax(0, 2fr) minmax(0, 1fr) 80px 120px auto;
-  }
-
-  .walk {
-    display: none;
+  .table tr {
+    grid-template-columns: 40px minmax(0, 2fr) minmax(0, 1fr) 88px minmax(0, 1fr) minmax(0, 1fr) 110px auto;
+    gap: var(--s-3);
+    padding: var(--s-4);
   }
 }
 
 @media (max-width: 767px) {
-  .head {
+  .table thead {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -73,11 +87,12 @@
     border: 0;
   }
 
-  .row {
+  .table tr {
     grid-template-columns: 32px minmax(0, 1fr) auto;
     grid-template-areas:
       "index hotel distance"
-      "index area price"
+      "index area walk"
+      "index price drive"
       "index action action";
     align-items: start;
     padding: 14px var(--s-3);
@@ -85,7 +100,6 @@
 
   .index {
     grid-area: index;
-    font-size: var(--fs-base);
   }
 
   .hotel {
@@ -98,12 +112,21 @@
     font-size: var(--fs-label);
   }
 
-  .distance {
+  .table td:nth-child(4) {
     grid-area: distance;
     text-align: right;
   }
 
-  .price {
+  .table td:nth-child(5) {
+    grid-area: walk;
+  }
+
+  .table td:nth-child(6) {
+    grid-area: drive;
+    text-align: right;
+  }
+
+  .table td:nth-child(7) {
     grid-area: price;
     text-align: right;
   }

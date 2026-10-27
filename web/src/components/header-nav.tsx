@@ -8,7 +8,7 @@ import styles from "./header-nav.module.css";
 const links = [
   { href: "/#eventos", label: "Eventos" },
   { href: "/#estadios", label: "Estadios" },
-  { href: "/#como-funciona", label: "Cómo funciona" },
+  { href: "/como-funciona", label: "Cómo funciona" },
 ] as const;
 
 function current(href: string, pathname: string) {
@@ -16,6 +16,7 @@ function current(href: string, pathname: string) {
     return pathname === "/" || pathname.startsWith("/evento");
   }
   if (href === "/#estadios") return pathname.startsWith("/estadio");
+  if (href === "/como-funciona") return pathname === "/como-funciona";
   return false;
 }
 

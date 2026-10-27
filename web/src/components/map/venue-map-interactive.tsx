@@ -19,7 +19,7 @@ type MapHotel = {
 
 const RINGS = [1, 3, 5] as const;
 const ATTRIBUTION =
-  '<a href="/copyright">© OpenFreeMap © OpenMapTiles © OpenStreetMap contributors</a>';
+  '<a href="/como-funciona#creditos">© OpenFreeMap © OpenMapTiles © OpenStreetMap contributors</a>';
 
 function closeAttribution(container: HTMLElement) {
   const details = container.querySelector(".maplibregl-ctrl-attrib");

@@ -11,12 +11,14 @@ export function VenueHotels({
   hotels,
   subId,
   place,
+  caption,
 }: {
   venue: { name: string; lat: number; lng: number };
   outline: VenueOutline | null;
   hotels: Hotel[];
   subId: string;
   place: string;
+  caption: string;
 }) {
   const [activeSlug, setActiveSlug] = useState<string | null>(null);
 
@@ -33,6 +35,7 @@ export function VenueHotels({
         hotels={hotels}
         subId={subId}
         place={place}
+        caption={caption}
         activeSlug={activeSlug}
         onActiveChange={setActiveSlug}
       />

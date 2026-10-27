@@ -8,6 +8,12 @@
   font-size: var(--fs-xl);
 }
 
+.page h2 {
+  margin-top: var(--s-7);
+  margin-bottom: var(--s-3);
+  font-size: var(--fs-lg);
+}
+
 .page p,
 .page li {
   max-width: 62ch;

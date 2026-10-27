@@ -1,4 +1,6 @@
-import { siteUrl } from "@/lib/site";
+import { JsonLd } from "@/components/json-ld";
+import { absoluteUrl, siteUrl } from "@/lib/site";
+import { organization, website } from "@/lib/structured-data";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { SiteFooter } from "@/components/site-footer";
@@ -11,20 +13,33 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
+const title = "Hoteles cerca de estadios y recitales en Argentina";
+const description =
+  "Hoteles por distancia al Monumental, Movistar Arena, Vélez, Kempes y más. Cómo llegar, cómo volver y dónde dormir la noche del recital o del partido.";
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl()),
   title: {
-    default: "cercadelestadio — Dormí cerca del show",
-    template: "%s — cercadelestadio",
+    default: title,
+    template: "%s | cercadelestadio",
   },
-  description:
-    "Hoteles por distancia, cómo llegar y cómo volver, para cada estadio y recital del país.",
+  description,
+  openGraph: {
+    siteName: "cercadelestadio",
+    locale: "es_AR",
+    type: "website",
+    title,
+    description,
+    url: absoluteUrl("/"),
+  },
+  twitter: { card: "summary_large_image" },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="es-AR" className={inter.variable}>
       <body>
+        <JsonLd data={[organization(), website()]} />
         <SiteHeader />
         {children}
         <SiteFooter />

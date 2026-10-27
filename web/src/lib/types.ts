@@ -22,7 +22,12 @@ export type Closure = {
 export type Venue = {
   slug: string;
   name: string;
+  seoName: string;
+  nickname: string | null;
   address: string;
+  street: string;
+  locality: string;
+  region: string;
   lat: number;
   lng: number;
   osm?: { type: "way" | "relation"; id: number };
@@ -47,6 +52,7 @@ export type Venue = {
   };
   closures: Closure[];
   faq: { question: string; answer: string }[];
+  updatedAt?: string;
 };
 
 export type Hotel = {
@@ -59,7 +65,7 @@ export type Hotel = {
   driveMinutes: number;
   distanceKm: number;
   pricePerNight: number;
-  example: true;
+  example: boolean;
   lat?: number;
   lng?: number;
 };
@@ -88,6 +94,10 @@ export type ShowEvent = {
   showTime: string | null;
   duration?: string;
   type: string;
+  performerType?: "person" | "group";
+  status?: "scheduled" | "cancelled" | "postponed";
+  ticketUrl?: string;
   plan?: TimelineStep[];
   closures?: Closure[];
+  updatedAt?: string;
 };

@@ -9,55 +9,53 @@ export function HotelList({
   hotels,
   subId,
   place,
+  caption,
   activeSlug = null,
   onActiveChange,
 }: {
   hotels: Hotel[];
   subId: string;
   place: string;
+  caption: string;
   activeSlug?: string | null;
   onActiveChange?: (slug: string) => void;
 }) {
   return (
-    <div className={styles.list}>
-      <div className={styles.head} aria-hidden="true">
-        <span>N°</span>
-        <span>Hotel</span>
-        <span>Barrio</span>
-        <span className={styles.walk}>A pie / auto</span>
-        <span>Distancia</span>
-        <span>Desde / noche</span>
-        <span>Disponibilidad</span>
-      </div>
-      <div role="list">
+    <table className={styles.table}>
+      <caption className={styles.caption}>{caption}</caption>
+      <thead>
+        <tr>
+          <th scope="col">N°</th>
+          <th scope="col">Hotel</th>
+          <th scope="col">Barrio</th>
+          <th scope="col">Distancia</th>
+          <th scope="col">A pie</th>
+          <th scope="col">En auto</th>
+          <th scope="col">Desde / noche</th>
+          <th scope="col">Disponibilidad</th>
+        </tr>
+      </thead>
+      <tbody>
         {hotels.map((hotel, index) => (
-          <div
-            className={hotel.slug === activeSlug ? `${styles.row} is-active` : styles.row}
-            role="listitem"
+          <tr
+            className={hotel.slug === activeSlug ? styles.active : undefined}
             id={`hotel-${hotel.slug}`}
             key={hotel.slug}
             aria-current={hotel.slug === activeSlug ? "true" : undefined}
             onMouseEnter={onActiveChange ? () => onActiveChange(hotel.slug) : undefined}
             onFocus={onActiveChange ? () => onActiveChange(hotel.slug) : undefined}
           >
-            <span className={styles.index}>{index + 1}</span>
-            <span className={styles.hotel}>
+            <td className={styles.index}>{index + 1}</td>
+            <th scope="row" className={styles.hotel}>
               <span className={styles.name}>{hotel.name}</span>
-              <span className={styles.detail}>
-                {hotel.detail} · ejemplo
-              </span>
-            </span>
-            <span className={styles.area}>{hotel.neighborhood}</span>
-            <span className={styles.walk}>
-              {hotel.walkMinutes} min / {hotel.driveMinutes} min
-            </span>
-            <span className={`${styles.distance} ${styles.figure}`}>
-              {formatKm(hotel.distanceKm)}
-            </span>
-            <span className={`${styles.price} ${styles.figure}`}>
-              {formatArs(hotel.pricePerNight)}
-            </span>
-            <span className={styles.action}>
+              <span className={styles.detail}>{hotel.detail}</span>
+            </th>
+            <td className={styles.area}>{hotel.neighborhood}</td>
+            <td className={styles.figure}>{formatKm(hotel.distanceKm)}</td>
+            <td>{hotel.walkMinutes} min a pie</td>
+            <td>{hotel.driveMinutes} min en auto</td>
+            <td className={styles.figure}>{formatArs(hotel.pricePerNight)}</td>
+            <td className={styles.action}>
               <ButtonLink
                 affiliate
                 subId={subId}
@@ -65,10 +63,10 @@ export function HotelList({
               >
                 Ver disponibilidad
               </ButtonLink>
-            </span>
-          </div>
+            </td>
+          </tr>
         ))}
-      </div>
-    </div>
+      </tbody>
+    </table>
   );
 }

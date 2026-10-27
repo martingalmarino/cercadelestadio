@@ -13,11 +13,13 @@ import {
   upcomingForCity,
   venuesForCity,
 } from "@/lib/content";
-import { countdownTarget } from "@/lib/format";
+import { cityAnswer } from "@/lib/answers";
+import { cityDescription, cityTitle, openGraphPage, withBrand } from "@/lib/seo";
 import {
   breadcrumbList,
   eventItemList,
   placeItemList,
+  webPage,
 } from "@/lib/structured-data";
 import { getCachedNow } from "@/lib/time";
 import type { Metadata } from "next";
@@ -34,10 +36,14 @@ export async function generateMetadata({
   const { slug } = await params;
   const city = getCity(slug);
   if (!city) return { title: "Ciudad" };
+  const title = withBrand(cityTitle(city));
+  const description = cityDescription(city);
+  const path = `/ciudad/${city.slug}`;
   return {
-    title: `Hoteles en ${city.name}`,
-    description: `Estadios, recitales y hoteles por distancia en ${city.name}.`,
-    alternates: { canonical: `/ciudad/${city.slug}` },
+    title,
+    description,
+    alternates: { canonical: path },
+    openGraph: openGraphPage(title, description, path),
   };
 }
 
@@ -56,33 +62,28 @@ export default async function CityPage(props: PageProps<"/ciudad/[slug]">) {
     <main>
       <JsonLd
         data={[
+          webPage({
+            path: `/ciudad/${city.slug}`,
+            name: cityTitle(city),
+          }),
           breadcrumbList([
             { name: "Inicio", path: "/" },
             { name: city.name, path: `/ciudad/${city.slug}` },
           ]),
-          ...(venues.length > 0
-            ? [
-                placeItemList(
-                  `Estadios en ${city.name}`,
-                  venues.map((venue) => ({
-                    name: venue.name,
-                    path: `/estadio/${venue.slug}`,
-                  })),
-                ),
-              ]
-            : []),
-          ...(upcoming.length > 0
-            ? [
-                eventItemList(
-                  `Próximos eventos en ${city.name}`,
-                  upcoming.map((event) => ({
-                    name: event.artist,
-                    path: `/evento/${event.slug}`,
-                    startDate: countdownTarget(event),
-                  })),
-                ),
-              ]
-            : []),
+          placeItemList(
+            `Estadios en ${city.name}`,
+            venues.map((venue) => ({
+              name: venue.seoName,
+              path: `/estadio/${venue.slug}`,
+            })),
+          ),
+          eventItemList(
+            `Próximos eventos en ${city.name}`,
+            upcoming.map((event) => ({
+              name: event.artist,
+              path: `/evento/${event.slug}`,
+            })),
+          ),
         ]}
       />
       <section className={`${frame.hero} inverse`}>
@@ -95,10 +96,10 @@ export default async function CityPage(props: PageProps<"/ciudad/[slug]">) {
             ]}
           />
           <h1 className={frame.venueTitle}>{city.name}</h1>
-          <p className={frame.lede}>
+          <p className={frame.answer}>
             {venues.length > 0
-              ? `${venues.length === 1 ? "1 estadio" : `${venues.length} estadios`} con hoteles ordenados por distancia.`
-              : "Todavía no hay un estadio cargado en esta ciudad."}
+              ? cityAnswer(city.name, venues)
+              : `A 3 km de un estadio en ${city.name} la oferta está a confirmar. El transporte también está a confirmar.`}
           </p>
           <StatRow
             items={[
@@ -116,7 +117,7 @@ export default async function CityPage(props: PageProps<"/ciudad/[slug]">) {
       <section aria-labelledby="estadios-ciudad">
         <SectionBand
           index="01"
-          title="Estadios"
+          title={`Estadios en ${city.name}`}
           titleId="estadios-ciudad"
           meta={venues.length === 0 ? "Próximamente" : `${venues.length} recintos`}
         />
@@ -135,7 +136,7 @@ export default async function CityPage(props: PageProps<"/ciudad/[slug]">) {
       <section aria-labelledby="eventos-ciudad">
         <SectionBand
           index="02"
-          title="Próximos eventos"
+          title={`Próximos recitales en ${city.name}`}
           titleId="eventos-ciudad"
         />
         <div className={`container ${styles.block}`}>

@@ -1,4 +1,5 @@
 import { formatCount } from "@/lib/format";
+import { venueTitle } from "@/lib/seo";
 import type { Venue } from "@/lib/types";
 import Link from "next/link";
 import styles from "./venue-cells.module.css";
@@ -9,7 +10,7 @@ export function VenueCells({ venues }: { venues: Venue[] }) {
       {venues.map((venue) => (
         <Link key={venue.slug} className={styles.cell} href={`/estadio/${venue.slug}`}>
           <span className={styles.kicker}>{venue.neighborhood}</span>
-          <h3>{venue.name}</h3>
+          <h3>{venueTitle(venue)}</h3>
           <dl>
             <div>
               <dt>Capacidad</dt>

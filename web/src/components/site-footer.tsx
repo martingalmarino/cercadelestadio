@@ -1,4 +1,5 @@
 import { getCities, getVenues } from "@/lib/content";
+import { venueTitle } from "@/lib/seo";
 import Link from "next/link";
 import styles from "./site-footer.module.css";
 
@@ -15,13 +16,16 @@ export function SiteFooter() {
             Guía de alojamiento cerca de estadios y recintos de Argentina.
             Hoteles, precios y horarios de esta guía son de ejemplo.
           </p>
+          <p>
+            <Link href="/como-funciona">Cómo funciona</Link>
+          </p>
         </div>
         <div className={styles.col}>
           <h2>Estadios</h2>
           <ul>
             {venues.map((venue) => (
               <li key={venue.slug}>
-                <Link href={`/estadio/${venue.slug}`}>{venue.name}</Link>
+                <Link href={`/estadio/${venue.slug}`}>{venueTitle(venue)}</Link>
               </li>
             ))}
           </ul>

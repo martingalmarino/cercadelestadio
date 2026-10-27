@@ -16,7 +16,7 @@ npm run dev
 Definilas en `web/.env.local` para desarrollo y en el proyecto de Vercel para producción. El ejemplo está en `web/.env.example`.
 
 - `AFFILIATE_ID`: identificador de afiliado. El único helper, `web/src/lib/affiliate.ts`, lo envía como `aid`. El sub-id (`label`) es el slug del evento. En la ficha de un estadio, si hay un próximo show, se usa ese slug; si no, el slug del estadio. Sin `AFFILIATE_ID` el enlace abre la búsqueda igual, sin identificador.
-- `SITE_URL`: URL pública del sitio, sin barra final. Si no está, se usa `https://cercadelestadio.com`. Define la base canónica, los `canonical` y `sitemap.xml`.
+- `SITE_URL`: URL pública del sitio, sin barra final. Si no está, se usa `https://www.cercadelestadio.com`. Define la base canónica, los `canonical` y `sitemap.xml`. En producción, un valor sin `www` o con `vercel.app` se reemplaza por ese dominio.
 
 ## Cómo sumar contenido
 

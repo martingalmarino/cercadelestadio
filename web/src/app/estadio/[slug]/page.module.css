@@ -49,7 +49,10 @@
 }
 
 .advice {
+  margin-top: var(--s-6);
   padding: var(--s-6);
+  background: var(--surface);
+  border-top: var(--bw-strong) solid var(--border-strong);
 }
 
 .advice h3 {
