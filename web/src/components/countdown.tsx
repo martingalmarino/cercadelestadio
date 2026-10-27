@@ -2,8 +2,10 @@
 
 import { pad2 } from "@/lib/format";
 import { useEffect, useState } from "react";
+import styles from "./countdown.module.css";
 
 type CountdownProps = {
+  initialNow: number;
   target: string;
   finished: boolean;
   approximate: boolean;
@@ -20,79 +22,71 @@ function parts(target: string, now: number) {
   return { days, hours, minutes };
 }
 
+function Cell({
+  label,
+  value,
+  live = false,
+  done = false,
+}: {
+  label: string;
+  value: string;
+  live?: boolean;
+  done?: boolean;
+}) {
+  return (
+    <div>
+      <span className={styles.label}>{label}</span>
+      <b className={done ? `${styles.value} ${styles.done}` : styles.value} aria-live={live ? "polite" : undefined}>
+        {value}
+      </b>
+    </div>
+  );
+}
+
 export function Countdown({
+  initialNow,
   target,
   finished,
   approximate,
   dateLabel,
 }: CountdownProps) {
-  const [now, setNow] = useState<number | null>(null);
+  const [now, setNow] = useState(initialNow);
 
   useEffect(() => {
-    const update = () => setNow(Date.now());
-    update();
-    const id = setInterval(update, 1000);
+    const id = setInterval(() => setNow(Date.now()), 30000);
     return () => clearInterval(id);
   }, []);
 
   if (finished) {
     return (
-      <>
-        <div>
-          <small>Estado</small>
-          <b>Finalizado</b>
-        </div>
-        <div>
-          <small>Fecha</small>
-          <b>{dateLabel}</b>
-        </div>
-        <div>
-          <small>Show</small>
-          <b className="ok">Pasó</b>
-        </div>
-      </>
+      <div className={styles.block}>
+        <Cell label="Estado" value="Finalizado" />
+        <Cell label="Fecha" value={dateLabel} />
+        <Cell label="Show" value="Pasó" done />
+      </div>
     );
   }
 
-  const remaining = now === null ? undefined : parts(target, now);
+  const remaining = parts(target, now);
 
-  if (approximate && remaining === null && now !== null) {
+  if (approximate && remaining === null) {
     return (
-      <>
-        <div aria-live="polite">
-          <small>Estado</small>
-          <b>Este mes</b>
-        </div>
-        <div>
-          <small>Fecha</small>
-          <b>{dateLabel}</b>
-        </div>
-        <div>
-          <small>Día</small>
-          <b>A confirmar</b>
-        </div>
-      </>
+      <div className={styles.block}>
+        <Cell label="Estado" value="Este mes" live />
+        <Cell label="Fecha" value={dateLabel} />
+        <Cell label="Día" value="A confirmar" />
+      </div>
     );
   }
 
-  const days = remaining?.days;
-  const dayLabel =
-    days === undefined ? "—" : days === 1 ? "1 día" : `${days} días`;
+  const days = remaining?.days ?? 0;
+  const dayLabel = days === 1 ? "1 día" : `${days} días`;
 
   return (
-    <>
-      <div aria-live="polite">
-        <small>Faltan</small>
-        <b>{dayLabel}</b>
-      </div>
-      <div>
-        <small>Horas</small>
-        <b>{remaining ? pad2(remaining.hours) : "—"}</b>
-      </div>
-      <div>
-        <small>Minutos</small>
-        <b>{remaining ? pad2(remaining.minutes) : "—"}</b>
-      </div>
-    </>
+    <div className={styles.block}>
+      <Cell label="Faltan" value={dayLabel} live />
+      <Cell label="Horas" value={remaining ? pad2(remaining.hours) : "00"} />
+      <Cell label="Minutos" value={remaining ? pad2(remaining.minutes) : "00"} />
+    </div>
   );
 }

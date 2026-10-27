@@ -1,0 +1,4 @@
+1. Páginas de eventos pasados: en `src/app/evento/[slug]/page.tsx` si `status === "past"` mostrá "Este evento ya pasó" con links a próximos eventos del mismo venue (`web/src/lib/events.ts`). Si pasaron más de 90 días, `robots: { index: false }` en `generateMetadata` y sacarlo de `src/app/sitemap.ts`.
+2. Página `/estadio/[slug]` y `/ciudad/[slug]`: listar solo `visibleEvents`, y una sección "Anunciados sin fecha confirmada" para `announced`.
+3. Señales de anuncios: `web/scripts/ingest/sources/signals-rss.ts` que lea RSS de prensa configurables en `config.ts` y detecte menciones de venues de `venue-aliases.json` + palabras "confirmó", "llega", "show". No crea eventos: las agrega al reporte en una sección "Posibles anuncios" para revisión manual.
+4. JSON-LD: en `web/src/lib/structured-data.ts` emití `eventStatus` (EventScheduled / EventCancelled / EventRescheduled) según `status`.

@@ -1,0 +1,114 @@
+.list {
+  position: relative;
+  background: var(--surface);
+  border-top: var(--bw-strong) solid var(--border-strong);
+}
+
+.head,
+.row {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 2.2fr) minmax(0, 1fr) minmax(0, 1.2fr) 88px 132px auto;
+  gap: var(--s-4);
+  align-items: center;
+  padding: var(--s-4) var(--s-5);
+  border-bottom: var(--bw) solid var(--border);
+}
+
+.head {
+  font-size: var(--fs-label);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border-bottom: var(--bw-strong) solid var(--border-strong);
+}
+
+.name {
+  font-weight: var(--fw-bold);
+}
+
+.detail {
+  display: block;
+  color: var(--text-muted);
+  font-size: var(--fs-label);
+}
+
+.figure {
+  font-weight: var(--fw-bold);
+  font-variant-numeric: tabular-nums;
+}
+
+.index {
+  font-weight: var(--fw-bold);
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 1023px) {
+  .head,
+  .row {
+    grid-template-columns: 40px minmax(0, 2fr) minmax(0, 1fr) 80px 120px auto;
+  }
+
+  .walk {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .head {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .row {
+    grid-template-columns: 32px minmax(0, 1fr) auto;
+    grid-template-areas:
+      "index hotel distance"
+      "index area price"
+      "index action action";
+    align-items: start;
+    padding: 14px var(--s-3);
+  }
+
+  .index {
+    grid-area: index;
+    font-size: var(--fs-base);
+  }
+
+  .hotel {
+    grid-area: hotel;
+  }
+
+  .area {
+    grid-area: area;
+    color: var(--text-muted);
+    font-size: var(--fs-label);
+  }
+
+  .distance {
+    grid-area: distance;
+    text-align: right;
+  }
+
+  .price {
+    grid-area: price;
+    text-align: right;
+  }
+
+  .action {
+    grid-area: action;
+    margin-top: 10px;
+  }
+
+  .action a {
+    display: flex;
+    width: 100%;
+  }
+}

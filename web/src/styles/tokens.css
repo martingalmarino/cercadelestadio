@@ -1,0 +1,81 @@
+/* cercadelestadio — tokens v1 */
+:root {
+  /* color: neutros */
+  --c-ink-900: #141414;
+  --c-ink-800: #1c1c1c;
+  --c-ink-700: #2a2a2a;
+  --c-ink-600: #3a3a3a;
+  --c-gray-500: #5f5f5f;
+  --c-gray-400: #8a8a8a;
+  --c-gray-300: #c4c4c4;
+  --c-gray-200: #dcdcdc;
+  --c-gray-100: #ebebeb;
+  --c-gray-50: #f4f4f4;
+  --c-white: #fff;
+  /* acento */
+  --c-green-700: #005c3c;
+  --c-green-600: #00704a;
+  --c-green-300: #5fd3a3;
+  --c-green-50: #e3f1ea;
+  /* línea de transporte que no entra en el verde (badge M). Oscuro para texto blanco AA. */
+  --c-transit: #1d6fa5;
+  /* semánticos */
+  --bg: var(--c-gray-100);
+  --surface: var(--c-white);
+  --surface-inverse: var(--c-ink-900);
+  --text: var(--c-ink-900);
+  --text-muted: var(--c-gray-500);
+  --text-inverse: var(--c-white);
+  --text-inverse-muted: #b3b3b3;
+  --border: var(--c-gray-200);
+  --border-strong: var(--c-ink-900);
+  --border-inverse: var(--c-ink-600);
+  --accent: var(--c-green-600);
+  --accent-hover: var(--c-green-700);
+  --accent-on-dark: var(--c-green-300);
+  --focus: #0a84ff;
+  /* tipografía (Inter) — escala 1.25, mínimo 13px */
+  --font: var(--font-inter), Inter, system-ui, sans-serif;
+  --fs-label: 0.8125rem;
+  --fs-sm: 0.875rem;
+  --fs-base: 1rem;
+  --fs-md: 1.125rem;
+  --fs-lg: 1.375rem;
+  --fs-xl: 1.75rem;
+  --fs-2xl: clamp(2rem, 4vw, 2.75rem);
+  --fs-display: clamp(2.5rem, 7vw, 5.5rem);
+  --lh-tight: 1.02;
+  --lh-snug: 1.2;
+  --lh-body: 1.5;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fw-black: 800;
+  --ls-display: -0.035em;
+  --ls-label: 0.08em;
+  /* espaciado — base 4 */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 24px;
+  --s-6: 32px;
+  --s-7: 48px;
+  --s-8: 64px;
+  --s-9: 96px;
+  /* layout */
+  --container: 1280px;
+  --gutter: clamp(16px, 4vw, 40px);
+  --cols: 12;
+  --col-gap: 24px;
+  --header-h: 64px;
+  --band-h: 56px;
+  --tap: 44px;
+  /* bordes: siempre rectos */
+  --radius: 0;
+  --bw: 1px;
+  --bw-strong: 2px;
+}
+
+/* breakpoints (documentación, usar en @media): sm 480 · md 768 · lg 1024 · xl 1280 */

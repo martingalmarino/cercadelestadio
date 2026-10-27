@@ -1,8 +1,18 @@
+import { Breadcrumbs } from "@/components/breadcrumbs";
+import { ClosureTable } from "@/components/closure-table";
 import { Countdown } from "@/components/countdown";
+import { EventRow } from "@/components/event-row";
+import frame from "@/components/hero-frame.module.css";
+import { HotelList } from "@/components/hotel-list";
 import { JsonLd } from "@/components/json-ld";
-import { HotelTable } from "@/components/hotel-table";
+import { PageFallback } from "@/components/page-fallback";
+import { RowList } from "@/components/row-list";
 import { SectionBand } from "@/components/section-band";
+import { Note, SectionIntro } from "@/components/section-intro";
+import { StatRow } from "@/components/stat-row";
 import { Timeline } from "@/components/timeline";
+import { ArrowLabel, TextLink } from "@/components/ui/text-link";
+import { ButtonLink } from "@/components/ui/button";
 import {
   eventsForCity,
   eventsForVenue,
@@ -30,11 +40,11 @@ import {
   hotelItemList,
 } from "@/lib/structured-data";
 import { getCachedNow } from "@/lib/time";
-import { PageFallback } from "@/components/page-fallback";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
+import styles from "./page.module.css";
 
 const tips = [
   "Reservá con cancelación gratuita: los precios suben en las últimas semanas.",
@@ -94,10 +104,14 @@ async function EventContent({
   const when = event.dateExact
     ? formatFullDate(event.date)
     : monthName(event.date);
-  const schedule = event.doors && event.showTime
-    ? `Puertas ${event.doors} · Show ${event.showTime}`
-    : "Horario a confirmar";
+  const schedule =
+    event.doors && event.showTime
+      ? `Puertas ${event.doors} · Show ${event.showTime}`
+      : "Horario a confirmar";
   const placeLine = venue ? venue.address : "Recinto a confirmar";
+  const fechaCta = event.dateExact
+    ? `el ${formatDayMonth(event.date)}`
+    : monthName(event.date);
 
   let band = 1;
   const index = () => String(band++).padStart(2, "0");
@@ -140,76 +154,73 @@ async function EventContent({
             : []),
         ]}
       />
-      <section className="hero">
-        <div className="w">
-          <p className="crumb">
-            <Link href="/">Inicio</Link>
-            {" / "}
-            <Link href="/#eventos">Eventos</Link>
-            {venue ? (
-              <>
-                {" / "}
-                <Link href={`/estadio/${venue.slug}`} prefetch={true}>
-                  {venue.name}
-                </Link>
-              </>
-            ) : city ? (
-              <>
-                {" / "}
-                <Link href={`/ciudad/${city.slug}`} prefetch={true}>
-                  {city.name}
-                </Link>
-              </>
-            ) : null}
-          </p>
-          <div className="event-head">
-            <div className="date-card">
-              <div className="lab">
+      <section className={`${frame.hero} inverse`}>
+        <div className="container">
+          <Breadcrumbs
+            items={[
+              { href: "/", label: "Inicio" },
+              { href: "/#eventos", label: "Eventos" },
+              venue
+                ? { href: `/estadio/${venue.slug}`, label: venue.name }
+                : {
+                    href: city ? `/ciudad/${city.slug}` : "/",
+                    label: city?.name ?? "Argentina",
+                  },
+            ]}
+          />
+          <div className={styles.sheet}>
+            <div className={styles.date}>
+              <div className={styles.kicker}>
                 {event.dateExact ? weekdayName(event.date) : "Fecha a confirmar"}
               </div>
-              <div className="day">
+              <div className={styles.day}>
                 {event.dateExact ? formatDayMonth(event.date) : monthName(event.date)}
               </div>
-              <div className="year">{event.date.slice(0, 4)}</div>
+              <div className={styles.year}>{event.date.slice(0, 4)}</div>
             </div>
-            <div>
+            <div className={styles.copy}>
               <h1>
-                {event.artist} en {venue ? withArticle(venue.name) : (city?.name ?? "")}
+                {event.artist} en{" "}
+                {venue ? withArticle(venue.name) : (city?.name ?? "")}
               </h1>
-              <p className="sub">
+              <p>
                 {schedule} · {placeLine}
               </p>
             </div>
           </div>
-          <div className="facts">
-            <Countdown
-              target={countdownTarget(event)}
-              finished={finished}
-              approximate={!event.dateExact}
-              dateLabel={eventDateLabel(event.date, event.dateExact)}
-            />
-            <div>
-              <small>Hoteles a 3 km</small>
-              <b>{venue ? venue.hotelsWithin3km : "—"}</b>
-            </div>
-            <div>
-              <small>Desde / noche</small>
-              <b>{minPrice === null ? "—" : formatArs(minPrice)}</b>
-            </div>
+          <div className={styles.cta}>
+            <ButtonLink href="#dormir" size="lg">
+              Ver hoteles para {fechaCta}
+            </ButtonLink>
           </div>
+          <Countdown
+            initialNow={now}
+            target={countdownTarget(event)}
+            finished={finished}
+            approximate={!event.dateExact}
+            dateLabel={eventDateLabel(event.date, event.dateExact)}
+          />
+          <StatRow
+            items={[
+              {
+                label: "Hoteles a 3 km",
+                value: venue ? venue.hotelsWithin3km : "—",
+              },
+              {
+                label: "Desde / noche",
+                value: minPrice === null ? "—" : formatArs(minPrice),
+              },
+            ]}
+          />
           {finished ? (
-            <p className="sub next-show">
-              Este show ya pasó.
+            <p className={styles.finished}>
+              Este show ya pasó.{" "}
               {next ? (
-                <>
-                  {" "}
-                  <Link href={`/evento/${next.slug}`} prefetch={true}>
-                    Próximo en {venue ? "este estadio" : "esta ciudad"}:{" "}
-                    {next.artist} →
-                  </Link>
-                </>
+                <TextLink href={`/evento/${next.slug}`}>
+                  Próximo en {venue ? "este estadio" : "esta ciudad"}: {next.artist}
+                </TextLink>
               ) : (
-                " No hay otro evento anunciado en este lugar."
+                "No hay otro evento anunciado en este lugar."
               )}
             </p>
           ) : null}
@@ -225,25 +236,26 @@ async function EventContent({
               : `Dónde dormir en ${when}`
           }
           titleId="dormir"
-          meta={
-            hotels.length > 0
-              ? `Precios de ejemplo para el ${eventDateLabel(event.date, event.dateExact)}`
-              : undefined
-          }
         />
-        <div className="w">
+        <div className="container">
           {hotels.length > 0 ? (
-            <HotelTable
-              hotels={hotels}
-              subId={event.slug}
-              place={city?.name ?? venue?.neighborhood ?? ""}
-            />
+            <>
+              <SectionIntro>
+                Precios de ejemplo para el{" "}
+                {eventDateLabel(event.date, event.dateExact)}
+              </SectionIntro>
+              <HotelList
+                hotels={hotels}
+                subId={event.slug}
+                place={city?.name ?? venue?.neighborhood ?? ""}
+              />
+            </>
           ) : (
-            <p className="line">
+            <Note>
               El recinto en {city?.name} todavía no está confirmado, así que no
               hay una lista de hoteles. Cuando haya estadio, la guía va a
               ordenarlos por distancia.
-            </p>
+            </Note>
           )}
         </div>
       </section>
@@ -260,7 +272,7 @@ async function EventContent({
                 : undefined
             }
           />
-          <div className="w">
+          <div className={`container ${styles.block}`}>
             <Timeline steps={event.plan} />
           </div>
         </section>
@@ -268,43 +280,28 @@ async function EventContent({
 
       {closures.length > 0 ? (
         <section aria-labelledby="cortes-evento">
-          <SectionBand index={index()} title="Cortes de calle" titleId="cortes-evento" />
-          <div className="w">
-            <table>
-              <thead>
-                <tr>
-                  <th scope="col">Horario</th>
-                  <th scope="col">Corte</th>
-                  <th scope="col">Tipo</th>
-                </tr>
-              </thead>
-              <tbody>
-                {closures.map((closure) => (
-                  <tr key={`${closure.from}-${closure.detail}`}>
-                    <td className="num">{closure.from}</td>
-                    <td>{closure.detail}</td>
-                    <td>{closure.type}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+          <SectionBand
+            index={index()}
+            title="Cortes de calle"
+            titleId="cortes-evento"
+          />
+          <div className={`container ${styles.block}`}>
+            <ClosureTable rows={closures} timeLabel="Horario" />
           </div>
         </section>
       ) : null}
 
       <section aria-labelledby="consejos">
         <SectionBand index={index()} title="Consejos" titleId="consejos" />
-        <div className="w">
-          <table>
-            <tbody>
-              {tips.map((tip, tipIndex) => (
-                <tr key={tip}>
-                  <td className="n g">{tipIndex + 1}</td>
-                  <td>{tip}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+        <div className={`container ${styles.block}`}>
+          <ol className={styles.tips}>
+            {tips.map((tip, tipIndex) => (
+              <li key={tip}>
+                <b>{tipIndex + 1}</b>
+                <span>{tip}</span>
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
 
@@ -318,52 +315,39 @@ async function EventContent({
           }
           titleId="mas"
         />
-        <div className="w">
-          <table>
-            <tbody>
-              {venue ? (
-                <tr>
-                  <td>
-                    <b>Guía del {venue.name}</b>
-                  </td>
-                  <td className="mut">Barrios, transporte y FAQ</td>
-                  <td>
-                    <Link href={`/estadio/${venue.slug}`} prefetch={true}>
-                      Ver estadio →
-                    </Link>
-                  </td>
-                </tr>
-              ) : city ? (
-                <tr>
-                  <td>
-                    <b>{city.name}</b>
-                  </td>
-                  <td className="mut">Recinto a confirmar</td>
-                  <td>
-                    <Link href={`/ciudad/${city.slug}`} prefetch={true}>
-                      Ver ciudad →
-                    </Link>
-                  </td>
-                </tr>
-              ) : null}
+        <div className={`container ${styles.block}`}>
+          {venue ? (
+            <Link className={styles.guide} href={`/estadio/${venue.slug}`}>
+              <span>
+                <b>Guía del {venue.name}</b>
+                <small>Barrios, transporte y FAQ</small>
+              </span>
+              <ArrowLabel>Ver estadio</ArrowLabel>
+            </Link>
+          ) : city ? (
+            <Link className={styles.guide} href={`/ciudad/${city.slug}`}>
+              <span>
+                <b>{city.name}</b>
+                <small>Recinto a confirmar</small>
+              </span>
+              <ArrowLabel>Ver ciudad</ArrowLabel>
+            </Link>
+          ) : null}
+          {siblings.length > 0 ? (
+            <RowList label="Otros eventos">
               {siblings.map((item) => (
-                <tr key={item.slug}>
-                  <td>
-                    <b>{item.artist}</b> ·{" "}
-                    <span className="g">
-                      {eventDateLabel(item.date, item.dateExact)}
-                    </span>
-                  </td>
-                  <td className="mut">{item.type}</td>
-                  <td>
-                    <Link href={`/evento/${item.slug}`} prefetch={true}>
-                      Ver hoteles →
-                    </Link>
-                  </td>
-                </tr>
+                <EventRow
+                  key={item.slug}
+                  href={`/evento/${item.slug}`}
+                  date={item.date}
+                  approximate={!item.dateExact}
+                  title={item.artist}
+                  subtitle={item.type}
+                  actionLabel="Ver hoteles"
+                />
               ))}
-            </tbody>
-          </table>
+            </RowList>
+          ) : null}
         </div>
       </section>
     </main>

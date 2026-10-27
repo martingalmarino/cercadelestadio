@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "shots": "tsx scripts/shots.ts",
+    "test:a11y": "playwright test"
   },
   "dependencies": {
     "next": "16.4.3",
@@ -14,11 +16,15 @@
     "react-dom": "19.3.0"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
+    "@playwright/test": "^1.64.1",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.4.3",
+    "playwright": "^1.64.1",
+    "tsx": "^4.23.15",
     "typescript": "^5"
   }
 }

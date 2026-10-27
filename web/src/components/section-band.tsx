@@ -1,3 +1,5 @@
+import styles from "./section-band.module.css";
+
 type SectionBandProps = {
   index: string;
   title: string;
@@ -7,11 +9,11 @@ type SectionBandProps = {
 
 export function SectionBand({ index, title, titleId, meta }: SectionBandProps) {
   return (
-    <div className="band">
-      <div className="w">
-        <span className="tile">{index}</span>
+    <div className={styles.band}>
+      <div className={styles.inner}>
+        <span className={styles.index}>{index}</span>
         <h2 id={titleId}>{title}</h2>
-        <span className="r">{meta}</span>
+        {meta ? <span className={styles.meta}>{meta}</span> : null}
       </div>
     </div>
   );

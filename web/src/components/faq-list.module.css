@@ -1,0 +1,35 @@
+.item {
+  background: var(--surface);
+  border-bottom: var(--bw) solid var(--border);
+  padding: 18px var(--s-5);
+}
+
+.item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-4);
+  min-height: var(--tap);
+  font-weight: var(--fw-semibold);
+  cursor: pointer;
+  list-style: none;
+}
+
+.item summary::-webkit-details-marker {
+  display: none;
+}
+
+.item summary::after {
+  content: "+";
+  flex: none;
+}
+
+.item[open] summary::after {
+  content: "−";
+}
+
+.item p {
+  margin-top: var(--s-2);
+  font-weight: var(--fw-regular);
+  color: var(--c-ink-600);
+}

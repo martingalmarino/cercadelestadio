@@ -1,0 +1,15 @@
+.tag {
+  display: inline-block;
+  font-size: var(--fs-label);
+  font-weight: var(--fw-bold);
+  padding: 2px 8px;
+  border: var(--bw) solid var(--border-strong);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.ok {
+  background: var(--c-green-50);
+  border-color: var(--accent);
+  color: var(--accent-hover);
+}

@@ -1,15 +1,49 @@
+import { getCities, getVenues } from "@/lib/content";
+import Link from "next/link";
+import styles from "./site-footer.module.css";
+
 export function SiteFooter() {
+  const venues = getVenues();
+  const cities = getCities();
+
   return (
-    <footer className="foot">
-      <div className="w">
-        <strong>cercadelestadio</strong> — Guía de alojamiento cerca de
-        estadios y recintos de Argentina.
-        <p>
+    <footer className={styles.footer}>
+      <div className={styles.grid}>
+        <div className={styles.about}>
+          <h2>cercadelestadio</h2>
+          <p>
+            Guía de alojamiento cerca de estadios y recintos de Argentina.
+            Hoteles, precios y horarios de esta guía son de ejemplo.
+          </p>
+        </div>
+        <div className={styles.col}>
+          <h2>Estadios</h2>
+          <ul>
+            {venues.map((venue) => (
+              <li key={venue.slug}>
+                <Link href={`/estadio/${venue.slug}`}>{venue.name}</Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className={styles.col} id="ciudades">
+          <h2>Ciudades</h2>
+          <ul>
+            {cities.map((city) => (
+              <li key={city.slug}>
+                <Link href={`/ciudad/${city.slug}`}>{city.name}</Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <p className={styles.legal}>
+          © 2026 cercadelestadio.com · Buenos Aires, Argentina
+        </p>
+        <p className={styles.disclosure}>
           Algunos enlaces son de afiliado. Si reservás a través de ellos
           podemos recibir una comisión, sin costo extra para vos. Hoteles,
           precios y horarios de esta guía son de ejemplo.
         </p>
-        <p>© 2026 cercadelestadio.com · Buenos Aires, Argentina</p>
       </div>
     </footer>
   );

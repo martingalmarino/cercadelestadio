@@ -1,0 +1,7 @@
+Creá un pipeline de ingesta en `web/scripts/ingest/` (TypeScript, ejecutado con `tsx`, script `npm run ingest`):
+- `types.ts`: `RawEvent { source, url, artistOrTitle, venueName, city?, startsAt (ISO), category, externalId }`.
+- `normalize.ts`: limpia nombres, mapea venue con `web/content/venue-aliases.json` (crealo con alias de los venues de `web/content/venues.json`, ej. "River Plate", "Mas Monumental" → `estadio-monumental`). Si no mapea, va a la lista `unmatched` del reporte (no se descarta en silencio).
+- `dedupe.ts`: clave `slugify(artista)+venueSlug+fecha(YYYY-MM-DD)`; además fuzzy (distancia Levenshtein normalizada < 0.2) en artista para mismo venue y fecha.
+- `merge.ts`: combina con `events.json` existente. Nunca pisa campos editoriales (`plan`, `doors`, `showTime`, `duration`) si ya tienen valor. Actualiza `sources[].lastSeen`. Nuevos entran con `status` "confirmed" si vienen de ticketera/venue, "announced" si vienen de señales. Un evento que falta en su fuente 2 corridas seguidas se marca para revisión (no se cancela solo). Fecha pasada → `past`.
+- `run.ts`: corre fuentes habilitadas en `web/scripts/ingest/config.ts`, escribe `web/content/events.json` ordenado y estable (para diffs limpios) y `web/content/ingest-report.md` (nuevos, cambiados, a revisar, sin venue).
+Respetá: 1 request/segundo por host, User-Agent `cercadelestadio-bot (+URL del sitio)`, timeouts, y que una fuente que falle no rompa las demás. Tests con `vitest` para normalize, dedupe y merge.

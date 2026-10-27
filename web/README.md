@@ -1,34 +1,38 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# cercadelestadio
 
-## Getting Started
+Guía de hoteles cerca de estadios y recitales en Argentina. El contenido, las variables de entorno y el deploy están en el README de la raíz del repositorio.
 
-First, run the development server:
+## Desarrollo
 
 ```bash
+cd web
+cp .env.example .env.local
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+El sitio queda en http://127.0.0.1:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Capturas
 
-## Learn More
+Con el servidor de desarrollo corriendo:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run shots
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Guarda la home, el Monumental, Maná y Buenos Aires en 1440, 1024, 768 y 390 px, a página completa, en `web/.shots/`. Esa carpeta no se versiona.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Accesibilidad
 
-## Deploy on Vercel
+```bash
+npm run test:a11y
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Playwright corre `@axe-core/playwright` en esas cuatro rutas, en 1440 y en 390 px. El test falla si hay una violación seria o crítica. También comprueba que haya un solo `h1` y que a 390 px no haya scroll horizontal.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+La primera vez, instalá el navegador:
+
+```bash
+npx playwright install chromium
+```

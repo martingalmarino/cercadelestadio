@@ -1,0 +1,82 @@
+.figure {
+  margin: 0;
+}
+
+.canvas {
+  position: relative;
+  height: 420px;
+  overflow: hidden;
+  background: var(--c-gray-200);
+}
+
+.road,
+.street {
+  stroke: var(--c-white);
+  fill: none;
+}
+
+.river {
+  stroke: var(--c-green-50);
+  fill: none;
+}
+
+.ring {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 1.5;
+  stroke-dasharray: 4 4;
+}
+
+.ringLabel {
+  fill: var(--accent-hover);
+  font-size: var(--fs-label);
+  font-weight: var(--fw-bold);
+}
+
+.stadium,
+.pin {
+  fill: var(--c-ink-900);
+}
+
+.marker {
+  color: var(--c-white);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-black);
+}
+
+.caption {
+  margin-top: var(--s-3);
+  font-size: var(--fs-label);
+  color: var(--text-muted);
+}
+
+.legend {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--s-2) var(--s-5);
+  margin: var(--s-3) 0 0;
+  padding: 0;
+  list-style: decimal inside;
+  font-variant-numeric: tabular-nums;
+}
+
+.legend a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap);
+  color: var(--text);
+  font-weight: var(--fw-semibold);
+  text-decoration: none;
+  border-bottom: var(--bw-strong) solid var(--accent);
+  padding-bottom: 1px;
+}
+
+@media (max-width: 767px) {
+  .canvas {
+    height: 340px;
+  }
+
+  .legend {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,42 @@
+.hero {
+  background: var(--c-ink-800);
+  color: var(--text-inverse);
+  padding: var(--s-8) 0 var(--s-7);
+  border-top: var(--bw) solid var(--border-inverse);
+}
+
+.title {
+  margin: var(--s-4) 0 0;
+  font-size: var(--fs-display);
+  line-height: var(--lh-tight);
+  font-weight: var(--fw-black);
+  letter-spacing: var(--ls-display);
+}
+
+.venueTitle {
+  margin: var(--s-4) 0 0;
+  font-size: var(--fs-display);
+  line-height: var(--lh-tight);
+  font-weight: var(--fw-black);
+  letter-spacing: var(--ls-display);
+}
+
+.back {
+  margin-top: var(--s-5);
+}
+
+.back a {
+  color: var(--accent-on-dark);
+  border-bottom-color: var(--accent-on-dark);
+}
+
+.lede {
+  max-width: 40ch;
+  margin-top: var(--s-4);
+  color: var(--text-inverse-muted);
+  font-size: var(--fs-md);
+}
+
+.accent {
+  color: var(--accent-on-dark);
+}

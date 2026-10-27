@@ -1,23 +1,30 @@
+import { Breadcrumbs } from "@/components/breadcrumbs";
+import { EventRow } from "@/components/event-row";
+import frame from "@/components/hero-frame.module.css";
 import { JsonLd } from "@/components/json-ld";
+import { PageFallback } from "@/components/page-fallback";
+import { RowList } from "@/components/row-list";
 import { SectionBand } from "@/components/section-band";
+import { Note } from "@/components/section-intro";
+import { StatRow } from "@/components/stat-row";
+import { VenueCells } from "@/components/venue-cells";
 import {
   getCities,
   getCity,
   upcomingForCity,
   venuesForCity,
 } from "@/lib/content";
-import { countdownTarget, eventDateLabel, formatCount } from "@/lib/format";
+import { countdownTarget } from "@/lib/format";
 import {
   breadcrumbList,
   eventItemList,
   placeItemList,
 } from "@/lib/structured-data";
 import { getCachedNow } from "@/lib/time";
-import { PageFallback } from "@/components/page-fallback";
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
+import styles from "./page.module.css";
 
 export function generateStaticParams() {
   return getCities().map((city) => ({ slug: city.slug }));
@@ -57,6 +64,7 @@ async function CityContent({
   const now = await getCachedNow();
   const upcoming = upcomingForCity(city.slug, now);
   const venueBySlug = new Map(venues.map((venue) => [venue.slug, venue]));
+  const hotels = venues.reduce((sum, venue) => sum + venue.hotelsWithin3km, 0);
 
   return (
     <main>
@@ -91,36 +99,31 @@ async function CityContent({
             : []),
         ]}
       />
-      <section className="hero">
-        <div className="w">
-          <p className="crumb">
-            <Link href="/">Inicio</Link>
-            {" / "}
-            <Link href="/#ciudades">Ciudades</Link>
-          </p>
-          <h1>{city.name}</h1>
-          <p className="sub">
+      <section className={`${frame.hero} inverse`}>
+        <div className="container">
+          <Breadcrumbs
+            items={[
+              { href: "/", label: "Inicio" },
+              { href: "/#ciudades", label: "Ciudades" },
+              { label: city.name },
+            ]}
+          />
+          <h1 className={frame.venueTitle}>{city.name}</h1>
+          <p className={frame.lede}>
             {venues.length > 0
               ? `${venues.length === 1 ? "1 estadio" : `${venues.length} estadios`} con hoteles ordenados por distancia.`
               : "Todavía no hay un estadio cargado en esta ciudad."}
           </p>
-          <div className="facts facts-3">
-            <div>
-              <small>Estadios</small>
-              <b>{venues.length}</b>
-            </div>
-            <div>
-              <small>Próximos eventos</small>
-              <b className="ok">{upcoming.length}</b>
-            </div>
-            <div>
-              <small>Hoteles a 3 km</small>
-              <b>
-                {venues.reduce((sum, venue) => sum + venue.hotelsWithin3km, 0) ||
-                  "—"}
-              </b>
-            </div>
-          </div>
+          <StatRow
+            items={[
+              { label: "Estadios", value: venues.length },
+              {
+                label: "Próximos eventos",
+                value: <span className={frame.accent}>{upcoming.length}</span>,
+              },
+              { label: "Hoteles a 3 km", value: hotels || "—" },
+            ]}
+          />
         </div>
       </section>
 
@@ -131,45 +134,14 @@ async function CityContent({
           titleId="estadios-ciudad"
           meta={venues.length === 0 ? "Próximamente" : `${venues.length} recintos`}
         />
-        <div className="w">
+        <div className={`container ${styles.block}`}>
           {venues.length === 0 ? (
-            <p className="line">
+            <Note>
               Cuando confirmemos un recinto en {city.name}, va a aparecer en
               esta lista.
-            </p>
+            </Note>
           ) : (
-            <table>
-              <thead>
-                <tr>
-                  <th scope="col">Estadio</th>
-                  <th scope="col">Barrio</th>
-                  <th scope="col" className="hide">
-                    Capacidad
-                  </th>
-                  <th scope="col">Hoteles a 3 km</th>
-                  <th scope="col">
-                    <span className="sr-only">Acción</span>
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {venues.map((venue) => (
-                  <tr key={venue.slug}>
-                    <td>
-                      <b>{venue.name}</b>
-                    </td>
-                    <td>{venue.neighborhood}</td>
-                    <td className="hide num">{formatCount(venue.capacity)}</td>
-                    <td className="num">{venue.hotelsWithin3km}</td>
-                    <td>
-                      <Link href={`/estadio/${venue.slug}`} prefetch={true}>
-                        Ver →
-                      </Link>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+            <VenueCells venues={venues} />
           )}
         </div>
       </section>
@@ -180,45 +152,28 @@ async function CityContent({
           title="Próximos eventos"
           titleId="eventos-ciudad"
         />
-        <div className="w">
+        <div className={`container ${styles.block}`}>
           {upcoming.length === 0 ? (
-            <p className="line">No hay shows anunciados en {city.name}.</p>
+            <Note>No hay shows anunciados en {city.name}.</Note>
           ) : (
-            <table>
-              <thead>
-                <tr>
-                  <th scope="col">Fecha</th>
-                  <th scope="col">Evento</th>
-                  <th scope="col">Estadio</th>
-                  <th scope="col">
-                    <span className="sr-only">Acción</span>
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {upcoming.map((event) => {
-                  const venue = event.venueSlug
-                    ? venueBySlug.get(event.venueSlug)
-                    : undefined;
-                  return (
-                    <tr key={event.slug}>
-                      <td className="g">
-                        {eventDateLabel(event.date, event.dateExact)}
-                      </td>
-                      <td>
-                        <b>{event.artist}</b>
-                      </td>
-                      <td>{venue?.name ?? "Recinto a confirmar"}</td>
-                      <td>
-                        <Link href={`/evento/${event.slug}`} prefetch={true}>
-                          Hoteles cerca →
-                        </Link>
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
+            <RowList label={`Próximos eventos en ${city.name}`}>
+              {upcoming.map((event) => {
+                const venue = event.venueSlug
+                  ? venueBySlug.get(event.venueSlug)
+                  : undefined;
+                return (
+                  <EventRow
+                    key={event.slug}
+                    href={`/evento/${event.slug}`}
+                    date={event.date}
+                    approximate={!event.dateExact}
+                    title={event.artist}
+                    subtitle={venue?.name ?? "Recinto a confirmar"}
+                    actionLabel="Hoteles cerca"
+                  />
+                );
+              })}
+            </RowList>
           )}
         </div>
       </section>

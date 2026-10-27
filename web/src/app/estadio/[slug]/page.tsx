@@ -1,7 +1,15 @@
+import { Breadcrumbs } from "@/components/breadcrumbs";
+import { ClosureTable } from "@/components/closure-table";
+import { EventRow } from "@/components/event-row";
 import { FaqList } from "@/components/faq-list";
+import frame from "@/components/hero-frame.module.css";
+import { HotelList } from "@/components/hotel-list";
 import { JsonLd } from "@/components/json-ld";
-import { HotelTable } from "@/components/hotel-table";
+import { PageFallback } from "@/components/page-fallback";
+import { RowList } from "@/components/row-list";
 import { SectionBand } from "@/components/section-band";
+import { Note, SectionIntro } from "@/components/section-intro";
+import { StatRow } from "@/components/stat-row";
 import { Timeline } from "@/components/timeline";
 import { VenueMap } from "@/components/venue-map";
 import {
@@ -11,8 +19,7 @@ import {
   hotelsFor,
   upcomingForVenue,
 } from "@/lib/content";
-import { PageFallback } from "@/components/page-fallback";
-import { eventDateLabel, formatCount, withArticle } from "@/lib/format";
+import { formatCount, withArticle } from "@/lib/format";
 import {
   breadcrumbList,
   faqPage,
@@ -21,9 +28,9 @@ import {
 } from "@/lib/structured-data";
 import { getCachedNow } from "@/lib/time";
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
+import styles from "./page.module.css";
 
 export function generateStaticParams() {
   return getVenues().map((venue) => ({ slug: venue.slug }));
@@ -63,7 +70,6 @@ async function StadiumContent({
   const hotels = hotelsFor(venue.slug);
   const now = await getCachedNow();
   const upcoming = upcomingForVenue(venue.slug, now);
-
   const place = city?.name ?? venue.neighborhood;
 
   return (
@@ -84,52 +90,39 @@ async function StadiumContent({
             : []),
         ]}
       />
-      <section className="hero">
-        <div className="w">
-          <p className="crumb">
-            <Link href="/">Inicio</Link>
-            {" / "}
-            <Link href="/#estadios">Estadios</Link>
-            {city ? ` / ${city.name}` : null}
-          </p>
-          <h1>{venue.name}</h1>
-          <p className="sub">{venue.address}</p>
-          <div className="facts">
-            <div>
-              <small>Capacidad</small>
-              <b>{formatCount(venue.capacity)}</b>
-            </div>
-            <div>
-              <small>Barrio</small>
-              <b>{venue.neighborhood}</b>
-            </div>
-            <div>
-              <small>Hoteles a 3 km</small>
-              <b>{venue.hotelsWithin3km}</b>
-            </div>
-            <div>
-              <small>Próximos eventos</small>
-              <b className="ok">{upcoming.length}</b>
-            </div>
-            <div>
-              <small>{venue.accessLabel}</small>
-              <b>{venue.accessValue}</b>
-            </div>
-          </div>
+      <section className={`${frame.hero} inverse`}>
+        <div className="container">
+          <Breadcrumbs
+            items={[
+              { href: "/", label: "Inicio" },
+              { href: "/#estadios", label: "Estadios" },
+              { label: city?.name ?? venue.name },
+            ]}
+          />
+          <h1 className={frame.venueTitle}>{venue.name}</h1>
+          <p className={frame.lede}>{venue.address}</p>
+          <StatRow
+            items={[
+              { label: "Capacidad", value: formatCount(venue.capacity) },
+              { label: "Barrio", value: venue.neighborhood },
+              { label: "Hoteles a 3 km", value: venue.hotelsWithin3km },
+              {
+                label: "Próximos eventos",
+                value: <span className={frame.accent}>{upcoming.length}</span>,
+              },
+              { label: venue.accessLabel, value: venue.accessValue },
+            ]}
+          />
         </div>
       </section>
 
       <section aria-labelledby="hoteles">
-        <SectionBand
-          index="01"
-          title="Hoteles por distancia"
-          titleId="hoteles"
-          meta="Precios de ejemplo · noche estándar"
-        />
-        <div className="w">
-          <div className="stack">
+        <SectionBand index="01" title="Hoteles por distancia" titleId="hoteles" />
+        <div className="container">
+          <SectionIntro>Precios de ejemplo, noche estándar.</SectionIntro>
+          <div className={styles.stack}>
             <VenueMap venueName={venue.name} hotels={hotels} />
-            <HotelTable
+            <HotelList
               hotels={hotels}
               subId={upcoming[0]?.slug ?? venue.slug}
               place={place}
@@ -140,17 +133,17 @@ async function StadiumContent({
 
       <section aria-labelledby="barrios">
         <SectionBand index="02" title="Barrios recomendados" titleId="barrios" />
-        <div className="w">
-          <div className="cols cols-3">
+        <div className={`container ${styles.block}`}>
+          <div className={styles.areas}>
             {venue.neighborhoods.map((area) => (
-              <div key={area.name}>
-                <span className="lab">{area.range}</span>
+              <article key={area.name}>
+                <span className="label">{area.range}</span>
                 <h3>{area.name}</h3>
-                <p className="mut">{area.summary}</p>
-                <p className="note">
+                <p>{area.summary}</p>
+                <p className={styles.note}>
                   <b>A favor:</b> {area.pros}. <b>En contra:</b> {area.cons}.
                 </p>
-              </div>
+              </article>
             ))}
           </div>
         </div>
@@ -158,44 +151,23 @@ async function StadiumContent({
 
       <section aria-labelledby="llegar">
         <SectionBand index="03" title="Cómo llegar y volver" titleId="llegar" />
-        <div className="w">
-          <div className="grid2 tight">
+        <div className="container">
+          <div className={styles.split}>
             <Timeline steps={venue.transit} />
-            <div className="line">
-              <span className="lab">{venue.returnAdvice.label}</span>
+            <div className={styles.advice}>
+              <span className="label">{venue.returnAdvice.label}</span>
               <h3>{venue.returnAdvice.title}</h3>
-              <p className="mut">{venue.returnAdvice.text}</p>
+              <p>{venue.returnAdvice.text}</p>
             </div>
           </div>
         </div>
       </section>
 
       <section aria-labelledby="cortes">
-        <SectionBand
-          index="04"
-          title="Cortes y seguridad"
-          titleId="cortes"
-          meta="Días de evento"
-        />
-        <div className="w">
-          <table>
-            <thead>
-              <tr>
-                <th scope="col">Desde</th>
-                <th scope="col">Corte</th>
-                <th scope="col">Tipo</th>
-              </tr>
-            </thead>
-            <tbody>
-              {venue.closures.map((closure) => (
-                <tr key={`${closure.from}-${closure.detail}`}>
-                  <td className="num">{closure.from}</td>
-                  <td>{closure.detail}</td>
-                  <td>{closure.type}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+        <SectionBand index="04" title="Cortes y seguridad" titleId="cortes" />
+        <div className="container">
+          <SectionIntro>Días de evento.</SectionIntro>
+          <ClosureTable rows={venue.closures} />
         </div>
       </section>
 
@@ -205,47 +177,30 @@ async function StadiumContent({
           title={`Próximos eventos en ${withArticle(venue.name)}`}
           titleId="proximos"
         />
-        <div className="w">
+        <div className={`container ${styles.block}`}>
           {upcoming.length === 0 ? (
-            <p className="line">No hay shows anunciados en este estadio.</p>
+            <Note>No hay shows anunciados en este estadio.</Note>
           ) : (
-            <table>
-              <thead>
-                <tr>
-                  <th scope="col">Fecha</th>
-                  <th scope="col">Evento</th>
-                  <th scope="col">Tipo</th>
-                  <th scope="col">
-                    <span className="sr-only">Acción</span>
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {upcoming.map((event) => (
-                  <tr key={event.slug}>
-                    <td className="g">
-                      {eventDateLabel(event.date, event.dateExact)}
-                    </td>
-                    <td>
-                      <b>{event.artist}</b>
-                    </td>
-                    <td>{event.type}</td>
-                    <td>
-                      <Link href={`/evento/${event.slug}`} prefetch={true}>
-                        Ver hoteles →
-                      </Link>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+            <RowList label={`Próximos eventos en ${venue.name}`}>
+              {upcoming.map((event) => (
+                <EventRow
+                  key={event.slug}
+                  href={`/evento/${event.slug}`}
+                  date={event.date}
+                  approximate={!event.dateExact}
+                  title={event.artist}
+                  subtitle={event.type}
+                  actionLabel="Ver hoteles"
+                />
+              ))}
+            </RowList>
           )}
         </div>
       </section>
 
       <section aria-labelledby="faq">
         <SectionBand index="06" title="Preguntas frecuentes" titleId="faq" />
-        <div className="w">
+        <div className={`container ${styles.block}`}>
           <FaqList items={venue.faq} />
         </div>
       </section>
