@@ -9,17 +9,28 @@ import type { City, Hotel, ShowEvent, Venue, VenueOutline } from "@/lib/types";
 
 const cities = citiesJson as City[];
 const venues = venuesJson as Venue[];
-const hotels = hotelsJson as Hotel[];
 const events = (eventsJson as ShowEvent[]).slice().sort(byDate);
 
-for (const hotel of hotels) {
+const bookingStatuses = new Set(["ficha", "busqueda-geo", "no-en-booking"]);
+const loadedHotels = hotelsJson as Hotel[];
+
+for (const hotel of loadedHotels) {
   if (hotel.source !== "osm") {
     throw new Error(`El hotel ${hotel.slug} tiene que venir de OpenStreetMap.`);
   }
   if (typeof hotel.lat !== "number" || typeof hotel.lng !== "number") {
     throw new Error(`El hotel ${hotel.slug} necesita latitud y longitud numéricas.`);
   }
+  if (!bookingStatuses.has(hotel.bookingStatus)) {
+    throw new Error(`El hotel ${hotel.slug} necesita un bookingStatus válido.`);
+  }
 }
+
+const hotels = loadedHotels.filter((hotel) => {
+  if (hotel.bookingStatus === "no-en-booking") return false;
+  if (hotel.bookingStatus === "ficha" && !hotel.bookingUrl) return false;
+  return true;
+});
 
 for (const venue of venues) {
   venue.hotelsWithin3km = hotels.filter(

@@ -21,7 +21,9 @@
     "address": "Juramento 1630, Belgrano",
     "website": null,
     "city": "Buenos Aires",
-    "verified": false
+    "verified": false,
+    "bookingStatus": "busqueda-geo",
+    "bookingUrl": "https://www.booking.com/searchresults.html?ss=Estadio+Monumental&latitude=-34.557633&longitude=-58.449118&dest_type=latlong&radius=1"
   },
   {
     "slug": "nunez-suites-srl",
@@ -45,7 +47,9 @@
     "address": "Núñez 2129, Núñez",
     "website": "https://www.nunezsuites.com.ar/",
     "city": "Buenos Aires",
-    "verified": false
+    "verified": false,
+    "bookingStatus": "no-en-booking",
+    "bookingUrl": null
   },
   {
     "slug": "hotel-pedraza",
@@ -69,7 +73,10 @@
     "address": "Manuela Pedraza 2189, Núñez",
     "website": "https://www.hotelpedraza.com.ar",
     "city": "Buenos Aires",
-    "verified": true
+    "verified": true,
+    "bookingStatus": "ficha",
+    "bookingUrl": "https://www.booking.com/hotel/ar/pedraza.html",
+    "bookingName": "Hotel Pedraza"
   },
   {
     "slug": "las-familias",
@@ -93,7 +100,9 @@
     "address": "Cuba 3146, Núñez",
     "website": "https://www.hotellasfamilias.com",
     "city": "Buenos Aires",
-    "verified": false
+    "verified": false,
+    "bookingStatus": "busqueda-geo",
+    "bookingUrl": "https://www.booking.com/searchresults.html?ss=Estadio+Monumental&latitude=-34.551555&longitude=-58.463577&dest_type=latlong&radius=1"
   },
   {
     "slug": "hotel-cuba",
@@ -117,7 +126,10 @@
     "address": "Cuba, Núñez",
     "website": null,
     "city": "Buenos Aires",
-    "verified": false
+    "verified": false,
+    "bookingStatus": "ficha",
+    "bookingUrl": "https://www.booking.com/hotel/ar/cuba-buenos-aires1.html",
+    "bookingName": "Hotel Cuba"
   },
   {
     "slug": "ker-belgrano-hotel-spa",
@@ -141,7 +153,10 @@
     "address": "Vuelta de Obligado 2727, Belgrano",
     "website": "https://belgrano.kerhoteles.com.ar/",
     "city": "Buenos Aires",
-    "verified": true
+    "verified": true,
+    "bookingStatus": "ficha",
+    "bookingUrl": "https://www.booking.com/hotel/ar/ker-belgrano-apart-spa.html",
+    "bookingName": "Ker Belgrano Hotel"
   },
   {
     "slug": "pampa-plaza-hotel",
@@ -165,7 +180,10 @@
     "address": "La Pampa 777, Belgrano",
     "website": null,
     "city": "Buenos Aires",
-    "verified": false
+    "verified": false,
+    "bookingStatus": "ficha",
+    "bookingUrl": "https://www.booking.com/hotel/ar/pampa-plaza.html",
+    "bookingName": "Pampa Plaza Hotel"
   },
   {
     "slug": "hotel-sarum",
@@ -189,7 +207,10 @@
     "address": "Quesada 2370, Núñez",
     "website": "http://www.hotelsarum.com.ar/",
     "city": "Buenos Aires",
-    "verified": false
+    "verified": false,
+    "bookingStatus": "ficha",
+    "bookingUrl": "https://www.booking.com/hotel/ar/sarum-design.html",
+    "bookingName": "Sarum Hotel Design"
   },
   {
     "slug": "urbanica-the-libertador-hotel",
@@ -213,7 +234,11 @@
     "address": "Avenida Del Libertador 5690, Belgrano",
     "website": null,
     "city": "Buenos Aires",
-    "verified": true
+    "verified": true,
+    "bookingStatus": "ficha",
+    "bookingUrl": "https://www.booking.com/hotel/ar/urbanica-the-libertador.html",
+    "bookingName": "LM Hotel",
+    "bookingNote": "En Booking figura ahora como \"LM Hotel\" (misma ficha urbanica-the-libertador); confirmar nombre"
   },
   {
     "slug": "hotel-sures-belgrano-suites",
@@ -237,7 +262,9 @@
     "address": "Ciudad de la Paz 2969, Núñez",
     "website": "http://www.suresgroup.com/",
     "city": "Buenos Aires",
-    "verified": false
+    "verified": false,
+    "bookingStatus": "busqueda-geo",
+    "bookingUrl": "https://www.booking.com/searchresults.html?ss=Estadio+Monumental&latitude=-34.555353&longitude=-58.464262&dest_type=latlong&radius=1"
   },
   {
     "slug": "mordomo",
@@ -261,7 +288,9 @@
     "address": "Ciudad de la Paz, Núñez",
     "website": null,
     "city": "Buenos Aires",
-    "verified": false
+    "verified": false,
+    "bookingStatus": "no-en-booking",
+    "bookingUrl": null
   },
   {
     "slug": "cristal-palace",
@@ -285,7 +314,10 @@
     "address": "Ciudad de la Paz 2550, Belgrano",
     "website": "https://www.cristalpalace.com/",
     "city": "Buenos Aires",
-    "verified": false
+    "verified": false,
+    "bookingStatus": "ficha",
+    "bookingUrl": "https://www.booking.com/hotel/ar/cristal-palace.html",
+    "bookingName": "Cristal Palace Hotel"
   },
   {
     "slug": "santa-marta",
@@ -309,7 +341,9 @@
     "address": "Vilela 2349, Núñez",
     "website": null,
     "city": "Buenos Aires",
-    "verified": false
+    "verified": false,
+    "bookingStatus": "busqueda-geo",
+    "bookingUrl": "https://www.booking.com/searchresults.html?ss=Estadio+Monumental&latitude=-34.545677&longitude=-58.46992&dest_type=latlong&radius=1"
   },
   {
     "slug": "cabildo-suites",
@@ -333,7 +367,9 @@
     "address": "Avenida Cabildo 1950, Belgrano",
     "website": "http://www.orho-hoteles.com.ar/cabildosuites",
     "city": "Buenos Aires",
-    "verified": false
+    "verified": false,
+    "bookingStatus": "no-en-booking",
+    "bookingUrl": null
   },
   {
     "slug": "la-cascada-townhouse-hotel",
@@ -357,7 +393,9 @@
     "address": "Vuelta de Obligado, Núñez",
     "website": null,
     "city": "Buenos Aires",
-    "verified": false
+    "verified": false,
+    "bookingStatus": "busqueda-geo",
+    "bookingUrl": "https://www.booking.com/searchresults.html?ss=Estadio+Monumental&latitude=-34.54115&longitude=-58.472542&dest_type=latlong&radius=1"
   },
   {
     "slug": "charlie-s-hostel",
@@ -381,7 +419,9 @@
     "address": "Darwin 825, Villa Crespo",
     "website": "https://charlieshostel.com/",
     "city": "Buenos Aires",
-    "verified": true
+    "verified": true,
+    "bookingStatus": "busqueda-geo",
+    "bookingUrl": "https://www.booking.com/searchresults.html?ss=Movistar+Arena&latitude=-34.592672&longitude=-58.443265&dest_type=latlong&radius=1"
   },
   {
     "slug": "hotel-torre",
@@ -405,7 +445,9 @@
     "address": "Olleros, Chacarita",
     "website": null,
     "city": "Buenos Aires",
-    "verified": true
+    "verified": true,
+    "bookingStatus": "busqueda-geo",
+    "bookingUrl": "https://www.booking.com/searchresults.html?ss=Movistar+Arena&latitude=-34.587348&longitude=-58.453686&dest_type=latlong&radius=1"
   },
   {
     "slug": "el-litoral",
@@ -429,7 +471,9 @@
     "address": "Avenida Corrientes 6891, Chacarita",
     "website": null,
     "city": "Buenos Aires",
-    "verified": false
+    "verified": false,
+    "bookingStatus": "no-en-booking",
+    "bookingUrl": null
   },
   {
     "slug": "prodeo-hotel-lounge",
@@ -453,7 +497,10 @@
     "address": "Gorriti 5374, Palermo",
     "website": "https://prodeohotel.com/",
     "city": "Buenos Aires",
-    "verified": true
+    "verified": true,
+    "bookingStatus": "ficha",
+    "bookingUrl": "https://www.booking.com/hotel/ar/prodeo-lounge.html",
+    "bookingName": "Prodeo Hotel + Lounge"
   },
   {
     "slug": "dazzler-palermo",
@@ -477,7 +524,10 @@
     "address": "Humboldt, Palermo",
     "website": null,
     "city": "Buenos Aires",
-    "verified": false
+    "verified": false,
+    "bookingStatus": "ficha",
+    "bookingUrl": "https://www.booking.com/hotel/ar/dazzler-palermo.html",
+    "bookingName": "Dazzler by Wyndham Buenos Aires Palermo"
   },
   {
     "slug": "the-glu-hotel",
@@ -501,7 +551,10 @@
     "address": "Gorriti, Palermo",
     "website": null,
     "city": "Buenos Aires",
-    "verified": false
+    "verified": false,
+    "bookingStatus": "ficha",
+    "bookingUrl": "https://www.booking.com/hotel/ar/the-glu-palermo-soho.html",
+    "bookingName": "The Glu Boutique Hotel - Palermo Soho"
   },
   {
     "slug": "be-hollywood",
@@ -525,7 +578,10 @@
     "address": "Humboldt, Palermo",
     "website": null,
     "city": "Buenos Aires",
-    "verified": false
+    "verified": false,
+    "bookingStatus": "ficha",
+    "bookingUrl": "https://www.booking.com/hotel/ar/be-hollywood.html",
+    "bookingName": "Be Hollywood!"
   },
   {
     "slug": "loft-hotel",
@@ -549,7 +605,9 @@
     "address": "Humboldt, Palermo",
     "website": null,
     "city": "Buenos Aires",
-    "verified": false
+    "verified": false,
+    "bookingStatus": "busqueda-geo",
+    "bookingUrl": "https://www.booking.com/searchresults.html?ss=Movistar+Arena&latitude=-34.584742&longitude=-58.435008&dest_type=latlong&radius=1"
   },
   {
     "slug": "ilum-experience",
@@ -573,7 +631,10 @@
     "address": "Bonpland 1762, Palermo",
     "website": null,
     "city": "Buenos Aires",
-    "verified": false
+    "verified": false,
+    "bookingStatus": "ficha",
+    "bookingUrl": "https://www.booking.com/hotel/ar/ilum-experience-home.html",
+    "bookingName": "Ilum Experience Home"
   },
   {
     "slug": "palermo-soho-loft-hotel-boutique",
@@ -597,7 +658,9 @@
     "address": "Armenia 1396, Palermo",
     "website": "http://www.palermosoholoft.com/",
     "city": "Buenos Aires",
-    "verified": false
+    "verified": false,
+    "bookingStatus": "busqueda-geo",
+    "bookingUrl": "https://www.booking.com/searchresults.html?ss=Movistar+Arena&latitude=-34.591405&longitude=-58.430477&dest_type=latlong&radius=1"
   },
   {
     "slug": "l-hotel-palermo",
@@ -621,7 +684,10 @@
     "address": "Thames 1562, Palermo",
     "website": "https://www.lhotelpalermo.com/",
     "city": "Buenos Aires",
-    "verified": false
+    "verified": false,
+    "bookingStatus": "ficha",
+    "bookingUrl": "https://www.booking.com/hotel/ar/la-ha-tel-palermo.html",
+    "bookingName": "BENS L'Hôtel Palermo"
   },
   {
     "slug": "casa-caravan",
@@ -645,7 +711,10 @@
     "address": "Uriarte 1642, Palermo",
     "website": "https://casacaravan.com.ar/",
     "city": "Buenos Aires",
-    "verified": false
+    "verified": false,
+    "bookingStatus": "ficha",
+    "bookingUrl": "https://www.booking.com/hotel/ar/caravan-ba.html",
+    "bookingName": "Casa Caravan - Plant Based Concept House"
   },
   {
     "slug": "palermitano",
@@ -669,7 +738,10 @@
     "address": "Uriarte 1648, Palermo",
     "website": "https://hotelpalermitano.com/",
     "city": "Buenos Aires",
-    "verified": false
+    "verified": false,
+    "bookingStatus": "ficha",
+    "bookingUrl": "https://www.booking.com/hotel/ar/palermitano.html",
+    "bookingName": "Hotel Palermitano by DOT Boutique"
   },
   {
     "slug": "jam-suites-hotel",
@@ -693,7 +765,9 @@
     "address": "Malabia, Palermo",
     "website": null,
     "city": "Buenos Aires",
-    "verified": false
+    "verified": false,
+    "bookingStatus": "busqueda-geo",
+    "bookingUrl": "https://www.booking.com/searchresults.html?ss=Movistar+Arena&latitude=-34.591798&longitude=-58.428785&dest_type=latlong&radius=1"
   },
   {
     "slug": "palermo-place-hotel",
@@ -717,7 +791,9 @@
     "address": "Nicaragua 5865, Palermo",
     "website": null,
     "city": "Buenos Aires",
-    "verified": false
+    "verified": false,
+    "bookingStatus": "busqueda-geo",
+    "bookingUrl": "https://www.booking.com/searchresults.html?ss=Movistar+Arena&latitude=-34.579487&longitude=-58.436084&dest_type=latlong&radius=1"
   },
   {
     "slug": "hotel-bynnon",
@@ -741,7 +817,9 @@
     "address": "Bynon 6947, Liniers",
     "website": "https://www.hotelbynnon.com/",
     "city": "Buenos Aires",
-    "verified": true
+    "verified": true,
+    "bookingStatus": "busqueda-geo",
+    "bookingUrl": "https://www.booking.com/searchresults.html?ss=Estadio+Jos%C3%A9+Amalfitani&latitude=-34.637217&longitude=-58.527167&dest_type=latlong&radius=1"
   },
   {
     "slug": "hotel-viedma",
@@ -765,7 +843,9 @@
     "address": "Bueras 123, Liniers",
     "website": null,
     "city": "Buenos Aires",
-    "verified": true
+    "verified": true,
+    "bookingStatus": "busqueda-geo",
+    "bookingUrl": "https://www.booking.com/searchresults.html?ss=Estadio+Jos%C3%A9+Amalfitani&latitude=-34.638088&longitude=-58.527142&dest_type=latlong&radius=1"
   },
   {
     "slug": "cochico",
@@ -789,7 +869,9 @@
     "address": "Cochico 732, Versalles",
     "website": null,
     "city": "Buenos Aires",
-    "verified": false
+    "verified": false,
+    "bookingStatus": "no-en-booking",
+    "bookingUrl": null
   },
   {
     "slug": "hotel-ariel",
@@ -813,7 +895,9 @@
     "address": "José León Suárez, Liniers",
     "website": null,
     "city": "Buenos Aires",
-    "verified": true
+    "verified": true,
+    "bookingStatus": "busqueda-geo",
+    "bookingUrl": "https://www.booking.com/searchresults.html?ss=Estadio+Jos%C3%A9+Amalfitani&latitude=-34.639902&longitude=-58.527768&dest_type=latlong&radius=1"
   },
   {
     "slug": "hotel-marina",
@@ -837,7 +921,9 @@
     "address": "111 - Ombú, Ciudadela",
     "website": null,
     "city": "Buenos Aires",
-    "verified": false
+    "verified": false,
+    "bookingStatus": "busqueda-geo",
+    "bookingUrl": "https://www.booking.com/searchresults.html?ss=Estadio+Jos%C3%A9+Amalfitani&latitude=-34.646371&longitude=-58.5308&dest_type=latlong&radius=1"
   },
   {
     "slug": "pizarro",
@@ -861,7 +947,9 @@
     "address": "Pizarro, Villa Luro",
     "website": null,
     "city": "Buenos Aires",
-    "verified": false
+    "verified": false,
+    "bookingStatus": "no-en-booking",
+    "bookingUrl": null
   },
   {
     "slug": "nuestra-casa",
@@ -885,7 +973,9 @@
     "address": "Alfredo Lorenzo Palacios, Lomas del Mirador",
     "website": null,
     "city": "Buenos Aires",
-    "verified": false
+    "verified": false,
+    "bookingStatus": "no-en-booking",
+    "bookingUrl": null
   },
   {
     "slug": "hotel-muniz",
@@ -909,7 +999,9 @@
     "address": "Bahía Blanca, Floresta",
     "website": null,
     "city": "Buenos Aires",
-    "verified": false
+    "verified": false,
+    "bookingStatus": "busqueda-geo",
+    "bookingUrl": "https://www.booking.com/searchresults.html?ss=Estadio+Jos%C3%A9+Amalfitani&latitude=-34.633112&longitude=-58.480396&dest_type=latlong&radius=1"
   },
   {
     "slug": "hotel-familiar-elida",
@@ -933,7 +1025,9 @@
     "address": "Yerbal 2913, Flores",
     "website": null,
     "city": "Buenos Aires",
-    "verified": false
+    "verified": false,
+    "bookingStatus": "busqueda-geo",
+    "bookingUrl": "https://www.booking.com/searchresults.html?ss=Estadio+Jos%C3%A9+Amalfitani&latitude=-34.629431&longitude=-58.470596&dest_type=latlong&radius=1"
   },
   {
     "slug": "hotel-real-splendid",
@@ -957,7 +1051,9 @@
     "address": "Lafuente, Flores",
     "website": null,
     "city": "Buenos Aires",
-    "verified": false
+    "verified": false,
+    "bookingStatus": "busqueda-geo",
+    "bookingUrl": "https://www.booking.com/searchresults.html?ss=Estadio+Jos%C3%A9+Amalfitani&latitude=-34.631674&longitude=-58.467682&dest_type=latlong&radius=1"
   },
   {
     "slug": "bello-hostel-buenos-aires",
@@ -981,7 +1077,9 @@
     "address": "Navarro 3090, Agronomía",
     "website": "http://www.bellohostel.com.ar",
     "city": "Buenos Aires",
-    "verified": false
+    "verified": false,
+    "bookingStatus": "busqueda-geo",
+    "bookingUrl": "https://www.booking.com/searchresults.html?ss=Estadio+Jos%C3%A9+Amalfitani&latitude=-34.595684&longitude=-58.497108&dest_type=latlong&radius=1"
   },
   {
     "slug": "hotel-directorio-s",
@@ -1005,7 +1103,9 @@
     "address": "Avenida Directorio, Flores",
     "website": null,
     "city": "Buenos Aires",
-    "verified": false
+    "verified": false,
+    "bookingStatus": "busqueda-geo",
+    "bookingUrl": "https://www.booking.com/searchresults.html?ss=Estadio+Jos%C3%A9+Amalfitani&latitude=-34.635033&longitude=-58.466639&dest_type=latlong&radius=1"
   },
   {
     "slug": "apart-hotel-logrono",
@@ -1029,7 +1129,9 @@
     "address": "Solís 2187, Constitución",
     "website": null,
     "city": "Buenos Aires",
-    "verified": true
+    "verified": true,
+    "bookingStatus": "busqueda-geo",
+    "bookingUrl": "https://www.booking.com/searchresults.html?ss=Estadio+Tom%C3%A1s+A.+Duc%C3%B3&latitude=-34.633523&longitude=-58.388908&dest_type=latlong&radius=1"
   },
   {
     "slug": "hotel-guadalupe",
@@ -1053,7 +1155,9 @@
     "address": "Avenida Entre Ríos, Parque Patricios",
     "website": null,
     "city": "Buenos Aires",
-    "verified": true
+    "verified": true,
+    "bookingStatus": "busqueda-geo",
+    "bookingUrl": "https://www.booking.com/searchresults.html?ss=Estadio+Tom%C3%A1s+A.+Duc%C3%B3&latitude=-34.632458&longitude=-58.390769&dest_type=latlong&radius=1"
   },
   {
     "slug": "constitucion-palace-hotel",
@@ -1077,7 +1181,9 @@
     "address": "Lima Oeste, Constitución",
     "website": null,
     "city": "Buenos Aires",
-    "verified": false
+    "verified": false,
+    "bookingStatus": "busqueda-geo",
+    "bookingUrl": "https://www.booking.com/searchresults.html?ss=Estadio+Tom%C3%A1s+A.+Duc%C3%B3&latitude=-34.62766&longitude=-58.382343&dest_type=latlong&radius=1"
   },
   {
     "slug": "hotel-fatsa",
@@ -1101,7 +1207,9 @@
     "address": "Deán Funes 1241, San Cristóbal",
     "website": null,
     "city": "Buenos Aires",
-    "verified": false
+    "verified": false,
+    "bookingStatus": "busqueda-geo",
+    "bookingUrl": "https://www.booking.com/searchresults.html?ss=Estadio+Tom%C3%A1s+A.+Duc%C3%B3&latitude=-34.624966&longitude=-58.405876&dest_type=latlong&radius=1"
   },
   {
     "slug": "versalles-palace-hotel",
@@ -1125,7 +1233,9 @@
     "address": "Doctor Enrique Finochietto 864, Barracas",
     "website": null,
     "city": "Buenos Aires",
-    "verified": false
+    "verified": false,
+    "bookingStatus": "busqueda-geo",
+    "bookingUrl": "https://www.booking.com/searchresults.html?ss=Estadio+Tom%C3%A1s+A.+Duc%C3%B3&latitude=-34.630573&longitude=-58.375732&dest_type=latlong&radius=1"
   },
   {
     "slug": "gran-hotel-america",
@@ -1149,7 +1259,9 @@
     "address": "Avenida Bernardo de Irigoyen 1608, Constitución",
     "website": "http://www.granhotelamerica.com.ar/",
     "city": "Buenos Aires",
-    "verified": false
+    "verified": false,
+    "bookingStatus": "busqueda-geo",
+    "bookingUrl": "https://www.booking.com/searchresults.html?ss=Estadio+Tom%C3%A1s+A.+Duc%C3%B3&latitude=-34.627492&longitude=-58.378223&dest_type=latlong&radius=1"
   },
   {
     "slug": "hotel-mundo-de-maria-varela",
@@ -1173,7 +1285,9 @@
     "address": "Humberto I, San Cristóbal",
     "website": null,
     "city": "Buenos Aires",
-    "verified": false
+    "verified": false,
+    "bookingStatus": "busqueda-geo",
+    "bookingUrl": "https://www.booking.com/searchresults.html?ss=Estadio+Tom%C3%A1s+A.+Duc%C3%B3&latitude=-34.623648&longitude=-58.409505&dest_type=latlong&radius=1"
   },
   {
     "slug": "astor-hotel",
@@ -1197,7 +1311,9 @@
     "address": "Avenida Caseros, Barracas",
     "website": null,
     "city": "Buenos Aires",
-    "verified": false
+    "verified": false,
+    "bookingStatus": "busqueda-geo",
+    "bookingUrl": "https://www.booking.com/searchresults.html?ss=Estadio+Tom%C3%A1s+A.+Duc%C3%B3&latitude=-34.628012&longitude=-58.37629&dest_type=latlong&radius=1"
   },
   {
     "slug": "hotel-cosme",
@@ -1221,7 +1337,10 @@
     "address": "Brasil 923, Constitución",
     "website": "http://www.hotelcosme.com.ar",
     "city": "Buenos Aires",
-    "verified": false
+    "verified": false,
+    "bookingStatus": "ficha",
+    "bookingUrl": "https://www.booking.com/hotel/ar/cosme.html",
+    "bookingName": "Hotel Cosme"
   },
   {
     "slug": "hotel-familiar",
@@ -1245,7 +1364,9 @@
     "address": "Avenida San Juan 3315, Boedo",
     "website": null,
     "city": "Buenos Aires",
-    "verified": false
+    "verified": false,
+    "bookingStatus": "busqueda-geo",
+    "bookingUrl": "https://www.booking.com/searchresults.html?ss=Estadio+Tom%C3%A1s+A.+Duc%C3%B3&latitude=-34.624795&longitude=-58.412408&dest_type=latlong&radius=1"
   },
   {
     "slug": "hotel-intersur",
@@ -1269,7 +1390,10 @@
     "address": "Brasil 780, San Telmo",
     "website": "http://www.intersursantelmo.com.ar/",
     "city": "Buenos Aires",
-    "verified": false
+    "verified": false,
+    "bookingStatus": "ficha",
+    "bookingUrl": "https://www.booking.com/hotel/ar/intersur-recoleta.html",
+    "bookingName": "Hotel Intersur Recoleta"
   },
   {
     "slug": "hotel-athos",
@@ -1293,7 +1417,10 @@
     "address": "Avenida San Juan 1171, Constitución",
     "website": null,
     "city": "Buenos Aires",
-    "verified": false
+    "verified": false,
+    "bookingStatus": "ficha",
+    "bookingUrl": "https://www.booking.com/hotel/ar/athos.html",
+    "bookingName": "Hotel Athos"
   },
   {
     "slug": "hotel-acis",
@@ -1317,7 +1444,9 @@
     "address": "Avenida Independencia, Balvanera",
     "website": null,
     "city": "Buenos Aires",
-    "verified": false
+    "verified": false,
+    "bookingStatus": "busqueda-geo",
+    "bookingUrl": "https://www.booking.com/searchresults.html?ss=Estadio+Tom%C3%A1s+A.+Duc%C3%B3&latitude=-34.619046&longitude=-58.405373&dest_type=latlong&radius=1"
   },
   {
     "slug": "orfeo-suites",
@@ -1341,7 +1470,10 @@
     "address": "Rodríguez del Busto, Cerro Chico",
     "website": null,
     "city": "Córdoba",
-    "verified": true
+    "verified": true,
+    "bookingStatus": "ficha",
+    "bookingUrl": "https://www.booking.com/hotel/ar/orfeo-suites-cordoba.html",
+    "bookingName": "Orfeo Suites Cordoba"
   },
   {
     "slug": "holiday-inn-cordoba",
@@ -1365,7 +1497,10 @@
     "address": "Oliverio Girondo, Poeta Lugones",
     "website": null,
     "city": "Córdoba",
-    "verified": true
+    "verified": true,
+    "bookingStatus": "ficha",
+    "bookingUrl": "https://www.booking.com/hotel/ar/holiday-inn-cordoba.html",
+    "bookingName": "Holiday Inn Cordoba by IHG"
   },
   {
     "slug": "martin-oliva",
@@ -1389,7 +1524,9 @@
     "address": "De Los Catalanes, Spilimbergo Norte",
     "website": null,
     "city": "Córdoba",
-    "verified": false
+    "verified": false,
+    "bookingStatus": "no-en-booking",
+    "bookingUrl": null
   },
   {
     "slug": "gbh",
@@ -1413,7 +1550,9 @@
     "address": "Bulevar Los Alemanes, Los Boulevares",
     "website": null,
     "city": "Córdoba",
-    "verified": true
+    "verified": true,
+    "bookingStatus": "busqueda-geo",
+    "bookingUrl": "https://www.booking.com/searchresults.html?ss=Estadio+Mario+Alberto+Kempes&latitude=-31.34351&longitude=-64.218767&dest_type=latlong&radius=1"
   },
   {
     "slug": "hosteria-la-diaguita",
@@ -1437,7 +1576,9 @@
     "address": "Avenida Colón, Alto Alberdi",
     "website": null,
     "city": "Córdoba",
-    "verified": false
+    "verified": false,
+    "bookingStatus": "no-en-booking",
+    "bookingUrl": null
   },
   {
     "slug": "hotel-del-rey",
@@ -1461,7 +1602,10 @@
     "address": "Plaza Juan José Paso 180, La Plata",
     "website": null,
     "city": "La Plata",
-    "verified": true
+    "verified": true,
+    "bookingStatus": "ficha",
+    "bookingUrl": "https://www.booking.com/hotel/ar/del-rey-la-plata-la-plata-buenos-aires.html",
+    "bookingName": "Hotel del Rey"
   },
   {
     "slug": "via-51-apart-hotel",
@@ -1485,7 +1629,10 @@
     "address": "Avenida 51, La Plata",
     "website": null,
     "city": "La Plata",
-    "verified": false
+    "verified": false,
+    "bookingStatus": "ficha",
+    "bookingUrl": "https://www.booking.com/hotel/ar/apart-via-51.html",
+    "bookingName": "Apart Hotel Via 51"
   },
   {
     "slug": "hotel-catedral",
@@ -1509,7 +1656,9 @@
     "address": "Calle 49 965, La Plata",
     "website": "http://www.hcatedral.com.ar",
     "city": "La Plata",
-    "verified": false
+    "verified": false,
+    "bookingStatus": "busqueda-geo",
+    "bookingUrl": "https://www.booking.com/searchresults.html?ss=Estadio+%C3%9Anico+La+Plata&latitude=-34.920942&longitude=-57.957922&dest_type=latlong&radius=1"
   },
   {
     "slug": "dazzler-by-wyndham-la-plata",
@@ -1533,7 +1682,10 @@
     "address": "Calle 54 924, La Plata",
     "website": "https://www.wyndhamhotels.com/es-xl/dazzler",
     "city": "La Plata",
-    "verified": false
+    "verified": false,
+    "bookingStatus": "ficha",
+    "bookingUrl": "https://www.booking.com/hotel/ar/dazzler-by-wyndham-la-plata.html",
+    "bookingName": "Dazzler by Wyndham La Plata"
   },
   {
     "slug": "grand-brizo-la-plata",
@@ -1557,7 +1709,10 @@
     "address": "Avenida 51 715, Microcentro",
     "website": "https://www.hotelgrandbrizolaplata.com/",
     "city": "La Plata",
-    "verified": true
+    "verified": true,
+    "bookingStatus": "ficha",
+    "bookingUrl": "https://www.booking.com/hotel/ar/grand-brizo-la-plata.html",
+    "bookingName": "Grand Brizo La Plata"
   },
   {
     "slug": "hotel-argentino",
@@ -1581,7 +1736,9 @@
     "address": "Calle 46, La Plata",
     "website": null,
     "city": "La Plata",
-    "verified": false
+    "verified": false,
+    "bookingStatus": "busqueda-geo",
+    "bookingUrl": "https://www.booking.com/searchresults.html?ss=Estadio+%C3%9Anico+La+Plata&latitude=-34.911008&longitude=-57.951375&dest_type=latlong&radius=1"
   },
   {
     "slug": "park-hotel",
@@ -1605,7 +1762,10 @@
     "address": "Camino Parque Centenario, Manuel B. Gonnet",
     "website": null,
     "city": "La Plata",
-    "verified": false
+    "verified": false,
+    "bookingStatus": "no-en-booking",
+    "bookingUrl": null,
+    "bookingNote": "Albergue transitorio (turnos por hora), no es hotel para el público del sitio: ocultar"
   },
   {
     "slug": "hotel-del-sol",
@@ -1629,7 +1789,10 @@
     "address": "Calle 54 754, Microcentro",
     "website": null,
     "city": "La Plata",
-    "verified": false
+    "verified": false,
+    "bookingStatus": "ficha",
+    "bookingUrl": "https://www.booking.com/hotel/ar/del-sol-la-plata.html",
+    "bookingName": "Hotel del Sol"
   },
   {
     "slug": "hotel-roca",
@@ -1653,7 +1816,9 @@
     "address": "Avenida 1, La Plata",
     "website": null,
     "city": "La Plata",
-    "verified": false
+    "verified": false,
+    "bookingStatus": "busqueda-geo",
+    "bookingUrl": "https://www.booking.com/searchresults.html?ss=Estadio+%C3%9Anico+La+Plata&latitude=-34.903468&longitude=-57.951723&dest_type=latlong&radius=1"
   },
   {
     "slug": "10-de-junio-suteba",
@@ -1677,7 +1842,9 @@
     "address": "Avenida 13 1176, La Plata",
     "website": "https://www.suteba.org.ar/",
     "city": "La Plata",
-    "verified": false
+    "verified": false,
+    "bookingStatus": "no-en-booking",
+    "bookingUrl": null
   },
   {
     "slug": "benevento-hotel",
@@ -1701,7 +1868,10 @@
     "address": "Calle 2 645, La Plata",
     "website": null,
     "city": "La Plata",
-    "verified": false
+    "verified": false,
+    "bookingStatus": "ficha",
+    "bookingUrl": "https://www.booking.com/hotel/ar/benevento.html",
+    "bookingName": "Hotel Benevento"
   },
   {
     "slug": "days-inn-suites",
@@ -1725,7 +1895,9 @@
     "address": "Avenida 51 511, La Plata",
     "website": "https://www.wyndhamhotels.com/es-xl/days-inn/la-plata-argentina/days-inn-and-suites-by-wyndham-la-plata/overview",
     "city": "La Plata",
-    "verified": false
+    "verified": false,
+    "bookingStatus": "busqueda-geo",
+    "bookingUrl": "https://www.booking.com/searchresults.html?ss=Estadio+%C3%9Anico+La+Plata&latitude=-34.913688&longitude=-57.947469&dest_type=latlong&radius=1"
   },
   {
     "slug": "corregidor-hotel",
@@ -1749,7 +1921,10 @@
     "address": "Calle 6 1026, La Plata",
     "website": null,
     "city": "La Plata",
-    "verified": true
+    "verified": true,
+    "bookingStatus": "ficha",
+    "bookingUrl": "https://www.booking.com/hotel/ar/corregidor.html",
+    "bookingName": "Hotel Corregidor"
   },
   {
     "slug": "hotel-san-marco",
@@ -1773,6 +1948,9 @@
     "address": "Calle 54 523, La Plata",
     "website": "https://www.sanmarcohotel.com.ar/",
     "city": "La Plata",
-    "verified": false
+    "verified": false,
+    "bookingStatus": "ficha",
+    "bookingUrl": "https://www.booking.com/hotel/ar/san-marco.html",
+    "bookingName": "San Marco Hotel"
   }
 ]

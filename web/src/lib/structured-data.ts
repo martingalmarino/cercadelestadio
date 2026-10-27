@@ -292,12 +292,11 @@ export function faqPage(
   items: { question: string; answer: string }[],
   pagePath: string,
 ): Node | null {
-  const clean = items.filter((item) => !/ejemplo/i.test(item.answer));
-  if (clean.length === 0) return null;
+  if (items.length === 0) return null;
   return {
     "@type": "FAQPage",
     "@id": `${absoluteUrl(pagePath)}#faq`,
-    mainEntity: clean.map((item) => ({
+    mainEntity: items.map((item) => ({
       "@type": "Question",
       name: item.question,
       acceptedAnswer: {

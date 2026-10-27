@@ -13,6 +13,7 @@ import { StatRow } from "@/components/stat-row";
 import { Timeline } from "@/components/timeline";
 import { ArrowLabel, TextLink } from "@/components/ui/text-link";
 import { ButtonLink } from "@/components/ui/button";
+import { hotelBookingLinks } from "@/lib/affiliate";
 import {
   eventsForCity,
   eventsForVenue,
@@ -98,7 +99,10 @@ export default async function EventPage(props: PageProps<"/evento/[slug]">) {
   const now = await getCachedNow();
   const finished = isFinished(event.date, now);
   const next = nextVenueEvent(getEvents(), event, now);
-  const hotels = venue ? hotelsFor(venue.slug) : [];
+  const bookingHrefs = venue ? hotelBookingLinks(hotelsFor(venue.slug), venue, event.slug) : {};
+  const hotels = venue
+    ? hotelsFor(venue.slug).filter((hotel) => bookingHrefs[hotel.slug])
+    : [];
   const minPrice = venue ? minNightlyPrice(venue.slug) : null;
   const closures = event.closures ?? venue?.closures ?? [];
   const siblings = (
@@ -264,12 +268,7 @@ export default async function EventPage(props: PageProps<"/evento/[slug]">) {
               <SectionIntro>
                 Distancias en línea recta. Precios y disponibilidad en Booking.
               </SectionIntro>
-              <HotelList
-                hotels={hotels}
-                subId={event.slug}
-                place={city?.name ?? venue?.neighborhood ?? ""}
-                caption={caption}
-              />
+              <HotelList hotels={hotels} bookingHrefs={bookingHrefs} caption={caption} />
             </>
           ) : (
             <Note>

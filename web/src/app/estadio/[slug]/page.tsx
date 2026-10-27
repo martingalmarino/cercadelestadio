@@ -10,6 +10,7 @@ import { SectionBand } from "@/components/section-band";
 import { Note, SectionIntro } from "@/components/section-intro";
 import { StatRow } from "@/components/stat-row";
 import { Timeline } from "@/components/timeline";
+import { hotelBookingLinks } from "@/lib/affiliate";
 import {
   getCity,
   getVenue,
@@ -71,10 +72,14 @@ export default async function StadiumPage(props: PageProps<"/estadio/[slug]">) {
   if (!venue) notFound();
 
   const city = getCity(venue.citySlug);
-  const hotels = hotelsFor(venue.slug);
   const now = await getCachedNow();
   const upcoming = upcomingForVenue(venue.slug, now);
-  const place = city?.name ?? venue.neighborhood;
+  const bookingHrefs = hotelBookingLinks(
+    hotelsFor(venue.slug),
+    venue,
+    upcoming[0]?.slug ?? venue.slug,
+  );
+  const hotels = hotelsFor(venue.slug).filter((hotel) => bookingHrefs[hotel.slug]);
   const faqs = venueFaqs(venue, hotels);
   const caption = `Distancias a ${venue.seoName}: kilómetros, minutos a pie y minutos en auto.`;
 
@@ -157,8 +162,7 @@ export default async function StadiumPage(props: PageProps<"/estadio/[slug]">) {
               venue={{ name: venue.name, lat: venue.lat, lng: venue.lng }}
               outline={getVenueOutline(venue.slug)}
               hotels={hotels}
-              subId={upcoming[0]?.slug ?? venue.slug}
-              place={place}
+              bookingHrefs={bookingHrefs}
               caption={caption}
             />
           </div>

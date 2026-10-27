@@ -7,10 +7,6 @@ import styles from "./hotel-list.module.css";
 
 const WALK_ESTIMATE = "Estimado en línea recta a 4,5 km/h";
 
-function bookingQuery(hotel: Hotel, place: string) {
-  return `${hotel.name} ${hotel.city ?? place}`.trim();
-}
-
 function hotelDetail(hotel: Hotel) {
   const cleaned = hotel.detail.replace(/\s*·\s*\d+[,.]\d+\b/g, "").trim();
   if (hotel.stars == null) return cleaned;
@@ -19,21 +15,27 @@ function hotelDetail(hotel: Hotel) {
   return cleaned ? `${cleaned} · ${stars}` : stars;
 }
 
+function bookingLabel(hotel: Hotel) {
+  return hotel.bookingStatus === "busqueda-geo"
+    ? "Ver hoteles en la zona"
+    : "Ver precio en Booking";
+}
+
 export function HotelList({
   hotels,
-  subId,
-  place,
+  bookingHrefs,
   caption,
   activeSlug = null,
   onActiveChange,
 }: {
   hotels: Hotel[];
-  subId: string;
-  place: string;
+  bookingHrefs: Record<string, string>;
   caption: string;
   activeSlug?: string | null;
   onActiveChange?: (slug: string) => void;
 }) {
+  const rows = hotels.filter((hotel) => bookingHrefs[hotel.slug]);
+
   return (
     <table className={styles.table}>
       <caption className={styles.caption}>{caption}</caption>
@@ -47,15 +49,16 @@ export function HotelList({
             A pie (est.)
           </th>
           <th scope="col" title={WALK_ESTIMATE}>
-            En auto (est.)
+            Auto (est.)
           </th>
           <th scope="col">Desde / noche</th>
           <th scope="col">Disponibilidad</th>
         </tr>
       </thead>
       <tbody>
-        {hotels.map((hotel, index) => {
-          const query = bookingQuery(hotel, place);
+        {rows.map((hotel, index) => {
+          const href = bookingHrefs[hotel.slug];
+          const label = bookingLabel(hotel);
           return (
             <tr
               className={hotel.slug === activeSlug ? styles.active : undefined}
@@ -76,16 +79,16 @@ export function HotelList({
               <td title={WALK_ESTIMATE}>{hotel.driveMinutes} min en auto</td>
               <td className={styles.price}>
                 {hotel.pricePerNight == null ? (
-                  <ButtonLink affiliate subId={subId} query={query}>
-                    Ver precio en Booking
+                  <ButtonLink href={href} sponsored>
+                    {label}
                   </ButtonLink>
                 ) : (
                   formatArs(hotel.pricePerNight)
                 )}
               </td>
               <td className={styles.action}>
-                <ButtonLink affiliate subId={subId} query={query}>
-                  Ver disponibilidad
+                <ButtonLink href={href} sponsored>
+                  {label}
                 </ButtonLink>
               </td>
             </tr>

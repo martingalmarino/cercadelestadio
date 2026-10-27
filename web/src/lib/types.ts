@@ -75,6 +75,10 @@ export type Hotel = {
   website: string | null;
   city: string | null;
   verified?: boolean;
+  bookingStatus: "ficha" | "busqueda-geo" | "no-en-booking";
+  bookingUrl: string | null;
+  bookingName?: string;
+  bookingNote?: string;
 };
 
 export type VenueOutline = {

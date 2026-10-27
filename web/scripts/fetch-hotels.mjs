@@ -112,5 +112,21 @@ for (const v of venues) {
   console.error(`  ${picked.length} (de ${list.length}) vía ${mirror}`);
   await sleep(2000);
 }
+// Booking: conservar lo verificado a mano (bookingUrl/bookingStatus) del hotels.json anterior por osm id.
+// Hoteles nuevos entran como "busqueda-geo" (link por coordenadas). NUNCA armar link por nombre suelto:
+// Booking resuelve nombres ambiguos a otro país (ej. "Park Hotel La Plata" -> Cádiz, España).
+let prev = [];
+try { prev = JSON.parse(readFileSync(OUT, "utf8")); } catch {}
+const prevByOsm = new Map(prev.map((p) => [`${p.osm?.type}/${p.osm?.id}`, p]));
+for (const h of out) {
+  const p = prevByOsm.get(`${h.osm.type}/${h.osm.id}`);
+  if (p?.bookingStatus) {
+    h.bookingStatus = p.bookingStatus; h.bookingUrl = p.bookingUrl ?? null;
+    if (p.bookingName) h.bookingName = p.bookingName;
+    if (p.bookingNote) h.bookingNote = p.bookingNote;
+  } else {
+    h.bookingStatus = "busqueda-geo"; h.bookingUrl = null; // el helper arma la URL por lat/lng
+  }
+}
 writeFileSync(OUT, JSON.stringify(out, null, 2) + "\n");
 console.error(`OK ${out.length} alojamientos -> ${OUT}`);

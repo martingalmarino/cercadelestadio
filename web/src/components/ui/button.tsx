@@ -1,4 +1,3 @@
-import { affiliateHref } from "@/lib/affiliate";
 import Link from "next/link";
 import type { ButtonHTMLAttributes, ReactNode } from "react";
 import styles from "./button.module.css";
@@ -38,39 +37,36 @@ export function Button({
   );
 }
 
-type ButtonLinkProps = VisualProps &
-  (
-    | { href: string; affiliate?: false }
-    | { affiliate: true; subId: string; query: string }
-  );
+type ButtonLinkProps = VisualProps & {
+  href: string;
+  sponsored?: boolean;
+};
 
-export function ButtonLink(props: ButtonLinkProps) {
-  const { variant = "primary", size = "md", className, children } = props;
+export function ButtonLink({
+  variant = "primary",
+  size = "md",
+  className,
+  children,
+  href,
+  sponsored = false,
+}: ButtonLinkProps) {
   const classNameValue = classNames(variant, size, className);
 
-  if (props.affiliate) {
+  if (sponsored || href.startsWith("http://") || href.startsWith("https://")) {
     return (
       <a
         className={classNameValue}
-        href={affiliateHref(props.subId, props.query)}
-        rel="sponsored nofollow"
-        target="_blank"
+        href={href}
+        rel={sponsored ? "sponsored nofollow" : undefined}
+        target={sponsored ? "_blank" : undefined}
       >
         {children}
       </a>
     );
   }
 
-  if (props.href.startsWith("http://") || props.href.startsWith("https://")) {
-    return (
-      <a className={classNameValue} href={props.href}>
-        {children}
-      </a>
-    );
-  }
-
   return (
-    <Link className={classNameValue} href={props.href}>
+    <Link className={classNameValue} href={href}>
       {children}
     </Link>
   );
