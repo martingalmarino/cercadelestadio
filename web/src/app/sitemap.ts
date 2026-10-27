@@ -9,6 +9,7 @@ import type { MetadataRoute } from "next";
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [
     { url: absoluteUrl("/"), changeFrequency: "daily", priority: 1 },
+    { url: absoluteUrl("/copyright"), changeFrequency: "yearly", priority: 0.2 },
   ];
   const cities: MetadataRoute.Sitemap = getCities().map((city) => ({
     url: absoluteUrl(`/ciudad/${city.slug}`),

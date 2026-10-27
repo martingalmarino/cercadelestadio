@@ -5,7 +5,6 @@ import { FaqList } from "@/components/faq-list";
 import frame from "@/components/hero-frame.module.css";
 import { VenueHotels } from "@/components/map/venue-hotels";
 import { JsonLd } from "@/components/json-ld";
-import { PageFallback } from "@/components/page-fallback";
 import { RowList } from "@/components/row-list";
 import { SectionBand } from "@/components/section-band";
 import { Note, SectionIntro } from "@/components/section-intro";
@@ -29,7 +28,6 @@ import {
 import { getCachedNow } from "@/lib/time";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Suspense } from "react";
 import styles from "./page.module.css";
 
 export function generateStaticParams() {
@@ -49,20 +47,8 @@ export async function generateMetadata({
   };
 }
 
-export default function StadiumPage(props: PageProps<"/estadio/[slug]">) {
-  return (
-    <Suspense fallback={<PageFallback />}>
-      <StadiumContent params={props.params} />
-    </Suspense>
-  );
-}
-
-async function StadiumContent({
-  params,
-}: {
-  params: PageProps<"/estadio/[slug]">["params"];
-}) {
-  const { slug } = await params;
+export default async function StadiumPage(props: PageProps<"/estadio/[slug]">) {
+  const { slug } = await props.params;
   const venue = getVenue(slug);
   if (!venue) notFound();
 

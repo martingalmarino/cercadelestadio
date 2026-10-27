@@ -48,7 +48,7 @@ export function EventRow({
 
   return (
     <Link
-      className={styles.row}
+      className={approximate ? `${styles.row} ${styles.approximate}` : styles.row}
       href={href}
       role="listitem"
       aria-label={`${title}, ${spoken}`}
@@ -67,6 +67,11 @@ export function EventRow({
         <span className={styles.title}>{title}</span>
         <br />
         <span className={styles.sub}>{subtitle}</span>
+        {approximate ? (
+          <span className={styles.confirmMobile}>
+            <Tag tone="ok">a confirmar</Tag>
+          </span>
+        ) : null}
       </span>
       <span className={`${styles.place} ${styles.sub}`}>{place}</span>
       <span className={`${styles.extra} ${styles.sub}`}>{extra}</span>

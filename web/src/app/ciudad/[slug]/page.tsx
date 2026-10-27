@@ -2,7 +2,6 @@ import { Breadcrumbs } from "@/components/breadcrumbs";
 import { EventRow } from "@/components/event-row";
 import frame from "@/components/hero-frame.module.css";
 import { JsonLd } from "@/components/json-ld";
-import { PageFallback } from "@/components/page-fallback";
 import { RowList } from "@/components/row-list";
 import { SectionBand } from "@/components/section-band";
 import { Note } from "@/components/section-intro";
@@ -23,7 +22,6 @@ import {
 import { getCachedNow } from "@/lib/time";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Suspense } from "react";
 import styles from "./page.module.css";
 
 export function generateStaticParams() {
@@ -43,20 +41,8 @@ export async function generateMetadata({
   };
 }
 
-export default function CityPage(props: PageProps<"/ciudad/[slug]">) {
-  return (
-    <Suspense fallback={<PageFallback />}>
-      <CityContent params={props.params} />
-    </Suspense>
-  );
-}
-
-async function CityContent({
-  params,
-}: {
-  params: PageProps<"/ciudad/[slug]">["params"];
-}) {
-  const { slug } = await params;
+export default async function CityPage(props: PageProps<"/ciudad/[slug]">) {
+  const { slug } = await props.params;
   const city = getCity(slug);
   if (!city) notFound();
 

@@ -89,7 +89,8 @@ export function venueMapStyle(): StyleSpecification {
   };
 
   for (const source of Object.values(style.sources)) {
-    delete source.attribution;
+    // Cadena vacía pisa la atribución del TileJSON. Si se borra la clave, MapLibre vuelve a leerla.
+    source.attribution = "";
   }
 
   style.layers = style.layers.filter((layer) => !DROPPED.has(layer.id));

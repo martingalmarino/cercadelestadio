@@ -5,7 +5,6 @@ import { EventRow } from "@/components/event-row";
 import frame from "@/components/hero-frame.module.css";
 import { HotelList } from "@/components/hotel-list";
 import { JsonLd } from "@/components/json-ld";
-import { PageFallback } from "@/components/page-fallback";
 import { RowList } from "@/components/row-list";
 import { SectionBand } from "@/components/section-band";
 import { Note, SectionIntro } from "@/components/section-intro";
@@ -43,7 +42,6 @@ import { getCachedNow } from "@/lib/time";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Suspense } from "react";
 import styles from "./page.module.css";
 
 const tips = [
@@ -73,20 +71,8 @@ export async function generateMetadata({
   };
 }
 
-export default function EventPage(props: PageProps<"/evento/[slug]">) {
-  return (
-    <Suspense fallback={<PageFallback />}>
-      <EventContent params={props.params} />
-    </Suspense>
-  );
-}
-
-async function EventContent({
-  params,
-}: {
-  params: PageProps<"/evento/[slug]">["params"];
-}) {
-  const { slug } = await params;
+export default async function EventPage(props: PageProps<"/evento/[slug]">) {
+  const { slug } = await props.params;
   const event = getEvent(slug);
   if (!event) notFound();
 

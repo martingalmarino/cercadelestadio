@@ -108,14 +108,14 @@ export function VenueMap({
       <figcaption>
         <p className={styles.caption}>{venue.name} · anillos 1 / 3 / 5 km</p>
         <ol className={styles.legend}>
-          {hotels.map((hotel) => (
+          {hotels.map((hotel, index) => (
             <li key={hotel.slug}>
               <a
                 href={`#hotel-${hotel.slug}`}
                 onMouseEnter={() => onActiveChange(hotel.slug)}
                 onFocus={() => onActiveChange(hotel.slug)}
               >
-                {hotel.name}
+                {index + 1}. {hotel.name}
               </a>
             </li>
           ))}

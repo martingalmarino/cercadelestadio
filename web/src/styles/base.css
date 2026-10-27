@@ -11,6 +11,7 @@ body {
   color: var(--text);
   font-size: var(--fs-base);
   line-height: var(--lh-body);
+  overflow-x: clip;
   -webkit-font-smoothing: antialiased;
 }
 

@@ -53,16 +53,23 @@ export function Countdown({
   const [now, setNow] = useState(initialNow);
 
   useEffect(() => {
-    const id = setInterval(() => setNow(Date.now()), 30000);
-    return () => clearInterval(id);
+    const tick = () => setNow(Date.now());
+    const start = window.setTimeout(tick, 0);
+    const id = window.setInterval(tick, 30000);
+    return () => {
+      window.clearTimeout(start);
+      window.clearInterval(id);
+    };
   }, []);
 
   if (finished) {
     return (
       <div className={styles.block}>
-        <Cell label="Estado" value="Finalizado" />
-        <Cell label="Fecha" value={dateLabel} />
-        <Cell label="Show" value="Pasó" done />
+        <div className={styles.cells}>
+          <Cell label="Estado" value="Finalizado" />
+          <Cell label="Fecha" value={dateLabel} />
+          <Cell label="Show" value="Pasó" done />
+        </div>
       </div>
     );
   }
@@ -72,21 +79,30 @@ export function Countdown({
   if (approximate && remaining === null) {
     return (
       <div className={styles.block}>
-        <Cell label="Estado" value="Este mes" live />
-        <Cell label="Fecha" value={dateLabel} />
-        <Cell label="Día" value="A confirmar" />
+        <div className={styles.cells}>
+          <Cell label="Estado" value="Este mes" live />
+          <Cell label="Fecha" value={dateLabel} />
+          <Cell label="Día" value="A confirmar" />
+        </div>
       </div>
     );
   }
 
   const days = remaining?.days ?? 0;
   const dayLabel = days === 1 ? "1 día" : `${days} días`;
+  const hours = remaining ? pad2(remaining.hours) : "00";
+  const minutes = remaining ? pad2(remaining.minutes) : "00";
 
   return (
-    <div className={styles.block}>
-      <Cell label="Faltan" value={dayLabel} live />
-      <Cell label="Horas" value={remaining ? pad2(remaining.hours) : "00"} />
-      <Cell label="Minutos" value={remaining ? pad2(remaining.minutes) : "00"} />
+    <div className={styles.block} data-live="">
+      <p className={styles.line}>
+        {days} d · {hours} h · {minutes} m
+      </p>
+      <div className={styles.cells}>
+        <Cell label="Faltan" value={dayLabel} live />
+        <Cell label="Horas" value={hours} />
+        <Cell label="Minutos" value={minutes} />
+      </div>
     </div>
   );
 }

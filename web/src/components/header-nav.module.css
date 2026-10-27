@@ -1,3 +1,7 @@
+.root {
+  display: contents;
+}
+
 .nav {
   display: flex;
   gap: var(--s-5);
@@ -47,6 +51,8 @@
   .menu {
     display: inline-flex;
     align-items: center;
+    flex-shrink: 0;
+    white-space: nowrap;
   }
 
   .panel {
@@ -55,12 +61,13 @@
     top: var(--header-h);
     left: 0;
     right: 0;
-    z-index: 2;
+    z-index: 30;
     margin: 0;
     padding: 0;
     list-style: none;
     background: var(--surface-inverse);
-    border-bottom: var(--bw) solid var(--border-inverse);
+    border-bottom: var(--bw-strong) solid var(--c-gray-300);
+    box-shadow: 0 12px 28px rgb(0 0 0 / 50%);
   }
 
   .panel a {

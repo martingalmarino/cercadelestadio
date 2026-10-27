@@ -27,15 +27,34 @@
   text-decoration: none;
 }
 
-.logo span {
+.logo span:first-child {
   background: var(--accent);
   padding: 2px 6px;
   font-size: var(--fs-sm);
   font-style: normal;
 }
 
+.wordmark {
+  min-width: 0;
+  white-space: nowrap;
+}
+
 @media (max-width: 767px) {
   .bar {
     padding: 0 var(--s-4);
+  }
+}
+
+@media (max-width: 374px) {
+  .bar {
+    gap: var(--s-3);
+  }
+
+  .logo {
+    min-width: 0;
+  }
+
+  .wordmark {
+    font-size: var(--fs-sm);
   }
 }

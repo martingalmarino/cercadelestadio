@@ -3,6 +3,8 @@ import styles from "./venue-map.module.css";
 
 const METERS = 111_320;
 const RINGS = [1, 3, 5] as const;
+const VIEW_W = 1600;
+const VIEW_H = 1000;
 
 type Origin = { lat: number; lng: number };
 
@@ -49,14 +51,15 @@ export function VenueMapStatic({
   }
   extent *= 1.28;
 
+  const scale = VIEW_H / 2 / extent;
   const place = (lng: number, lat: number) => {
     const point = metersFrom(origin, lng, lat);
     return {
-      x: ((point.x + extent) / (extent * 2)) * 1000,
-      y: ((point.y + extent) / (extent * 2)) * 1000,
+      x: VIEW_W / 2 + point.x * scale,
+      y: VIEW_H / 2 + point.y * scale,
     };
   };
-  const ringRadius = (kilometers: number) => ((kilometers * 1000) / (extent * 2)) * 1000;
+  const ringRadius = (kilometers: number) => kilometers * 1000 * scale;
   const center = place(origin.lng, origin.lat);
 
   const outlinePath = outline
@@ -75,7 +78,7 @@ export function VenueMapStatic({
 
   return (
     <div className={styles.plot} aria-hidden="true">
-      <svg viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid meet">
+      <svg viewBox={`0 0 ${VIEW_W} ${VIEW_H}`} preserveAspectRatio="xMidYMid slice">
         {RINGS.map((kilometers) => (
           <circle
             key={kilometers}
@@ -120,7 +123,7 @@ export function VenueMapStatic({
                 ? `${styles.pin} ${styles.staticPin} ${styles.pinActive}`
                 : `${styles.pin} ${styles.staticPin}`
             }
-            style={{ left: `${point.x / 10}%`, top: `${point.y / 10}%` }}
+            style={{ ["--fx" as string]: point.x / VIEW_W, ["--fy" as string]: point.y / VIEW_H }}
           >
             {index + 1}
           </span>

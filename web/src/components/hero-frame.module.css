@@ -40,3 +40,9 @@
 .accent {
   color: var(--accent-on-dark);
 }
+
+@media (orientation: landscape) and (max-height: 500px) {
+  .hero {
+    padding: var(--s-4) 0 var(--s-3);
+  }
+}

@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="es" className={inter.variable}>
+    <html lang="es-AR" className={inter.variable}>
       <body>
         <SiteHeader />
         {children}

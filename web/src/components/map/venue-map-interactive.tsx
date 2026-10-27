@@ -19,7 +19,14 @@ type MapHotel = {
 
 const RINGS = [1, 3, 5] as const;
 const ATTRIBUTION =
-  '© OpenFreeMap © OpenMapTiles © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>';
+  '<a href="/copyright">© OpenFreeMap © OpenMapTiles © OpenStreetMap contributors</a>';
+
+function closeAttribution(container: HTMLElement) {
+  const details = container.querySelector(".maplibregl-ctrl-attrib");
+  if (!(details instanceof HTMLDetailsElement)) return;
+  details.classList.remove("maplibregl-compact-show");
+  details.removeAttribute("open");
+}
 
 function square(lng: number, lat: number): VenueOutline {
   const dLng = 0.00035 / Math.cos((lat * Math.PI) / 180);
@@ -215,6 +222,10 @@ export default function VenueMapInteractive({
       paintActive();
       map.resize();
       map.fitBounds(bounds, { padding: 36, animate: false, duration: 0 });
+      closeAttribution(container);
+      map.once("idle", () => {
+        if (!cancelled) closeAttribution(container);
+      });
       onReadyRef.current();
     });
 

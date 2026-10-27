@@ -32,3 +32,53 @@
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
 }
+
+@media (max-width: 640px) {
+  .scroll {
+    position: relative;
+    overflow-x: visible;
+  }
+
+  .scroll table,
+  .scroll tbody,
+  .scroll tr,
+  .scroll td {
+    display: block;
+  }
+
+  .scroll table {
+    min-width: 0;
+  }
+
+  .scroll thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .scroll tr {
+    padding: var(--s-4);
+    border-bottom: var(--bw) solid var(--border);
+  }
+
+  .scroll td {
+    padding: 0;
+    border: 0;
+    white-space: normal;
+  }
+
+  .detail,
+  .kind {
+    margin-top: var(--s-1);
+  }
+
+  .scroll .when {
+    white-space: nowrap;
+  }
+}

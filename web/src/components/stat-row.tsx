@@ -4,6 +4,7 @@ import styles from "./stat-row.module.css";
 export type Stat = {
   label: string;
   value: ReactNode;
+  tight?: boolean;
 };
 
 export function StatRow({ items }: { items: Stat[] }) {
@@ -12,7 +13,9 @@ export function StatRow({ items }: { items: Stat[] }) {
       {items.map((item) => (
         <div key={item.label}>
           <span className={styles.label}>{item.label}</span>
-          <b className={styles.value}>{item.value}</b>
+          <b className={item.tight ? `${styles.value} ${styles.tight}` : styles.value}>
+            {item.value}
+          </b>
         </div>
       ))}
     </div>

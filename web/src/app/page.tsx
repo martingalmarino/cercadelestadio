@@ -1,22 +1,25 @@
+import frame from "@/components/hero-frame.module.css";
+import {
+  FechaField,
+  HomeEventList,
+  HomeSearchSync,
+  HomeVenueSection,
+  type HomeEventCard,
+  type HomeVenueCard,
+} from "@/components/home-search";
 import { JsonLd } from "@/components/json-ld";
-import { PageFallback } from "@/components/page-fallback";
-import { RowList } from "@/components/row-list";
-import { EventRow } from "@/components/event-row";
 import { SectionBand } from "@/components/section-band";
-import { Note, SectionIntro } from "@/components/section-intro";
+import { SectionIntro } from "@/components/section-intro";
 import { StatRow } from "@/components/stat-row";
 import { Button } from "@/components/ui/button";
 import { ArrowLink } from "@/components/ui/text-link";
-import { VenueCells } from "@/components/venue-cells";
 import { getCity, getEvents, getVenue, getVenues } from "@/lib/content";
 import { upcomingEvents } from "@/lib/events";
 import { countdownTarget } from "@/lib/format";
 import { breadcrumbList, eventItemList } from "@/lib/structured-data";
 import { getCachedNow } from "@/lib/time";
-import type { ShowEvent, Venue } from "@/lib/types";
-import frame from "@/components/hero-frame.module.css";
+import type { ShowEvent } from "@/lib/types";
 import type { Metadata } from "next";
-import { Suspense } from "react";
 import styles from "./home.module.css";
 
 export const metadata: Metadata = {
@@ -43,20 +46,11 @@ const steps = [
 
 const MONTHS = ["ENE", "FEB", "MAR", "ABR", "MAY", "JUN", "JUL", "AGO", "SEP", "OCT", "NOV", "DIC"];
 
-function textOf(value: string | string[] | undefined) {
-  const raw = Array.isArray(value) ? value[0] : value;
-  return raw?.trim() ?? "";
-}
-
 function fold(value: string) {
   return value
     .toLocaleLowerCase("es")
     .normalize("NFD")
     .replace(/\p{M}/gu, "");
-}
-
-function matches(value: string, query: string) {
-  return fold(value).includes(query);
 }
 
 function heroDate(event: ShowEvent) {
@@ -65,53 +59,36 @@ function heroDate(event: ShowEvent) {
   return `${day}.${month}`;
 }
 
-function eventMatches(event: ShowEvent, query: string, fecha: string) {
-  if (fecha && event.date !== fecha) return false;
-  if (!query) return true;
-  const venue = event.venueSlug ? getVenue(event.venueSlug) : null;
-  const city = getCity(event.citySlug);
-  return (
-    matches(event.artist, query) ||
-    matches(venue?.name ?? "", query) ||
-    matches(venue?.neighborhood ?? "", query) ||
-    matches(city?.name ?? "", query)
-  );
-}
-
-function venueMatches(venue: Venue, query: string) {
-  if (!query) return true;
-  const city = getCity(venue.citySlug);
-  return (
-    matches(venue.name, query) ||
-    matches(venue.neighborhood, query) ||
-    matches(city?.name ?? "", query)
-  );
-}
-
-export default function Home(props: PageProps<"/">) {
-  return (
-    <Suspense fallback={<PageFallback />}>
-      <HomeContent searchParams={props.searchParams} />
-    </Suspense>
-  );
-}
-
-async function HomeContent({
-  searchParams,
-}: {
-  searchParams: PageProps<"/">["searchParams"];
-}) {
-  const params = await searchParams;
-  const query = fold(textOf(params.q));
-  const fecha = textOf(params.fecha);
+export default async function Home() {
   const now = await getCachedNow();
   const upcoming = upcomingEvents(getEvents(), now);
   const next = upcoming[0];
-  const events = upcoming.filter((event) => eventMatches(event, query, fecha));
-  const venues = getVenues().filter((venue) => venueMatches(venue, query));
+  const events: HomeEventCard[] = upcoming.map((event) => {
+    const venue = event.venueSlug ? getVenue(event.venueSlug) : null;
+    const city = getCity(event.citySlug);
+    return {
+      slug: event.slug,
+      date: event.date,
+      dateExact: event.dateExact,
+      artist: event.artist,
+      subtitle: venue?.name ?? "Recinto a confirmar",
+      place: venue?.neighborhood ?? city?.name,
+      extra: venue ? `${venue.hotelsWithin3km} hoteles a 3 km` : undefined,
+      haystack: fold(
+        [event.artist, venue?.name, venue?.neighborhood, city?.name]
+          .filter(Boolean)
+          .join(" "),
+      ),
+    };
+  });
+  const venues: HomeVenueCard[] = getVenues().map((venue) => {
+    const city = getCity(venue.citySlug);
+    return {
+      ...venue,
+      haystack: fold([venue.name, venue.neighborhood, city?.name].filter(Boolean).join(" ")),
+    };
+  });
   const citiesWithVenue = new Set(getVenues().map((venue) => venue.citySlug)).size;
-  const searching = query.length > 0 || fecha.length > 0;
-  const nothing = searching && events.length === 0 && venues.length === 0;
 
   return (
     <main>
@@ -151,28 +128,21 @@ async function HomeContent({
           <form className={styles.search} role="search" action="/" method="get">
             <label>
               <span>Evento o estadio</span>
-              <input
-                name="q"
-                type="search"
-                placeholder="Buscá un evento o estadio"
-                defaultValue={textOf(params.q)}
-              />
+              <input name="q" type="search" placeholder="Buscá un evento o estadio" />
             </label>
-            <label>
-              <span>Fecha</span>
-              <input name="fecha" type="date" defaultValue={fecha || undefined} />
-            </label>
+            <FechaField />
             <Button type="submit" size="lg">
               Buscar hoteles
             </Button>
           </form>
+          <HomeSearchSync />
           <div className={styles.stats}>
             <StatRow
               items={[
                 { label: "Estadios", value: getVenues().length },
                 { label: "Próximos shows", value: upcoming.length },
                 { label: "Ciudades", value: citiesWithVenue },
-                { label: "Radio", value: "1 · 3 · 5 km" },
+                { label: "Radio", value: "1 · 3 · 5 km", tight: true },
               ]}
             />
           </div>
@@ -190,52 +160,11 @@ async function HomeContent({
           <SectionIntro>
             Elegí el show. Hoteles ordenados a 1, 3 y 5 km, con tiempos a pie.
           </SectionIntro>
-          {events.length === 0 ? (
-            <Note>
-              {nothing
-                ? "No hay eventos ni estadios con esa búsqueda."
-                : "No hay shows para esa búsqueda."}
-            </Note>
-          ) : (
-            <RowList label="Próximos eventos">
-              {events.map((event) => {
-                const venue = event.venueSlug ? getVenue(event.venueSlug) : null;
-                const city = getCity(event.citySlug);
-                return (
-                  <EventRow
-                    key={event.slug}
-                    href={`/evento/${event.slug}`}
-                    date={event.date}
-                    approximate={!event.dateExact}
-                    title={event.artist}
-                    subtitle={venue?.name ?? "Recinto a confirmar"}
-                    place={venue?.neighborhood ?? city?.name}
-                    extra={
-                      venue ? `${venue.hotelsWithin3km} hoteles a 3 km` : undefined
-                    }
-                  />
-                );
-              })}
-            </RowList>
-          )}
+          <HomeEventList events={events} venues={venues} />
         </div>
       </section>
 
-      <section id="estadios" aria-labelledby="titulo-estadios">
-        <SectionBand
-          index="02"
-          title="Estadios y recintos"
-          titleId="titulo-estadios"
-          meta={`${venues.length} recintos`}
-        />
-        <div className={`container ${styles.block}`}>
-          {venues.length === 0 ? (
-            <Note>No hay estadios con esa búsqueda.</Note>
-          ) : (
-            <VenueCells venues={venues} />
-          )}
-        </div>
-      </section>
+      <HomeVenueSection venues={venues} />
 
       <section id="como-funciona" aria-labelledby="titulo-como">
         <SectionBand index="03" title="Cómo funciona" titleId="titulo-como" />

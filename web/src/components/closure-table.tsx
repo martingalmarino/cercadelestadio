@@ -21,9 +21,15 @@ export function ClosureTable({
         <tbody>
           {rows.map((row) => (
             <tr key={`${row.from}-${row.detail}`}>
-              <td className={styles.when}>{row.from}</td>
-              <td>{row.detail}</td>
-              <td>{row.type}</td>
+              <td className={styles.when} data-label={timeLabel}>
+                {row.from}
+              </td>
+              <td className={styles.detail} data-label="Corte">
+                {row.detail}
+              </td>
+              <td className={styles.kind} data-label="Tipo">
+                {row.type}
+              </td>
             </tr>
           ))}
         </tbody>

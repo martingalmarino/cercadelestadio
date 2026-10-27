@@ -1,0 +1,30 @@
+.page {
+  padding-top: var(--s-7);
+  padding-bottom: var(--s-8);
+}
+
+.page h1 {
+  margin-bottom: var(--s-4);
+  font-size: var(--fs-xl);
+}
+
+.page p,
+.page li {
+  max-width: 62ch;
+  color: var(--text-muted);
+}
+
+.page ul {
+  margin-top: var(--s-4);
+  padding-left: 1.2em;
+}
+
+.page li + li {
+  margin-top: var(--s-2);
+}
+
+.page a {
+  color: var(--text);
+  border-bottom: var(--bw-strong) solid var(--accent);
+  text-decoration: none;
+}

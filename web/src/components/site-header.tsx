@@ -8,7 +8,7 @@ export function SiteHeader() {
       <div className={styles.bar}>
         <Link className={styles.logo} href="/">
           <span>CDE</span>
-          cercadelestadio
+          <span className={styles.wordmark}>cercadelestadio</span>
         </Link>
         <HeaderNav />
       </div>
