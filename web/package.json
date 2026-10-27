@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "shots": "tsx scripts/shots.ts",
-    "test:a11y": "playwright test"
+    "test:a11y": "playwright test",
+    "outlines": "node scripts/fetch-venue-outlines.mjs"
   },
   "dependencies": {
     "next": "16.4.3",
@@ -24,6 +25,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.4.3",
+    "osmtogeojson": "^3.0.0-beta.5",
     "playwright": "^1.64.1",
     "tsx": "^4.23.15",
     "typescript": "^5"
