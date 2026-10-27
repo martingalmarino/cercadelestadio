@@ -142,7 +142,7 @@ export default async function Home() {
                 { label: "Estadios", value: getVenues().length },
                 { label: "Próximos shows", value: upcoming.length },
                 { label: "Ciudades", value: citiesWithVenue },
-                { label: "Radio", value: "1 · 3 · 5 km", tight: true },
+                { label: "Radio", value: "1 · 3 · 5 km" },
               ]}
             />
           </div>
