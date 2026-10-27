@@ -64,10 +64,17 @@ export type Hotel = {
   walkMinutes: number;
   driveMinutes: number;
   distanceKm: number;
-  pricePerNight: number;
-  example: boolean;
-  lat?: number;
-  lng?: number;
+  pricePerNight: number | null;
+  source: "osm";
+  osm: { type: "node" | "way" | "relation"; id: number };
+  lat: number;
+  lng: number;
+  kind: "hotel" | "hostel" | "apartment" | "guest_house";
+  stars: number | null;
+  address: string | null;
+  website: string | null;
+  city: string | null;
+  verified?: boolean;
 };
 
 export type VenueOutline = {

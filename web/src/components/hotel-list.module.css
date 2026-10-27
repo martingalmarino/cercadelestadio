@@ -15,7 +15,7 @@
 
 .table tr {
   display: grid;
-  grid-template-columns: 48px minmax(0, 2.2fr) minmax(0, 1fr) 96px minmax(0, 1fr) minmax(0, 1fr) 132px auto;
+  grid-template-columns: 48px minmax(0, 2.2fr) minmax(0, 1fr) 96px minmax(0, 1fr) minmax(0, 1fr) minmax(168px, 1.2fr) auto;
   gap: var(--s-4);
   align-items: center;
   padding: var(--s-4) var(--s-5);
@@ -61,6 +61,16 @@
   font-variant-numeric: tabular-nums;
 }
 
+.price {
+  font-weight: var(--fw-bold);
+  font-variant-numeric: tabular-nums;
+}
+
+.price a {
+  white-space: normal;
+  text-align: center;
+}
+
 .index {
   font-weight: var(--fw-bold);
   font-variant-numeric: tabular-nums;
@@ -68,7 +78,7 @@
 
 @media (max-width: 1023px) {
   .table tr {
-    grid-template-columns: 40px minmax(0, 2fr) minmax(0, 1fr) 88px minmax(0, 1fr) minmax(0, 1fr) 110px auto;
+    grid-template-columns: 40px minmax(0, 2fr) minmax(0, 1fr) 88px minmax(0, 1fr) minmax(0, 1fr) minmax(148px, 1.1fr) auto;
     gap: var(--s-3);
     padding: var(--s-4);
   }
@@ -92,7 +102,8 @@
     grid-template-areas:
       "index hotel distance"
       "index area walk"
-      "index price drive"
+      "index drive drive"
+      "index price price"
       "index action action";
     align-items: start;
     padding: 14px var(--s-3);
@@ -123,12 +134,14 @@
 
   .table td:nth-child(6) {
     grid-area: drive;
-    text-align: right;
   }
 
-  .table td:nth-child(7) {
+  .price {
     grid-area: price;
-    text-align: right;
+  }
+
+  .price a {
+    width: 100%;
   }
 
   .action {

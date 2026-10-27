@@ -14,7 +14,7 @@ export function SiteFooter() {
           <h2>cercadelestadio</h2>
           <p>
             Guía de alojamiento cerca de estadios y recintos de Argentina.
-            Hoteles, precios y horarios de esta guía son de ejemplo.
+            Horarios y cortes de calle son orientativos.
           </p>
           <p>
             <Link href="/como-funciona">Cómo funciona</Link>
@@ -45,8 +45,14 @@ export function SiteFooter() {
         </p>
         <p className={styles.disclosure}>
           Algunos enlaces son de afiliado. Si reservás a través de ellos
-          podemos recibir una comisión, sin costo extra para vos. Hoteles,
-          precios y horarios de esta guía son de ejemplo.
+          podemos recibir una comisión, sin costo extra para vos. Horarios y
+          cortes de calle son orientativos.
+        </p>
+        <p className={styles.attribution}>
+          Datos de hoteles y mapas ©{" "}
+          <a href="https://www.openstreetmap.org/copyright">
+            colaboradores de OpenStreetMap (ODbL)
+          </a>
         </p>
       </div>
     </footer>

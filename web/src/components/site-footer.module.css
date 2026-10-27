@@ -58,16 +58,25 @@
 }
 
 .legal,
-.disclosure {
+.disclosure,
+.attribution {
   grid-column: 1 / -1;
   margin: 0;
   padding-top: var(--s-4);
   border-top: var(--bw) solid var(--border-inverse);
 }
 
-.disclosure {
+.disclosure,
+.attribution {
   border-top: 0;
   padding-top: 0;
+}
+
+.attribution a {
+  display: inline;
+  width: auto;
+  min-height: 0;
+  text-decoration: underline;
 }
 
 @media (max-width: 767px) {

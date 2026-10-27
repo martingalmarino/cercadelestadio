@@ -11,7 +11,7 @@
     "citySlug": "buenos-aires",
     "neighborhood": "Núñez",
     "capacity": 84567,
-    "hotelsWithin3km": 42,
+    "hotelsWithin3km": 15,
     "accessLabel": "Subte más cercano",
     "accessValue": "Línea D",
     "neighborhoods": [
@@ -128,7 +128,7 @@
     "faq": [
       {
         "question": "¿Qué hoteles hay cerca del Estadio Monumental?",
-        "answer": "A 3 km del Estadio Monumental hay 42 hoteles. El más cercano de esta guía está a 0,8 km, unos 10 minutos a pie, en Núñez."
+        "answer": "A 3 km del Estadio Monumental hay 15 hoteles. El más cercano de esta guía está a 1,4 km, unos 18 minutos a pie, en Belgrano."
       },
       {
         "question": "¿Cómo llegar al Estadio Monumental en subte o colectivo?",
@@ -167,7 +167,7 @@
     "citySlug": "buenos-aires",
     "neighborhood": "Villa Crespo",
     "capacity": 15000,
-    "hotelsWithin3km": 68,
+    "hotelsWithin3km": 15,
     "accessLabel": "Subte más cercano",
     "accessValue": "Línea B",
     "neighborhoods": [
@@ -239,7 +239,7 @@
     "faq": [
       {
         "question": "¿Qué hoteles hay cerca del Movistar Arena?",
-        "answer": "A 3 km del Movistar Arena hay 68 hoteles. El más cercano de esta guía está a 0,6 km, unos 8 minutos a pie, en Villa Crespo."
+        "answer": "A 3 km del Movistar Arena hay 15 hoteles. El más cercano de esta guía está a 0,5 km, unos 6 minutos a pie, en Villa Crespo."
       },
       {
         "question": "¿Cómo llegar al Movistar Arena en subte o colectivo?",
@@ -278,7 +278,7 @@
     "citySlug": "buenos-aires",
     "neighborhood": "Liniers",
     "capacity": 49540,
-    "hotelsWithin3km": 14,
+    "hotelsWithin3km": 7,
     "accessLabel": "Tren más cercano",
     "accessValue": "Sarmiento",
     "neighborhoods": [
@@ -350,7 +350,7 @@
     "faq": [
       {
         "question": "¿Qué hoteles hay cerca del Estadio José Amalfitani (Vélez)?",
-        "answer": "A 3 km del Estadio José Amalfitani (Vélez) hay 14 hoteles. El más cercano de esta guía está a 0,9 km, unos 12 minutos a pie, en Liniers."
+        "answer": "A 3 km del Estadio José Amalfitani (Vélez) hay 7 hoteles. El más cercano de esta guía está a 0,6 km, unos 8 minutos a pie, en Liniers."
       },
       {
         "question": "¿Cómo llegar al Estadio José Amalfitani (Vélez) en subte o colectivo?",
@@ -389,7 +389,7 @@
     "citySlug": "buenos-aires",
     "neighborhood": "Parque Patricios",
     "capacity": 48314,
-    "hotelsWithin3km": 21,
+    "hotelsWithin3km": 13,
     "accessLabel": "Subte más cercano",
     "accessValue": "Línea H",
     "neighborhoods": [
@@ -467,7 +467,7 @@
     "faq": [
       {
         "question": "¿Qué hoteles hay cerca del Estadio Tomás A. Ducó (Huracán)?",
-        "answer": "A 3 km del Estadio Tomás A. Ducó (Huracán) hay 21 hoteles. El más cercano de esta guía está a 0,9 km, unos 11 minutos a pie, en Parque Patricios."
+        "answer": "A 3 km del Estadio Tomás A. Ducó (Huracán) hay 13 hoteles. El más cercano de esta guía está a 1,3 km, unos 17 minutos a pie, en Constitución."
       },
       {
         "question": "¿Cómo llegar al Estadio Tomás A. Ducó (Huracán) en subte o colectivo?",
@@ -506,7 +506,7 @@
     "citySlug": "cordoba",
     "neighborhood": "Chateau Carreras",
     "capacity": 57000,
-    "hotelsWithin3km": 19,
+    "hotelsWithin3km": 3,
     "accessLabel": "Cómo llegar",
     "accessValue": "Colectivo",
     "neighborhoods": [
@@ -572,7 +572,7 @@
     "faq": [
       {
         "question": "¿Qué hoteles hay cerca del Estadio Mario Alberto Kempes?",
-        "answer": "A 3 km del Estadio Mario Alberto Kempes hay 19 hoteles. El más cercano de esta guía está a 1,1 km, unos 14 minutos a pie, en Chateau Carreras."
+        "answer": "A 3 km del Estadio Mario Alberto Kempes hay 3 hoteles. El más cercano de esta guía está a 2,5 km, unos 33 minutos a pie, en Cerro Chico."
       },
       {
         "question": "¿Cómo llegar al Estadio Mario Alberto Kempes en subte o colectivo?",
@@ -611,7 +611,7 @@
     "citySlug": "la-plata",
     "neighborhood": "Zona del estadio",
     "capacity": 53000,
-    "hotelsWithin3km": 27,
+    "hotelsWithin3km": 3,
     "accessLabel": "Cómo llegar",
     "accessValue": "Colectivo",
     "neighborhoods": [
@@ -683,7 +683,7 @@
     "faq": [
       {
         "question": "¿Qué hoteles hay cerca del Estadio Único de La Plata?",
-        "answer": "A 3 km del Estadio Único de La Plata hay 27 hoteles. El más cercano de esta guía está a 0,9 km, unos 12 minutos a pie, en Zona del estadio."
+        "answer": "A 3 km del Estadio Único de La Plata hay 3 hoteles. El más cercano de esta guía está a 2,6 km, unos 35 minutos a pie, en La Plata."
       },
       {
         "question": "¿Cómo llegar al Estadio Único de La Plata en subte o colectivo?",

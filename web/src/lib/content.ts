@@ -13,9 +13,18 @@ const hotels = hotelsJson as Hotel[];
 const events = (eventsJson as ShowEvent[]).slice().sort(byDate);
 
 for (const hotel of hotels) {
-  if (hotel.example !== true) {
-    throw new Error(`El hotel ${hotel.slug} tiene que estar marcado como ejemplo.`);
+  if (hotel.source !== "osm") {
+    throw new Error(`El hotel ${hotel.slug} tiene que venir de OpenStreetMap.`);
   }
+  if (typeof hotel.lat !== "number" || typeof hotel.lng !== "number") {
+    throw new Error(`El hotel ${hotel.slug} necesita latitud y longitud numéricas.`);
+  }
+}
+
+for (const venue of venues) {
+  venue.hotelsWithin3km = hotels.filter(
+    (hotel) => hotel.venueSlug === venue.slug && hotel.distanceKm <= 3,
+  ).length;
 }
 
 const venueBySlug = new Map(venues.map((venue) => [venue.slug, venue]));
@@ -81,9 +90,11 @@ export function eventsForCity(citySlug: string) {
 }
 
 export function minNightlyPrice(venueSlug: string) {
-  const list = hotelsFor(venueSlug);
-  if (list.length === 0) return null;
-  return Math.min(...list.map((hotel) => hotel.pricePerNight));
+  const prices = hotelsFor(venueSlug)
+    .map((hotel) => hotel.pricePerNight)
+    .filter((price): price is number => price != null);
+  if (prices.length === 0) return null;
+  return Math.min(...prices);
 }
 
 export function cityDetail(citySlug: string) {

@@ -142,11 +142,15 @@ export default async function StadiumPage(props: PageProps<"/estadio/[slug]">) {
         />
         <div className="container">
           <SectionIntro>
+            Distancias en línea recta. Precios y disponibilidad en Booking.
             {city ? (
-              <Link href={`/ciudad/${city.slug}`}>Recitales y estadios en {city.name}</Link>
-            ) : (
-              "Precios de referencia, noche estándar."
-            )}
+              <>
+                {" "}
+                <Link href={`/ciudad/${city.slug}`}>
+                  Recitales y estadios en {city.name}
+                </Link>
+              </>
+            ) : null}
           </SectionIntro>
           <div className={styles.stack}>
             <VenueHotels

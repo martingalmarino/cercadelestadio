@@ -229,29 +229,37 @@ export function concertEvent(input: {
 }
 
 export function hotelItemList(name: string, hotels: Hotel[]): Node | null {
-  const real = hotels.filter((hotel) => hotel.example !== true);
-  if (real.length === 0) return null;
+  if (hotels.length === 0) return null;
   return {
     "@type": "ItemList",
     name,
-    itemListElement: real.map((hotel, index) => ({
+    itemListElement: hotels.map((hotel, index) => ({
       "@type": "ListItem",
       position: index + 1,
       item: {
-        "@type": "Hotel",
+        "@type": hotel.kind === "hostel" ? "Hostel" : "Hotel",
         name: hotel.name,
-        url: absoluteUrl(`/estadio/${hotel.venueSlug}`),
-        address: {
-          "@type": "PostalAddress",
-          addressLocality: hotel.neighborhood,
-          addressCountry: "AR",
+        geo: {
+          "@type": "GeoCoordinates",
+          latitude: hotel.lat,
+          longitude: hotel.lng,
         },
-        ...(hotel.lat != null && hotel.lng != null
+        ...(hotel.address
           ? {
-              geo: {
-                "@type": "GeoCoordinates",
-                latitude: hotel.lat,
-                longitude: hotel.lng,
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: hotel.address,
+                ...(hotel.city ? { addressLocality: hotel.city } : {}),
+                addressCountry: "AR",
+              },
+            }
+          : {}),
+        ...(hotel.website ? { url: hotel.website } : {}),
+        ...(hotel.stars != null
+          ? {
+              starRating: {
+                "@type": "Rating",
+                ratingValue: hotel.stars,
               },
             }
           : {}),

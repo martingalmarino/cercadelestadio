@@ -42,8 +42,8 @@ export default function HowItWorksPage() {
       <p>
         Medimos en línea recta desde el centro del estadio, no por el recorrido
         de la calle. El contorno del recinto sale de OpenStreetMap. En el mapa
-        se ven anillos de 1, 3 y 5 km. Los minutos a pie y en auto de cada
-        hotel son los que cargamos en la ficha, junto a esa distancia.
+        se ven anillos de 1, 3 y 5 km. Los minutos a pie y en auto son una
+        estimación en línea recta: a pie, a 4,5 km/h.
       </p>
 
       <h2>Transporte y cortes</h2>
@@ -65,8 +65,8 @@ export default function HowItWorksPage() {
       <h2>Reserva y afiliados</h2>
       <p>
         El botón de disponibilidad abre Booking. Si reservás, cobramos comisión
-        sin costo extra. Los nombres y precios de hotel de esta etapa son de
-        referencia para ordenar por distancia.
+        sin costo extra. Los nombres de hotel salen de OpenStreetMap. El precio
+        y la disponibilidad se ven en Booking.
       </p>
 
       <h2>Contacto</h2>

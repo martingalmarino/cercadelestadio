@@ -9,7 +9,8 @@
     "lint": "eslint",
     "shots": "tsx scripts/shots.ts",
     "test:a11y": "playwright test",
-    "outlines": "node scripts/fetch-venue-outlines.mjs"
+    "outlines": "node scripts/fetch-venue-outlines.mjs",
+    "hotels:fetch": "node scripts/fetch-hotels.mjs"
   },
   "dependencies": {
     "@turf/circle": "^7.4.0",

@@ -226,10 +226,9 @@ export default async function EventPage(props: PageProps<"/evento/[slug]">) {
                 label: "Hoteles a 3 km",
                 value: venue ? venue.hotelsWithin3km : "—",
               },
-              {
-                label: "Desde / noche",
-                value: minPrice === null ? "—" : formatArs(minPrice),
-              },
+              ...(minPrice == null
+                ? []
+                : [{ label: "Desde / noche", value: formatArs(minPrice) }]),
             ]}
           />
           {finished ? (
@@ -263,8 +262,7 @@ export default async function EventPage(props: PageProps<"/evento/[slug]">) {
           {hotels.length > 0 ? (
             <>
               <SectionIntro>
-                Precios de ejemplo para el{" "}
-                {eventDateLabel(event.date, event.dateExact)}
+                Distancias en línea recta. Precios y disponibilidad en Booking.
               </SectionIntro>
               <HotelList
                 hotels={hotels}
