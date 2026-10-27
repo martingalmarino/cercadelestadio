@@ -1,3 +1,5 @@
+"use client";
+
 import { ButtonLink } from "@/components/ui/button";
 import { formatArs, formatKm } from "@/lib/format";
 import type { Hotel } from "@/lib/types";
@@ -7,10 +9,14 @@ export function HotelList({
   hotels,
   subId,
   place,
+  activeSlug = null,
+  onActiveChange,
 }: {
   hotels: Hotel[];
   subId: string;
   place: string;
+  activeSlug?: string | null;
+  onActiveChange?: (slug: string) => void;
 }) {
   return (
     <div className={styles.list}>
@@ -26,10 +32,13 @@ export function HotelList({
       <div role="list">
         {hotels.map((hotel, index) => (
           <div
-            className={styles.row}
+            className={hotel.slug === activeSlug ? `${styles.row} is-active` : styles.row}
             role="listitem"
             id={`hotel-${hotel.slug}`}
             key={hotel.slug}
+            aria-current={hotel.slug === activeSlug ? "true" : undefined}
+            onMouseEnter={onActiveChange ? () => onActiveChange(hotel.slug) : undefined}
+            onFocus={onActiveChange ? () => onActiveChange(hotel.slug) : undefined}
           >
             <span className={styles.index}>{index + 1}</span>
             <span className={styles.hotel}>

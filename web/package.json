@@ -12,6 +12,9 @@
     "outlines": "node scripts/fetch-venue-outlines.mjs"
   },
   "dependencies": {
+    "@turf/circle": "^7.4.0",
+    "@turf/helpers": "^7.4.0",
+    "maplibre-gl": "^6.16.0",
     "next": "16.4.3",
     "react": "19.3.0",
     "react-dom": "19.3.0"

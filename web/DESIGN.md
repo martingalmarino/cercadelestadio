@@ -106,7 +106,7 @@ Hoteles por distancia. `hotels`, `subId`, `place`. El botón es el enlace de afi
 
 ### `VenueMap`
 
-Plano esquemático. `venueName`, `hotels`. Los anillos y los pines salen de las variables de color.
+Mapa del estadio con el contorno real, anillos de 1 / 3 / 5 km y marcadores numerados. Primero se ve el plano estático. El mapa interactivo carga al tocar «Ver mapa interactivo» o al scrollear hasta el bloque. `HotelList` puede recibir `activeSlug` y `onActiveChange` para marcar la misma fila.
 
 ### `Countdown`
 

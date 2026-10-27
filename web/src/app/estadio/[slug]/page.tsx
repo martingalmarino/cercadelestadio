@@ -3,7 +3,7 @@ import { ClosureTable } from "@/components/closure-table";
 import { EventRow } from "@/components/event-row";
 import { FaqList } from "@/components/faq-list";
 import frame from "@/components/hero-frame.module.css";
-import { HotelList } from "@/components/hotel-list";
+import { VenueHotels } from "@/components/map/venue-hotels";
 import { JsonLd } from "@/components/json-ld";
 import { PageFallback } from "@/components/page-fallback";
 import { RowList } from "@/components/row-list";
@@ -11,10 +11,10 @@ import { SectionBand } from "@/components/section-band";
 import { Note, SectionIntro } from "@/components/section-intro";
 import { StatRow } from "@/components/stat-row";
 import { Timeline } from "@/components/timeline";
-import { VenueMap } from "@/components/venue-map";
 import {
   getCity,
   getVenue,
+  getVenueOutline,
   getVenues,
   hotelsFor,
   upcomingForVenue,
@@ -121,8 +121,9 @@ async function StadiumContent({
         <div className="container">
           <SectionIntro>Precios de ejemplo, noche estándar.</SectionIntro>
           <div className={styles.stack}>
-            <VenueMap venueName={venue.name} hotels={hotels} />
-            <HotelList
+            <VenueHotels
+              venue={{ name: venue.name, lat: venue.lat, lng: venue.lng }}
+              outline={getVenueOutline(venue.slug)}
               hotels={hotels}
               subId={upcoming[0]?.slug ?? venue.slug}
               place={place}

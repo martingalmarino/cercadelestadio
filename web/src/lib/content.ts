@@ -1,9 +1,11 @@
+import { readFileSync } from "node:fs";
+import path from "node:path";
 import citiesJson from "../../content/cities.json";
 import eventsJson from "../../content/events.json";
 import hotelsJson from "../../content/hotels.json";
 import venuesJson from "../../content/venues.json";
 import { byDate, upcomingEvents } from "@/lib/events";
-import type { City, Hotel, ShowEvent, Venue } from "@/lib/types";
+import type { City, Hotel, ShowEvent, Venue, VenueOutline } from "@/lib/types";
 
 const cities = citiesJson as City[];
 const venues = venuesJson as Venue[];
@@ -42,6 +44,21 @@ export function getVenue(slug: string) {
 
 export function getEvent(slug: string) {
   return eventBySlug.get(slug) ?? null;
+}
+
+export function getVenueOutline(slug: string): VenueOutline | null {
+  if (!/^[a-z0-9-]+$/.test(slug)) return null;
+  try {
+    const file = path.join(process.cwd(), "content", "outlines", `${slug}.geojson`);
+    const parsed = JSON.parse(readFileSync(file, "utf8")) as VenueOutline;
+    const kind = parsed.geometry?.type;
+    if (parsed.type !== "Feature" || (kind !== "Polygon" && kind !== "MultiPolygon")) {
+      return null;
+    }
+    return parsed;
+  } catch {
+    return null;
+  }
 }
 
 export function hotelsFor(venueSlug: string) {

@@ -1,0 +1,147 @@
+.figure {
+  margin: 0;
+}
+
+.stage {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--c-gray-100);
+}
+
+.plot,
+.map {
+  position: absolute;
+  inset: 0;
+}
+
+.stage .map {
+  width: 100%;
+  height: 100%;
+}
+
+.plot {
+  margin: auto;
+  width: auto;
+  height: 100%;
+  aspect-ratio: 1;
+  max-width: 100%;
+}
+
+.plot svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.ring {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 1.5;
+  stroke-dasharray: 4 4;
+  vector-effect: non-scaling-stroke;
+}
+
+.ringLabel {
+  fill: var(--accent);
+  font-size: 28px;
+  font-weight: var(--fw-bold);
+}
+
+.stadium {
+  fill: var(--c-ink-900);
+  fill-opacity: 0.85;
+  stroke: var(--c-ink-900);
+}
+
+.pin {
+  display: grid;
+  width: 24px;
+  height: 24px;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  background: var(--c-ink-900);
+  color: var(--c-white);
+  font: inherit;
+  font-size: 13px;
+  font-weight: var(--fw-black);
+  line-height: 1;
+}
+
+button.pin {
+  cursor: pointer;
+}
+
+.staticPin {
+  position: absolute;
+  z-index: 1;
+  transform: translate(-50%, -50%);
+}
+
+.pinActive {
+  z-index: 3;
+  background: var(--accent);
+}
+
+.map :global(.maplibregl-ctrl-attrib),
+.map :global(.maplibregl-ctrl-attrib-button),
+.map :global(.maplibregl-ctrl-group) {
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.map :global(.maplibregl-ctrl-attrib) {
+  background: var(--surface);
+  font-family: var(--font);
+  font-size: 11px;
+}
+
+.toggle {
+  position: absolute;
+  top: var(--s-3);
+  left: var(--s-3);
+  z-index: 2;
+}
+
+.caption {
+  margin-top: var(--s-3);
+  font-size: var(--fs-label);
+  color: var(--text-muted);
+}
+
+.legend {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--s-2) var(--s-5);
+  margin: var(--s-3) 0 0;
+  padding: 0;
+  list-style: decimal inside;
+  font-variant-numeric: tabular-nums;
+}
+
+.legend a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap);
+  color: var(--text);
+  font-weight: var(--fw-semibold);
+  text-decoration: none;
+  border-bottom: var(--bw-strong) solid var(--accent);
+  padding-bottom: 1px;
+}
+
+@media (max-width: 767px) {
+  .stage {
+    aspect-ratio: 4 / 5;
+  }
+
+  .plot {
+    width: 100%;
+    height: auto;
+  }
+
+  .legend {
+    grid-template-columns: 1fr;
+  }
+}

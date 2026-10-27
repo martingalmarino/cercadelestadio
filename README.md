@@ -64,7 +64,7 @@ En `hotels.json`. Cada hotel pertenece a un estadio (`venueSlug`).
 - `slug`, `venueSlug`, `name`, `detail`, `neighborhood`
 - `walkMinutes`, `driveMinutes`, `distanceKm`, `pricePerNight`
 - `example`: tiene que ser `true`. El cargador de datos rechaza cualquier hotel que no esté marcado como ejemplo
-- Opcionales: `mapX` y `mapY` para ubicarlo en el mapa del estadio
+- Opcionales: `lat` y `lng`. En los hoteles de ejemplo son un punto calculado a partir de la distancia, no una dirección real
 
 ## Deploy en Vercel
 

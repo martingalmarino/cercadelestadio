@@ -10,8 +10,6 @@
     "distanceKm": 0.8,
     "pricePerNight": 58000,
     "example": true,
-    "mapX": 319,
-    "mapY": 219,
     "lat": -34.540665,
     "lng": -58.456431
   },
@@ -26,8 +24,6 @@
     "distanceKm": 1.2,
     "pricePerNight": 64500,
     "example": true,
-    "mapX": 239,
-    "mapY": 289,
     "lat": -34.537023,
     "lng": -58.441319
   },
@@ -42,8 +38,6 @@
     "distanceKm": 2.1,
     "pricePerNight": 71200,
     "example": true,
-    "mapX": 379,
-    "mapY": 159,
     "lat": -34.557428,
     "lng": -58.467307
   },
@@ -58,8 +52,6 @@
     "distanceKm": 2.9,
     "pricePerNight": 49900,
     "example": true,
-    "mapX": 189,
-    "mapY": 319,
     "lat": -34.567875,
     "lng": -58.433904
   },
@@ -74,8 +66,6 @@
     "distanceKm": 4,
     "pricePerNight": 82000,
     "example": true,
-    "mapX": 149,
-    "mapY": 409,
     "lat": -34.551529,
     "lng": -58.406727
   },
@@ -90,8 +80,6 @@
     "distanceKm": 4.7,
     "pricePerNight": 56400,
     "example": true,
-    "mapX": 429,
-    "mapY": 109,
     "lat": -34.50557,
     "lng": -58.467283
   },

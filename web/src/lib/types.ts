@@ -62,10 +62,14 @@ export type Hotel = {
   example: true;
   lat?: number;
   lng?: number;
-  /** @deprecated Se borra en el paso 6. Coordenada de pantalla del plano esquemático. */
-  mapX?: number;
-  /** @deprecated Se borra en el paso 6. Coordenada de pantalla del plano esquemático. */
-  mapY?: number;
+};
+
+export type VenueOutline = {
+  type: "Feature";
+  properties?: Record<string, unknown>;
+  geometry:
+    | { type: "Polygon"; coordinates: number[][][] }
+    | { type: "MultiPolygon"; coordinates: number[][][][] };
 };
 
 export type City = {
