@@ -1,0 +1,8 @@
+[
+  { "slug": "buenos-aires", "name": "Buenos Aires" },
+  { "slug": "cordoba", "name": "Córdoba" },
+  { "slug": "la-plata", "name": "La Plata" },
+  { "slug": "mendoza", "name": "Mendoza" },
+  { "slug": "rosario", "name": "Rosario" },
+  { "slug": "mar-del-plata", "name": "Mar del Plata" }
+]

@@ -1,0 +1,134 @@
+[
+  {
+    "slug": "ed-sheeran-tomas-duco",
+    "artist": "Ed Sheeran",
+    "venueSlug": "tomas-duco",
+    "citySlug": "buenos-aires",
+    "date": "2026-11-29",
+    "dateExact": true,
+    "doors": null,
+    "showTime": null,
+    "type": "Recital"
+  },
+  {
+    "slug": "mana-estadio-monumental",
+    "artist": "Maná",
+    "venueSlug": "estadio-monumental",
+    "citySlug": "buenos-aires",
+    "date": "2026-12-10",
+    "dateExact": true,
+    "doors": "18:00",
+    "showTime": "21:00",
+    "duration": "2 h 15 min",
+    "type": "Recital",
+    "plan": [
+      {
+        "label": "16:00",
+        "title": "Check-in en el hotel",
+        "detail": "Dejá todo y salí liviano: no se permiten mochilas grandes."
+      },
+      {
+        "label": "17:15",
+        "title": "Salida hacia el estadio",
+        "detail": "Colectivos 15, 29, 42, 107, 130.",
+        "segments": [
+          { "badge": { "label": "D", "tone": "D" } },
+          { "text": " hasta Congreso de Tucumán o " },
+          { "badge": { "label": "MI", "tone": "M" } },
+          { "text": " hasta Núñez. Colectivos 15, 29, 42, 107, 130." }
+        ]
+      },
+      {
+        "label": "18:00",
+        "title": "Apertura de puertas",
+        "detail": "Accesos por Av. Figueroa Alcorta y Udaondo."
+      },
+      {
+        "label": "21:00",
+        "title": "Comienza el show",
+        "detail": "Duración estimada: 2 h 15 min.",
+        "highlight": true
+      },
+      {
+        "label": "23:15",
+        "title": "Salida y vuelta",
+        "detail": "Caminá hacia Av. Cabildo o Libertador antes de pedir taxi o app. Mitre con más frecuencia que el Subte."
+      }
+    ],
+    "closures": [
+      {
+        "from": "15:00",
+        "detail": "Av. Figueroa Alcorta entre Udaondo y Monroe",
+        "type": "Total",
+        "example": true
+      },
+      {
+        "from": "16:00",
+        "detail": "Av. Lugones, sentido centro",
+        "type": "Parcial",
+        "example": true
+      },
+      {
+        "from": "23:00",
+        "detail": "Operativo de desconcentración en accesos",
+        "type": "Peatonal",
+        "example": true
+      }
+    ]
+  },
+  {
+    "slug": "karol-g-estadio-monumental",
+    "artist": "Karol G",
+    "venueSlug": "estadio-monumental",
+    "citySlug": "buenos-aires",
+    "date": "2027-02-05",
+    "dateExact": true,
+    "doors": null,
+    "showTime": null,
+    "type": "Recital"
+  },
+  {
+    "slug": "foo-fighters-estadio-monumental",
+    "artist": "Foo Fighters",
+    "venueSlug": "estadio-monumental",
+    "citySlug": "buenos-aires",
+    "date": "2027-02-25",
+    "dateExact": true,
+    "doors": null,
+    "showTime": null,
+    "type": "Recital"
+  },
+  {
+    "slug": "montaner-movistar-arena",
+    "artist": "Montaner",
+    "venueSlug": "movistar-arena",
+    "citySlug": "buenos-aires",
+    "date": "2027-03-31",
+    "dateExact": false,
+    "doors": null,
+    "showTime": null,
+    "type": "Recital"
+  },
+  {
+    "slug": "montaner-mendoza",
+    "artist": "Montaner",
+    "venueSlug": null,
+    "citySlug": "mendoza",
+    "date": "2027-03-31",
+    "dateExact": false,
+    "doors": null,
+    "showTime": null,
+    "type": "Recital"
+  },
+  {
+    "slug": "montaner-mar-del-plata",
+    "artist": "Montaner",
+    "venueSlug": null,
+    "citySlug": "mar-del-plata",
+    "date": "2027-03-31",
+    "dateExact": false,
+    "doors": null,
+    "showTime": null,
+    "type": "Recital"
+  }
+]

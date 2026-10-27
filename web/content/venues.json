@@ -1,0 +1,547 @@
+[
+  {
+    "slug": "estadio-monumental",
+    "name": "Estadio Monumental",
+    "address": "Av. Figueroa Alcorta 7597, Núñez, CABA",
+    "citySlug": "buenos-aires",
+    "neighborhood": "Núñez",
+    "capacity": 84567,
+    "hotelsWithin3km": 42,
+    "accessLabel": "Subte más cercano",
+    "accessValue": "Línea D",
+    "neighborhoods": [
+      {
+        "range": "0,5 – 1,5 km",
+        "name": "Núñez",
+        "summary": "Residencial y tranquilo. Volvés caminando después del show.",
+        "pros": "a pie, zona segura",
+        "cons": "poca oferta, poca vida nocturna"
+      },
+      {
+        "range": "1,5 – 3 km",
+        "name": "Belgrano",
+        "summary": "Comercial, bien conectado. Más oferta y precio razonable.",
+        "pros": "Subte D, restaurantes",
+        "cons": "25 – 35 min a pie"
+      },
+      {
+        "range": "3 – 5 km",
+        "name": "Palermo",
+        "summary": "Más vida y más hoteles. Ideal si sumás días de turismo.",
+        "pros": "gastronomía, oferta",
+        "cons": "necesitás transporte para volver"
+      }
+    ],
+    "transit": [
+      {
+        "label": "Estadio",
+        "title": "Estadio Monumental",
+        "detail": "Accesos por Av. Figueroa Alcorta y Udaondo",
+        "highlight": true
+      },
+      {
+        "label": "20 min",
+        "title": "Congreso de Tucumán",
+        "detail": "Subte Línea D, cabecera. 20 min a pie al estadio.",
+        "badges": [{ "label": "D", "tone": "D" }]
+      },
+      {
+        "label": "12 min",
+        "title": "Estación Núñez / Rivadavia",
+        "detail": "Tren Mitre, ramal Tigre o Mitre. 10 – 15 min a pie.",
+        "badges": [{ "label": "MI", "tone": "M" }]
+      },
+      {
+        "label": "5 min",
+        "title": "",
+        "detail": "Colectivos por Av. Libertador y Av. Cabildo.",
+        "badges": [
+          { "label": "15", "tone": "C" },
+          { "label": "29", "tone": "C" },
+          { "label": "42", "tone": "C" },
+          { "label": "107", "tone": "C" },
+          { "label": "130", "tone": "C" }
+        ]
+      }
+    ],
+    "returnAdvice": {
+      "label": "La vuelta, después del show",
+      "title": "Salida 23:00 – 00:30",
+      "text": "El Subte D suele cerrar cerca de las 23:00: confirmá horario extendido. El Mitre tiene más frecuencia. Las apps de viaje aplican tarifa dinámica; caminá 6 – 8 cuadras hacia Av. Cabildo o Libertador antes de pedir."
+    },
+    "closures": [
+      {
+        "from": "3 h antes",
+        "detail": "Av. Figueroa Alcorta entre Udaondo y Monroe",
+        "type": "Total",
+        "example": true
+      },
+      {
+        "from": "2 h antes",
+        "detail": "Av. Lugones, sentido centro",
+        "type": "Parcial",
+        "example": true
+      },
+      {
+        "from": "Salida",
+        "detail": "Operativo de seguridad en accesos, 30 – 45 min",
+        "type": "Peatonal",
+        "example": true
+      },
+      {
+        "from": "—",
+        "detail": "Llevá lo justo; no se permiten mochilas grandes. Acordá un punto de encuentro con tu grupo.",
+        "type": "Consejo",
+        "example": true
+      }
+    ],
+    "faq": [
+      {
+        "question": "¿Qué hotel queda más cerca del estadio?",
+        "answer": "En este ejemplo, Hotel Ejemplo Norte, a 0,8 km (unos 10 minutos a pie)."
+      },
+      {
+        "question": "¿Se puede volver en Subte después del show?",
+        "answer": "El Subte D suele cerrar cerca de las 23:00. Confirmá si hay horario extendido. El Mitre tiene más frecuencia a la salida."
+      },
+      {
+        "question": "¿Conviene quedarse en Palermo?",
+        "answer": "Si sumás días de turismo, sí. Para volver apenas termina el show, Núñez o Belgrano evitan el traslado."
+      },
+      {
+        "question": "¿Hay cortes de calle los días de evento?",
+        "answer": "Sí. Figueroa Alcorta y Lugones suelen cortarse horas antes. Los horarios de esta guía son de ejemplo."
+      }
+    ]
+  },
+  {
+    "slug": "movistar-arena",
+    "name": "Movistar Arena",
+    "address": "Humboldt 450, Villa Crespo, CABA",
+    "citySlug": "buenos-aires",
+    "neighborhood": "Villa Crespo",
+    "capacity": 15000,
+    "hotelsWithin3km": 68,
+    "accessLabel": "Subte más cercano",
+    "accessValue": "Línea B",
+    "neighborhoods": [
+      {
+        "range": "0,5 – 1,5 km",
+        "name": "Villa Crespo",
+        "summary": "Quedás al lado del recinto, entre Corrientes y las vías.",
+        "pros": "a pie, bares",
+        "cons": "ruido de avenida"
+      },
+      {
+        "range": "1,5 – 3 km",
+        "name": "Palermo",
+        "summary": "Más hoteles y para quedarte el fin de semana.",
+        "pros": "oferta, gastronomía",
+        "cons": "no volvés caminando"
+      },
+      {
+        "range": "3 – 5 km",
+        "name": "Caballito",
+        "summary": "Más tranquilo y suele ser más barato.",
+        "pros": "precio",
+        "cons": "necesitás Subte o remise"
+      }
+    ],
+    "transit": [
+      {
+        "label": "Arena",
+        "title": "Movistar Arena",
+        "detail": "Humboldt 450, entre Corrientes y las vías del San Martín.",
+        "highlight": true
+      },
+      {
+        "label": "Subte",
+        "title": "Línea B",
+        "detail": "Malabia y Dorrego son las estaciones más usadas para llegar.",
+        "badges": [{ "label": "B", "tone": "D" }]
+      },
+      {
+        "label": "A pie",
+        "title": "Villa Crespo",
+        "detail": "Si dormís en el barrio, el regreso es caminando."
+      }
+    ],
+    "returnAdvice": {
+      "label": "La vuelta, después del show",
+      "title": "Salida",
+      "text": "Corrientes se llena apenas termina. Caminá unas cuadras antes de pedir un auto. El Subte B confirma horario en la noche del show."
+    },
+    "closures": [
+      {
+        "from": "2 h antes",
+        "detail": "Cortes habituales sobre Humboldt y calles laterales",
+        "type": "Parcial",
+        "example": true
+      },
+      {
+        "from": "Salida",
+        "detail": "Operativo peatonal sobre Av. Corrientes",
+        "type": "Peatonal",
+        "example": true
+      }
+    ],
+    "faq": [
+      {
+        "question": "¿Se puede volver caminando?",
+        "answer": "Si dormís en Villa Crespo, sí. Desde Palermo conviene el Subte B o un auto."
+      },
+      {
+        "question": "¿Qué línea de Subte uso?",
+        "answer": "La Línea B. Malabia y Dorrego son las estaciones de referencia."
+      },
+      {
+        "question": "¿Los precios de los hoteles son reales?",
+        "answer": "No. Son ejemplos para ordenar por distancia. La disponibilidad se ve en el sitio del alojamiento."
+      }
+    ]
+  },
+  {
+    "slug": "jose-amalfitani",
+    "name": "José Amalfitani (Vélez)",
+    "address": "Av. Juan B. Justo 9200, Liniers, CABA",
+    "citySlug": "buenos-aires",
+    "neighborhood": "Liniers",
+    "capacity": 49540,
+    "hotelsWithin3km": 14,
+    "accessLabel": "Tren más cercano",
+    "accessValue": "Sarmiento",
+    "neighborhoods": [
+      {
+        "range": "0,5 – 1,5 km",
+        "name": "Liniers",
+        "summary": "Al lado del estadio y de la estación de tren.",
+        "pros": "tren, a pie",
+        "cons": "poca oferta hotelera"
+      },
+      {
+        "range": "1,5 – 3 km",
+        "name": "Villa Luro",
+        "summary": "Barrio residencial, una parada antes por el Sarmiento.",
+        "pros": "más tranquilo",
+        "cons": "hay que moverse"
+      },
+      {
+        "range": "3 – 5 km",
+        "name": "Versalles",
+        "summary": "Otra opción del oeste, con menos movimiento de show.",
+        "pros": "precio",
+        "cons": "transporte de vuelta"
+      }
+    ],
+    "transit": [
+      {
+        "label": "Estadio",
+        "title": "José Amalfitani",
+        "detail": "Av. Juan B. Justo 9200, Liniers.",
+        "highlight": true
+      },
+      {
+        "label": "Tren",
+        "title": "Estación Liniers",
+        "detail": "Tren Sarmiento. La estación queda al lado del estadio.",
+        "badges": [{ "label": "SA", "tone": "M" }]
+      },
+      {
+        "label": "A pie",
+        "title": "Liniers",
+        "detail": "Si dormís en el barrio, volvés caminando."
+      }
+    ],
+    "returnAdvice": {
+      "label": "La vuelta, después del show",
+      "title": "Salida",
+      "text": "La estación Liniers concentra a casi todo el mundo. Si podés, alejarte unas cuadras por Juan B. Justo antes de pedir un auto."
+    },
+    "closures": [
+      {
+        "from": "2 h antes",
+        "detail": "Av. Juan B. Justo en los accesos al estadio",
+        "type": "Parcial",
+        "example": true
+      },
+      {
+        "from": "Salida",
+        "detail": "Operativo peatonal entre el estadio y la estación",
+        "type": "Peatonal",
+        "example": true
+      }
+    ],
+    "faq": [
+      {
+        "question": "¿Conviene dormir en Liniers?",
+        "answer": "Sí, si encontrás lugar: volvés a pie. La oferta es chica, por eso los ejemplos incluyen Villa Luro y Versalles."
+      },
+      {
+        "question": "¿Cómo llego en tren?",
+        "answer": "Línea Sarmiento, estación Liniers. Desde Once es directo."
+      },
+      {
+        "question": "¿Los cortes están confirmados?",
+        "answer": "No. La tabla es de ejemplo para mostrar cómo se informan el día del evento."
+      }
+    ]
+  },
+  {
+    "slug": "tomas-duco",
+    "name": "Tomás A. Ducó (Huracán)",
+    "address": "Av. Amancio Alcorta 2570, Parque Patricios, CABA",
+    "citySlug": "buenos-aires",
+    "neighborhood": "Parque Patricios",
+    "capacity": 48314,
+    "hotelsWithin3km": 21,
+    "accessLabel": "Subte más cercano",
+    "accessValue": "Línea H",
+    "neighborhoods": [
+      {
+        "range": "0,5 – 1,5 km",
+        "name": "Parque Patricios",
+        "summary": "El barrio del estadio. Lo más simple para la vuelta.",
+        "pros": "a pie, Subte H",
+        "cons": "poca hotelería"
+      },
+      {
+        "range": "1,5 – 3 km",
+        "name": "Barracas",
+        "summary": "Sigue siendo sur, con un poco más de oferta.",
+        "pros": "cerca",
+        "cons": "transporte a la salida"
+      },
+      {
+        "range": "3 – 5 km",
+        "name": "Constitución",
+        "summary": "Más hoteles y combinación de tren, más movimiento.",
+        "pros": "oferta, tren Roca",
+        "cons": "no es una vuelta a pie"
+      }
+    ],
+    "transit": [
+      {
+        "label": "Estadio",
+        "title": "Tomás A. Ducó",
+        "detail": "Av. Amancio Alcorta 2570, Parque Patricios.",
+        "highlight": true
+      },
+      {
+        "label": "Subte",
+        "title": "Parque Patricios",
+        "detail": "Línea H. Desde ahí se camina hacia Amancio Alcorta.",
+        "badges": [{ "label": "H", "tone": "D" }]
+      },
+      {
+        "label": "Tren",
+        "title": "Constitución",
+        "detail": "El Roca sirve si dormís más cerca de Constitución.",
+        "badges": [{ "label": "RO", "tone": "M" }]
+      }
+    ],
+    "returnAdvice": {
+      "label": "La vuelta, después del show",
+      "title": "Salida",
+      "text": "Amancio Alcorta queda cargada. Si vas a pedir un auto, caminá hacia la estación de Subte H o hacia avenidas más anchas."
+    },
+    "closures": [
+      {
+        "from": "2 h antes",
+        "detail": "Av. Amancio Alcorta en los accesos",
+        "type": "Parcial",
+        "example": true
+      },
+      {
+        "from": "Salida",
+        "detail": "Operativo peatonal sobre las calles del estadio",
+        "type": "Peatonal",
+        "example": true
+      }
+    ],
+    "faq": [
+      {
+        "question": "¿Hay hoteles al lado del Ducó?",
+        "answer": "Pocos. En esta guía los nombres y precios son de ejemplo, ordenados por distancia."
+      },
+      {
+        "question": "¿Qué Subte me deja cerca?",
+        "answer": "La Línea H, estación Parque Patricios."
+      },
+      {
+        "question": "¿Puedo quedarme en Constitución?",
+        "answer": "Sirve si priorizás oferta y el tren. No es una vuelta caminando."
+      }
+    ]
+  },
+  {
+    "slug": "mario-kempes",
+    "name": "Mario Alberto Kempes",
+    "address": "Av. Cárcano s/n, Córdoba",
+    "citySlug": "cordoba",
+    "neighborhood": "Chateau Carreras",
+    "capacity": 57000,
+    "hotelsWithin3km": 19,
+    "accessLabel": "Cómo llegar",
+    "accessValue": "Colectivo",
+    "neighborhoods": [
+      {
+        "range": "0,5 – 2 km",
+        "name": "Chateau Carreras",
+        "summary": "La zona del estadio, al norte de la ciudad.",
+        "pros": "cerca del Kempes",
+        "cons": "poca vida de noche"
+      },
+      {
+        "range": "2 – 4 km",
+        "name": "Cerro de las Rosas",
+        "summary": "Barrio con más restaurantes, todavía en la zona norte.",
+        "pros": "servicios",
+        "cons": "no siempre se vuelve a pie"
+      },
+      {
+        "range": "4 – 5 km",
+        "name": "Nueva Córdoba",
+        "summary": "La oferta hotelera grande de Córdoba. Conviene si te quedás varios días.",
+        "pros": "hoteles, centro",
+        "cons": "viaje de ida y vuelta"
+      }
+    ],
+    "transit": [
+      {
+        "label": "Estadio",
+        "title": "Mario Alberto Kempes",
+        "detail": "Av. Cárcano, barrio Chateau Carreras.",
+        "highlight": true
+      },
+      {
+        "label": "Norte",
+        "title": "Chateau Carreras",
+        "detail": "Si dormís en el norte, el estadio te queda cerca."
+      },
+      {
+        "label": "Centro",
+        "title": "Colectivos al Kempes",
+        "detail": "Desde Nueva Córdoba y el centro se llega en colectivo o auto. No hay subte."
+      }
+    ],
+    "returnAdvice": {
+      "label": "La vuelta, después del show",
+      "title": "Salida",
+      "text": "A la salida hay poca oferta de autos y los colectivos van llenos. Si dormís en el centro, salí con tiempo o alejarte del predio antes de pedir."
+    },
+    "closures": [
+      {
+        "from": "2 h antes",
+        "detail": "Accesos de Av. Cárcano hacia el predio",
+        "type": "Parcial",
+        "example": true
+      },
+      {
+        "from": "Salida",
+        "detail": "Operativo peatonal en las salidas del estadio",
+        "type": "Peatonal",
+        "example": true
+      }
+    ],
+    "faq": [
+      {
+        "question": "¿Hay subte en Córdoba?",
+        "answer": "No. Se llega en colectivo, auto o taxi."
+      },
+      {
+        "question": "¿Dónde conviene dormir?",
+        "answer": "Cerca del estadio si solo vas al show. En Nueva Córdoba si además recorrés la ciudad."
+      },
+      {
+        "question": "¿Los hoteles de la lista existen?",
+        "answer": "No. Están marcados como ejemplo para mostrar distancia y un precio de referencia."
+      }
+    ]
+  },
+  {
+    "slug": "estadio-unico-la-plata",
+    "name": "Estadio Único Diego A. Maradona",
+    "address": "Av. 32 y 25, La Plata",
+    "citySlug": "la-plata",
+    "neighborhood": "Zona del estadio",
+    "capacity": 53000,
+    "hotelsWithin3km": 27,
+    "accessLabel": "Cómo llegar",
+    "accessValue": "Colectivo",
+    "neighborhoods": [
+      {
+        "range": "0,5 – 1,5 km",
+        "name": "Zona del estadio",
+        "summary": "El predio está al noreste de la ciudad, lejos del centro.",
+        "pros": "cerca del show",
+        "cons": "poca hotelería"
+      },
+      {
+        "range": "1,5 – 3 km",
+        "name": "Tolosa",
+        "summary": "Barrio intermedio, con tren y más movimiento.",
+        "pros": "tren Roca",
+        "cons": "no es al lado del estadio"
+      },
+      {
+        "range": "3 – 5 km",
+        "name": "Centro",
+        "summary": "Ahí está la mayoría de los hoteles de La Plata.",
+        "pros": "oferta",
+        "cons": "viaje en colectivo o auto"
+      }
+    ],
+    "transit": [
+      {
+        "label": "Estadio",
+        "title": "Estadio Único",
+        "detail": "Av. 32 y 25, al noreste de La Plata.",
+        "highlight": true
+      },
+      {
+        "label": "Tren",
+        "title": "Tolosa",
+        "detail": "El Roca deja en Tolosa. Desde ahí falta un tramo hasta el estadio.",
+        "badges": [{ "label": "RO", "tone": "M" }]
+      },
+      {
+        "label": "Centro",
+        "title": "Colectivos",
+        "detail": "Desde el centro de La Plata se llega en colectivo. No hay subte."
+      }
+    ],
+    "returnAdvice": {
+      "label": "La vuelta, después del show",
+      "title": "Salida",
+      "text": "El predio queda aislado de noche. Si dormís en el centro, coordiná la vuelta antes: colectivo, auto o una caminata hasta una avenida con más movimiento."
+    },
+    "closures": [
+      {
+        "from": "2 h antes",
+        "detail": "Accesos de Av. 32 y calles del predio",
+        "type": "Parcial",
+        "example": true
+      },
+      {
+        "from": "Salida",
+        "detail": "Operativo peatonal en las salidas",
+        "type": "Peatonal",
+        "example": true
+      }
+    ],
+    "faq": [
+      {
+        "question": "¿El estadio queda en el centro?",
+        "answer": "No. Está al noreste, en 32 y 25. El centro tiene más hoteles y queda a varios kilómetros."
+      },
+      {
+        "question": "¿Hay subte?",
+        "answer": "No. Se usa colectivo, tren hasta Tolosa o auto."
+      },
+      {
+        "question": "¿Puedo fiarme de los precios?",
+        "answer": "No. Son precios de ejemplo. Esta página ordena por distancia."
+      }
+    ]
+  }
+]
