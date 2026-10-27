@@ -36,3 +36,18 @@ La primera vez, instalá el navegador:
 ```bash
 npx playwright install chromium
 ```
+
+## Ingesta automática
+
+El workflow `.github/workflows/ingest-events.yml` corre todos los días a las 09:00 (hora de Argentina) y también se puede disparar a mano. Lee Movistar Arena y TheSportsDB, actualiza `web/content/events.json` y abre un pull request para revisar. No publica solo.
+
+Para activarlo:
+
+1. El workflow tiene que estar en la rama por defecto. GitHub solo programa el cron desde ahí, y Actions tiene que estar habilitado en el repositorio.
+2. Creá la etiqueta `ingesta` (Issues → Labels). Si no existe, el workflow no puede marcar el PR.
+3. Opcional: en Settings → Secrets and variables → Actions, agregá `THESPORTSDB_KEY`. Si no está, la ingesta usa la clave de prueba `123`.
+4. Actions → Ingesta de eventos → Run workflow, o esperá la corrida de las 09:00.
+
+Si `npm run build` falla, el workflow se detiene y no abre el PR. Si no queda ningún diff, tampoco. El reporte incluye la fecha de la corrida, así que un día sin shows nuevos igual puede actualizar ese archivo.
+
+El PR sale de la rama `bot/ingest`, con el título "Eventos: actualización automática". El cuerpo es `web/content/ingest-report.md`: fuentes, nuevos, cambiados, a revisar y sin venue. El diff incluye `events.json`, el reporte y `ingest-state.json`. Revisá artistas, fechas y recintos antes de mergear. Al mergear, Vercel vuelve a publicar el sitio.

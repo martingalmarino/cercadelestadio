@@ -1,4 +1,5 @@
-import { getCities, getEvents, getVenues } from "@/lib/content";
+import { getCities, getEvents, publishedVenues } from "@/lib/content";
+import { isExpired } from "@/lib/events";
 import { absoluteUrl } from "@/lib/site";
 import type { MetadataRoute } from "next";
 
@@ -31,18 +32,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: "weekly",
     priority: 0.7,
   }));
-  const venues: MetadataRoute.Sitemap = getVenues().map((venue) => ({
+  const venues: MetadataRoute.Sitemap = publishedVenues().map((venue) => ({
     url: absoluteUrl(`/estadio/${venue.slug}`),
     lastModified: lastModified(venue.updatedAt),
     changeFrequency: "weekly",
     priority: 0.8,
   }));
-  const events: MetadataRoute.Sitemap = getEvents().map((event) => ({
-    url: absoluteUrl(`/evento/${event.slug}`),
-    lastModified: lastModified(event.updatedAt),
-    changeFrequency: "daily",
-    priority: 0.9,
-  }));
+  const events: MetadataRoute.Sitemap = getEvents()
+    .filter((event) => !isExpired(event.date, builtAt.getTime()))
+    .map((event) => ({
+      url: absoluteUrl(`/evento/${event.slug}`),
+      lastModified: lastModified(event.updatedAt),
+      changeFrequency: "daily",
+      priority: 0.9,
+    }));
 
   return [...home, ...cities, ...venues, ...events];
 }

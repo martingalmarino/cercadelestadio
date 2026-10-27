@@ -10,6 +10,8 @@ import { VenueCells } from "@/components/venue-cells";
 import {
   getCities,
   getCity,
+  announcedForCity,
+  getVenue,
   upcomingForCity,
   venuesForCity,
 } from "@/lib/content";
@@ -55,6 +57,7 @@ export default async function CityPage(props: PageProps<"/ciudad/[slug]">) {
   const venues = venuesForCity(city.slug);
   const now = await getCachedNow();
   const upcoming = upcomingForCity(city.slug, now);
+  const announced = announcedForCity(city.slug);
   const venueBySlug = new Map(venues.map((venue) => [venue.slug, venue]));
   const hotels = venues.reduce((sum, venue) => sum + venue.hotelsWithin3km, 0);
 
@@ -160,6 +163,37 @@ export default async function CityPage(props: PageProps<"/ciudad/[slug]">) {
                   />
                 );
               })}
+            </RowList>
+          )}
+        </div>
+      </section>
+
+      <section aria-labelledby="anunciados-ciudad">
+        <SectionBand
+          index="03"
+          title="Anunciados sin fecha confirmada"
+          titleId="anunciados-ciudad"
+        />
+        <div className={`container ${styles.block}`}>
+          {announced.length === 0 ? (
+            <Note>No hay anuncios sin fecha confirmada.</Note>
+          ) : (
+            <RowList label="Anunciados sin fecha confirmada">
+              {announced.map((event) => (
+                <EventRow
+                  key={event.slug}
+                  href={`/evento/${event.slug}`}
+                  date={event.date}
+                  approximate={!event.dateExact}
+                  title={event.artist}
+                  subtitle={
+                    event.venueSlug
+                      ? (getVenue(event.venueSlug)?.name ?? "Recinto a confirmar")
+                      : "Recinto a confirmar"
+                  }
+                  actionLabel="Hoteles cerca"
+                />
+              ))}
             </RowList>
           )}
         </div>

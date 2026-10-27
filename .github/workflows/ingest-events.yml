@@ -1,0 +1,56 @@
+name: Ingesta de eventos
+
+on:
+  schedule:
+    # 12:00 UTC = 09:00 en Argentina (ART, UTC−3).
+    - cron: "0 12 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Node 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+
+      - name: Dependencias
+        working-directory: web
+        run: npm ci
+
+      - name: Chromium
+        working-directory: web
+        run: npx playwright install --with-deps chromium
+
+      - name: Ingesta
+        working-directory: web
+        env:
+          THESPORTSDB_KEY: ${{ secrets.THESPORTSDB_KEY }}
+        run: npm run ingest
+
+      - name: Build
+        working-directory: web
+        run: npm run build
+
+      - name: Abrir pull request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: bot/ingest
+          title: "Eventos: actualización automática"
+          body-path: web/content/ingest-report.md
+          labels: ingesta
+          commit-message: "Eventos: actualización automática"
+          add-paths: |
+            web/content/events.json
+            web/content/ingest-report.md
+            web/content/ingest-state.json

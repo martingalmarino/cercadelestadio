@@ -10,7 +10,9 @@
     "shots": "tsx scripts/shots.ts",
     "test:a11y": "playwright test",
     "outlines": "node scripts/fetch-venue-outlines.mjs",
-    "hotels:fetch": "node scripts/fetch-hotels.mjs"
+    "hotels:fetch": "node scripts/fetch-hotels.mjs",
+    "ingest": "tsx scripts/ingest/run.ts",
+    "test": "vitest run"
   },
   "dependencies": {
     "@turf/circle": "^7.4.0",
@@ -18,7 +20,8 @@
     "maplibre-gl": "^6.16.0",
     "next": "16.4.3",
     "react": "19.3.0",
-    "react-dom": "19.3.0"
+    "react-dom": "19.3.0",
+    "zod": "^4.6.7"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.14.0",
@@ -32,6 +35,7 @@
     "osmtogeojson": "^3.0.0-beta.5",
     "playwright": "^1.64.1",
     "tsx": "^4.23.15",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vitest": "^3.2.4"
   }
 }

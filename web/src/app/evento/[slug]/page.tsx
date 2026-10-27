@@ -24,7 +24,7 @@ import {
   hotelsFor,
   minNightlyPrice,
 } from "@/lib/content";
-import { isFinished, nextVenueEvent } from "@/lib/events";
+import { isExpired, isFinished, nextVenueEvent, upcomingAtVenue } from "@/lib/events";
 import {
   countdownTarget,
   eventDateLabel,
@@ -76,6 +76,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const event = getEvent(slug);
   if (!event) return { title: "Evento" };
+  const now = await getCachedNow();
   const venue = event.venueSlug ? getVenue(event.venueSlug) : null;
   const cityName = getCity(event.citySlug)?.name ?? "Argentina";
   const title = withBrand(eventTitle(event, venue, cityName));
@@ -86,6 +87,7 @@ export async function generateMetadata({
     description,
     alternates: { canonical: path },
     openGraph: openGraphPage(title, description, path),
+    ...(isExpired(event.date, now) ? { robots: { index: false, follow: false } } : {}),
   };
 }
 
@@ -98,7 +100,16 @@ export default async function EventPage(props: PageProps<"/evento/[slug]">) {
   const city = getCity(event.citySlug);
   const now = await getCachedNow();
   const finished = isFinished(event.date, now);
+  const statusNotice =
+    event.status === "cancelled"
+      ? "Este show fue cancelado."
+      : event.status === "rescheduled"
+        ? "Este show fue reprogramado."
+        : null;
+  const past = event.status === "past";
+  const showPastNotice = !statusNotice && !past && finished;
   const next = nextVenueEvent(getEvents(), event, now);
+  const laterAtVenue = past ? upcomingAtVenue(getEvents(), event.venueSlug, now, event.slug) : [];
   const bookingHrefs = venue ? hotelBookingLinks(hotelsFor(venue.slug), venue, event.slug) : {};
   const hotels = venue
     ? hotelsFor(venue.slug).filter((hotel) => bookingHrefs[hotel.slug])
@@ -235,7 +246,28 @@ export default async function EventPage(props: PageProps<"/evento/[slug]">) {
                 : [{ label: "Desde / noche", value: formatArs(minPrice) }]),
             ]}
           />
-          {finished ? (
+          {statusNotice ? <p className={styles.finished}>{statusNotice}</p> : null}
+          {past ? (
+            <div className={styles.finished}>
+              <p>Este evento ya pasó.</p>
+              {laterAtVenue.length > 0 ? (
+                <ul>
+                  {laterAtVenue.map((item) => (
+                    <li key={item.slug}>
+                      <TextLink href={`/evento/${item.slug}`}>{item.artist}</TextLink>
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <p>
+                  {event.venueSlug
+                    ? "No hay próximos eventos en este estadio."
+                    : "No hay próximos eventos en este lugar."}
+                </p>
+              )}
+            </div>
+          ) : null}
+          {showPastNotice ? (
             <p className={styles.finished}>
               Este show ya pasó.{" "}
               {next ? (

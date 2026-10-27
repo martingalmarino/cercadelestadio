@@ -65,6 +65,25 @@
   color: var(--text-inverse-muted);
 }
 
+.finished p {
+  margin: 0;
+}
+
+.finished p + p,
+.finished ul {
+  margin-top: var(--s-3);
+}
+
+.finished ul {
+  margin-bottom: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.finished li + li {
+  margin-top: var(--s-2);
+}
+
 .finished a {
   color: var(--accent-on-dark);
 }

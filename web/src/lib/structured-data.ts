@@ -120,7 +120,7 @@ export function stadium(venue: Venue): Node {
       latitude: venue.lat,
       longitude: venue.lng,
     },
-    maximumAttendeeCapacity: venue.capacity,
+    ...(venue.draft ? {} : { maximumAttendeeCapacity: venue.capacity }),
     url: absoluteUrl(`/estadio/${venue.slug}`),
     ...(venue.osm
       ? { hasMap: `https://www.openstreetmap.org/${venue.osm.type}/${venue.osm.id}` }
@@ -161,7 +161,7 @@ function plusMinutes(date: string, time: string, minutes: number) {
 
 function eventStatus(status: ShowEvent["status"]) {
   if (status === "cancelled") return "https://schema.org/EventCancelled";
-  if (status === "postponed") return "https://schema.org/EventPostponed";
+  if (status === "rescheduled") return "https://schema.org/EventRescheduled";
   return "https://schema.org/EventScheduled";
 }
 

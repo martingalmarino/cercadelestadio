@@ -13,7 +13,7 @@ import { SectionIntro } from "@/components/section-intro";
 import { StatRow } from "@/components/stat-row";
 import { Button } from "@/components/ui/button";
 import { ArrowLink } from "@/components/ui/text-link";
-import { getCity, getEvents, getVenue, getVenues } from "@/lib/content";
+import { getCity, getEvents, getVenue, publishedVenues } from "@/lib/content";
 import { upcomingEvents } from "@/lib/events";
 import { eventItemList, webPage } from "@/lib/structured-data";
 import { getCachedNow } from "@/lib/time";
@@ -80,14 +80,14 @@ export default async function Home() {
       ),
     };
   });
-  const venues: HomeVenueCard[] = getVenues().map((venue) => {
+  const venues: HomeVenueCard[] = publishedVenues().map((venue) => {
     const city = getCity(venue.citySlug);
     return {
       ...venue,
       haystack: fold([venue.name, venue.neighborhood, city?.name].filter(Boolean).join(" ")),
     };
   });
-  const citiesWithVenue = new Set(getVenues().map((venue) => venue.citySlug)).size;
+  const citiesWithVenue = new Set(publishedVenues().map((venue) => venue.citySlug)).size;
 
   return (
     <main>
@@ -140,7 +140,7 @@ export default async function Home() {
           <div className={styles.stats}>
             <StatRow
               items={[
-                { label: "Estadios", value: getVenues().length },
+                { label: "Estadios", value: publishedVenues().length },
                 { label: "Próximos shows", value: upcoming.length },
                 { label: "Ciudades", value: citiesWithVenue },
                 { label: "Radio", value: "1 · 3 · 5 km" },

@@ -52,6 +52,7 @@ export type Venue = {
   };
   closures: Closure[];
   faq: { question: string; answer: string }[];
+  draft?: boolean;
   updatedAt?: string;
 };
 
@@ -94,6 +95,22 @@ export type City = {
   name: string;
 };
 
+export type EventStatus =
+  | "announced"
+  | "confirmed"
+  | "rescheduled"
+  | "cancelled"
+  | "past";
+
+export type EventCategory = "recital" | "partido" | "festival";
+
+export type EventSource = {
+  name: string;
+  url: string;
+  firstSeen: string;
+  lastSeen: string;
+};
+
 export type ShowEvent = {
   slug: string;
   artist: string;
@@ -105,8 +122,11 @@ export type ShowEvent = {
   showTime: string | null;
   duration?: string;
   type: string;
+  category: EventCategory;
   performerType?: "person" | "group";
-  status?: "scheduled" | "cancelled" | "postponed";
+  status: EventStatus;
+  sources?: EventSource[];
+  externalIds?: Record<string, string>;
   ticketUrl?: string;
   plan?: TimelineStep[];
   closures?: Closure[];

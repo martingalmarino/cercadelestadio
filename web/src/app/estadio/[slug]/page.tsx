@@ -17,6 +17,7 @@ import {
   getVenueOutline,
   getVenues,
   hotelsFor,
+  announcedForVenue,
   upcomingForVenue,
 } from "@/lib/content";
 import { venueAnswer, venueFaqs } from "@/lib/answers";
@@ -63,6 +64,7 @@ export async function generateMetadata({
     description,
     alternates: { canonical: path },
     openGraph: openGraphPage(title, description, path),
+    ...(venue.draft ? { robots: { index: false, follow: false } } : {}),
   };
 }
 
@@ -74,6 +76,7 @@ export default async function StadiumPage(props: PageProps<"/estadio/[slug]">) {
   const city = getCity(venue.citySlug);
   const now = await getCachedNow();
   const upcoming = upcomingForVenue(venue.slug, now);
+  const announced = announcedForVenue(venue.slug);
   const bookingHrefs = hotelBookingLinks(
     hotelsFor(venue.slug),
     venue,
@@ -117,6 +120,9 @@ export default async function StadiumPage(props: PageProps<"/estadio/[slug]">) {
             ]}
           />
           <h1 className={frame.venueTitle}>{venueTitle(venue)}</h1>
+          {venue.draft ? (
+            <Note>Borrador. Dirección, capacidad y cómo llegar están a confirmar.</Note>
+          ) : null}
           {venue.updatedAt ? (
             <time className={frame.updated} dateTime={venue.updatedAt}>
               Actualizado el {formatFullDate(venue.updatedAt)}
@@ -126,7 +132,11 @@ export default async function StadiumPage(props: PageProps<"/estadio/[slug]">) {
           <p className={frame.lede}>{venueIntro(venue)}</p>
           <StatRow
             items={[
-              { label: "Capacidad", value: formatCount(venue.capacity) },
+              {
+                label: "Capacidad",
+                value:
+                  venue.draft && venue.capacity < 1 ? "A confirmar" : formatCount(venue.capacity),
+              },
               { label: "Barrio", value: venue.neighborhood },
               { label: "Hoteles a 3 km", value: venue.hotelsWithin3km },
               {
@@ -252,8 +262,35 @@ export default async function StadiumPage(props: PageProps<"/estadio/[slug]">) {
         </div>
       </section>
 
+      <section aria-labelledby="anunciados">
+        <SectionBand
+          index="07"
+          title="Anunciados sin fecha confirmada"
+          titleId="anunciados"
+        />
+        <div className={`container ${styles.block}`}>
+          {announced.length === 0 ? (
+            <Note>No hay anuncios sin fecha confirmada.</Note>
+          ) : (
+            <RowList label="Anunciados sin fecha confirmada">
+              {announced.map((event) => (
+                <EventRow
+                  key={event.slug}
+                  href={`/evento/${event.slug}`}
+                  date={event.date}
+                  approximate={!event.dateExact}
+                  title={event.artist}
+                  subtitle={event.type}
+                  actionLabel="Ver hoteles"
+                />
+              ))}
+            </RowList>
+          )}
+        </div>
+      </section>
+
       <section aria-labelledby="faq">
-        <SectionBand index="07" title="Preguntas frecuentes" titleId="faq" />
+        <SectionBand index="08" title="Preguntas frecuentes" titleId="faq" />
         <div className={`container ${styles.block}`}>
           <FaqList items={faqs} />
         </div>

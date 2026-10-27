@@ -1,10 +1,10 @@
-import { getCities, getVenues } from "@/lib/content";
+import { getCities, publishedVenues } from "@/lib/content";
 import { venueTitle } from "@/lib/seo";
 import Link from "next/link";
 import styles from "./site-footer.module.css";
 
 export function SiteFooter() {
-  const venues = getVenues();
+  const venues = publishedVenues();
   const cities = getCities();
 
   return (

@@ -709,5 +709,121 @@
       "id": 119937010
     },
     "updatedAt": "2026-10-27"
+  },
+  {
+    "slug": "quality-arena",
+    "name": "Quality Arena",
+    "seoName": "Quality Arena",
+    "nickname": null,
+    "address": "Av. Cruz Roja Argentina 200, Ciudad Universitaria, Córdoba",
+    "street": "Av. Cruz Roja Argentina 200",
+    "locality": "Córdoba",
+    "region": "Córdoba",
+    "citySlug": "cordoba",
+    "neighborhood": "Ciudad Universitaria",
+    "capacity": 6000,
+    "hotelsWithin3km": 0,
+    "accessLabel": "Acceso",
+    "accessValue": "transporte público, a confirmar",
+    "neighborhoods": [],
+    "transit": [
+      {
+        "label": "Borrador",
+        "title": "Acceso a confirmar",
+        "detail": "Borrador. El acceso en transporte público todavía no está relevado.",
+        "highlight": true
+      }
+    ],
+    "returnAdvice": {
+      "label": "Borrador",
+      "title": "Cómo volver, a confirmar",
+      "text": "Borrador. Falta confirmar cómo volver después del show. La capacidad de la tabla, unas 6.000 personas, también está a verificar."
+    },
+    "closures": [],
+    "faq": [],
+    "draft": true,
+    "lat": -31.4448337,
+    "lng": -64.1954798,
+    "osm": {
+      "type": "way",
+      "id": 248393806
+    },
+    "updatedAt": "2026-10-27"
+  },
+  {
+    "slug": "hipodromo-de-la-plata",
+    "name": "Hipódromo de La Plata",
+    "seoName": "Hipódromo de La Plata",
+    "nickname": null,
+    "address": "Calle 46, La Plata",
+    "street": "Calle 46",
+    "locality": "La Plata",
+    "region": "Buenos Aires",
+    "citySlug": "la-plata",
+    "neighborhood": "La Plata",
+    "capacity": 0,
+    "hotelsWithin3km": 0,
+    "accessLabel": "Acceso",
+    "accessValue": "transporte público, a confirmar",
+    "neighborhoods": [],
+    "transit": [
+      {
+        "label": "Borrador",
+        "title": "Acceso a confirmar",
+        "detail": "Borrador. El acceso en transporte público todavía no está relevado.",
+        "highlight": true
+      }
+    ],
+    "returnAdvice": {
+      "label": "Borrador",
+      "title": "Cómo volver, a confirmar",
+      "text": "Borrador. La tabla ubica el predio en Av. 44 y 115; OpenStreetMap lo marca sobre Calle 46. La capacidad de festival está a verificar."
+    },
+    "closures": [],
+    "faq": [],
+    "draft": true,
+    "lat": -34.9012673,
+    "lng": -57.9438043,
+    "osm": {
+      "type": "way",
+      "id": 287312802
+    },
+    "updatedAt": "2026-10-27"
+  },
+  {
+    "slug": "estadio-cubierto-malvinas-argentinas",
+    "name": "Estadio Cubierto Malvinas Argentinas",
+    "seoName": "Estadio Cubierto Malvinas Argentinas",
+    "nickname": null,
+    "address": "Gutenberg 350, La Paternal, CABA",
+    "street": "Gutenberg 350",
+    "locality": "La Paternal",
+    "region": "CABA",
+    "citySlug": "buenos-aires",
+    "neighborhood": "La Paternal",
+    "capacity": 8000,
+    "hotelsWithin3km": 0,
+    "accessLabel": "Acceso",
+    "accessValue": "transporte público, a confirmar",
+    "neighborhoods": [],
+    "transit": [
+      {
+        "label": "Borrador",
+        "title": "Acceso a confirmar",
+        "detail": "Borrador. El acceso en transporte público todavía no está relevado.",
+        "highlight": true
+      }
+    ],
+    "returnAdvice": {
+      "label": "Borrador",
+      "title": "Cómo volver, a confirmar",
+      "text": "Borrador. Falta confirmar cómo volver después del show. La capacidad de la tabla, unas 8.000 personas, también está a verificar."
+    },
+    "closures": [],
+    "faq": [],
+    "draft": true,
+    "lat": -34.5924963,
+    "lng": -58.471756,
+    "updatedAt": "2026-10-27"
   }
 ]

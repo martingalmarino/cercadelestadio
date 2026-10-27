@@ -4,12 +4,13 @@ import citiesJson from "../../content/cities.json";
 import eventsJson from "../../content/events.json";
 import hotelsJson from "../../content/hotels.json";
 import venuesJson from "../../content/venues.json";
-import { byDate, upcomingEvents } from "@/lib/events";
-import type { City, Hotel, ShowEvent, Venue, VenueOutline } from "@/lib/types";
+import { announcedEvents, byDate, scheduledEvents, visibleEvents } from "@/lib/events";
+import { parseEvents, parseVenues } from "@/lib/schema";
+import type { City, Hotel, VenueOutline } from "@/lib/types";
 
 const cities = citiesJson as City[];
-const venues = venuesJson as Venue[];
-const events = (eventsJson as ShowEvent[]).slice().sort(byDate);
+const venues = parseVenues(venuesJson);
+const events = parseEvents(eventsJson).slice().sort(byDate);
 
 const bookingStatuses = new Set(["ficha", "busqueda-geo", "no-en-booking"]);
 const loadedHotels = hotelsJson as Hotel[];
@@ -48,6 +49,10 @@ export function getCities() {
 
 export function getVenues() {
   return venues;
+}
+
+export function publishedVenues() {
+  return venues.filter((venue) => !venue.draft);
 }
 
 export function getEvents() {
@@ -89,15 +94,15 @@ export function hotelsFor(venueSlug: string) {
 }
 
 export function venuesForCity(citySlug: string) {
-  return venues.filter((venue) => venue.citySlug === citySlug);
+  return publishedVenues().filter((venue) => venue.citySlug === citySlug);
 }
 
 export function eventsForVenue(venueSlug: string) {
-  return events.filter((event) => event.venueSlug === venueSlug).sort(byDate);
+  return visibleEvents(events.filter((event) => event.venueSlug === venueSlug)).sort(byDate);
 }
 
 export function eventsForCity(citySlug: string) {
-  return events.filter((event) => event.citySlug === citySlug).sort(byDate);
+  return visibleEvents(events.filter((event) => event.citySlug === citySlug)).sort(byDate);
 }
 
 export function minNightlyPrice(venueSlug: string) {
@@ -117,9 +122,17 @@ export function cityDetail(citySlug: string) {
 }
 
 export function upcomingForVenue(venueSlug: string, nowMs: number) {
-  return upcomingEvents(eventsForVenue(venueSlug), nowMs);
+  return scheduledEvents(eventsForVenue(venueSlug), nowMs);
 }
 
 export function upcomingForCity(citySlug: string, nowMs: number) {
-  return upcomingEvents(eventsForCity(citySlug), nowMs);
+  return scheduledEvents(eventsForCity(citySlug), nowMs);
+}
+
+export function announcedForVenue(venueSlug: string) {
+  return announcedEvents(eventsForVenue(venueSlug));
+}
+
+export function announcedForCity(citySlug: string) {
+  return announcedEvents(eventsForCity(citySlug));
 }

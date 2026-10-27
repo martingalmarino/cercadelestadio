@@ -1,4 +1,4 @@
-import { getEvents, getVenue, getVenues } from "@/lib/content";
+import { getEvents, getVenue, publishedVenues } from "@/lib/content";
 import { upcomingEvents } from "@/lib/events";
 import { formatFullDate, monthName } from "@/lib/format";
 import { absoluteUrl } from "@/lib/site";
@@ -11,7 +11,7 @@ function eventWhen(date: string, dateExact: boolean) {
 
 export async function GET() {
   const now = await getCachedNow();
-  const venues = getVenues();
+  const venues = publishedVenues();
   const events = upcomingEvents(getEvents(), now);
   const stadiums = venues
     .map(

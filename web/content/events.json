@@ -1,5 +1,380 @@
 [
   {
+    "slug": "marc-anthony-movistar-arena",
+    "artist": "Marc Anthony",
+    "venueSlug": "movistar-arena",
+    "citySlug": "buenos-aires",
+    "date": "2026-10-28",
+    "dateExact": true,
+    "doors": null,
+    "showTime": "21:00",
+    "type": "Recital",
+    "category": "recital",
+    "status": "confirmed",
+    "updatedAt": "2026-10-27",
+    "sources": [
+      {
+        "name": "movistar-arena",
+        "url": "https://www.movistararena.com.ar/show/fbc721c0-47d7-4e68-a7f5-d7206307675a",
+        "firstSeen": "2026-10-27",
+        "lastSeen": "2026-10-27"
+      }
+    ],
+    "externalIds": {
+      "movistar-arena": "fbc721c0-47d7-4e68-a7f5-d7206307675a"
+    }
+  },
+  {
+    "slug": "andres-calamaro-movistar-arena",
+    "artist": "Andres Calamaro",
+    "venueSlug": "movistar-arena",
+    "citySlug": "buenos-aires",
+    "date": "2026-10-30",
+    "dateExact": true,
+    "doors": null,
+    "showTime": "21:00",
+    "type": "Recital",
+    "category": "recital",
+    "status": "confirmed",
+    "updatedAt": "2026-10-27",
+    "sources": [
+      {
+        "name": "movistar-arena",
+        "url": "https://www.movistararena.com.ar/show/52226495-ef0d-441b-8bfe-253eba7d7d0c",
+        "firstSeen": "2026-10-27",
+        "lastSeen": "2026-10-27"
+      }
+    ],
+    "externalIds": {
+      "movistar-arena": "52226495-ef0d-441b-8bfe-253eba7d7d0c"
+    }
+  },
+  {
+    "slug": "el-plan-de-la-mariposa-movistar-arena",
+    "artist": "EL PLAN DE LA MARIPOSA",
+    "venueSlug": "movistar-arena",
+    "citySlug": "buenos-aires",
+    "date": "2026-10-31",
+    "dateExact": true,
+    "doors": null,
+    "showTime": "21:00",
+    "type": "Recital",
+    "category": "recital",
+    "status": "confirmed",
+    "updatedAt": "2026-10-27",
+    "sources": [
+      {
+        "name": "movistar-arena",
+        "url": "https://www.movistararena.com.ar/show/e8d9be02-d7f6-4354-92cc-ba7d7413a4fd",
+        "firstSeen": "2026-10-27",
+        "lastSeen": "2026-10-27"
+      }
+    ],
+    "externalIds": {
+      "movistar-arena": "e8d9be02-d7f6-4354-92cc-ba7d7413a4fd"
+    }
+  },
+  {
+    "slug": "jesse-joy-movistar-arena",
+    "artist": "Jesse & Joy",
+    "venueSlug": "movistar-arena",
+    "citySlug": "buenos-aires",
+    "date": "2026-11-01",
+    "dateExact": true,
+    "doors": null,
+    "showTime": "21:00",
+    "type": "Recital",
+    "category": "recital",
+    "status": "confirmed",
+    "updatedAt": "2026-10-27",
+    "sources": [
+      {
+        "name": "movistar-arena",
+        "url": "https://www.movistararena.com.ar/show/3b044269-7243-4ad6-b18f-b67b57a3f127",
+        "firstSeen": "2026-10-27",
+        "lastSeen": "2026-10-27"
+      }
+    ],
+    "externalIds": {
+      "movistar-arena": "3b044269-7243-4ad6-b18f-b67b57a3f127"
+    }
+  },
+  {
+    "slug": "bersuit-movistar-arena",
+    "artist": "BERSUIT",
+    "venueSlug": "movistar-arena",
+    "citySlug": "buenos-aires",
+    "date": "2026-11-03",
+    "dateExact": true,
+    "doors": null,
+    "showTime": "21:00",
+    "type": "Recital",
+    "category": "recital",
+    "status": "confirmed",
+    "updatedAt": "2026-10-27",
+    "sources": [
+      {
+        "name": "movistar-arena",
+        "url": "https://www.movistararena.com.ar/show/b6062578-f485-4191-bc02-8fb51a8f145f",
+        "firstSeen": "2026-10-27",
+        "lastSeen": "2026-10-27"
+      }
+    ],
+    "externalIds": {
+      "movistar-arena": "b6062578-f485-4191-bc02-8fb51a8f145f"
+    }
+  },
+  {
+    "slug": "enrique-bunbury-movistar-arena",
+    "artist": "Enrique Bunbury",
+    "venueSlug": "movistar-arena",
+    "citySlug": "buenos-aires",
+    "date": "2026-11-04",
+    "dateExact": true,
+    "doors": null,
+    "showTime": "21:00",
+    "type": "Recital",
+    "category": "recital",
+    "status": "confirmed",
+    "updatedAt": "2026-10-27",
+    "sources": [
+      {
+        "name": "movistar-arena",
+        "url": "https://www.movistararena.com.ar/show/6093d43c-1880-43c4-ba33-b506a18a7e5f",
+        "firstSeen": "2026-10-27",
+        "lastSeen": "2026-10-27"
+      }
+    ],
+    "externalIds": {
+      "movistar-arena": "6093d43c-1880-43c4-ba33-b506a18a7e5f"
+    }
+  },
+  {
+    "slug": "def-leppard-movistar-arena",
+    "artist": "Def Leppard",
+    "venueSlug": "movistar-arena",
+    "citySlug": "buenos-aires",
+    "date": "2026-11-05",
+    "dateExact": true,
+    "doors": null,
+    "showTime": "21:00",
+    "type": "Recital",
+    "category": "recital",
+    "status": "confirmed",
+    "updatedAt": "2026-10-27",
+    "sources": [
+      {
+        "name": "movistar-arena",
+        "url": "https://www.movistararena.com.ar/show/dd773cd0-6082-4baa-87c7-e86a65d4a364",
+        "firstSeen": "2026-10-27",
+        "lastSeen": "2026-10-27"
+      }
+    ],
+    "externalIds": {
+      "movistar-arena": "dd773cd0-6082-4baa-87c7-e86a65d4a364"
+    }
+  },
+  {
+    "slug": "ronnie-wood-movistar-arena",
+    "artist": "Ronnie Wood",
+    "venueSlug": "movistar-arena",
+    "citySlug": "buenos-aires",
+    "date": "2026-11-06",
+    "dateExact": true,
+    "doors": null,
+    "showTime": "21:00",
+    "type": "Recital",
+    "category": "recital",
+    "status": "confirmed",
+    "updatedAt": "2026-10-27",
+    "sources": [
+      {
+        "name": "movistar-arena",
+        "url": "https://www.movistararena.com.ar/show/65aca042-f1ee-4b37-93e6-deb5fb1101af",
+        "firstSeen": "2026-10-27",
+        "lastSeen": "2026-10-27"
+      }
+    ],
+    "externalIds": {
+      "movistar-arena": "65aca042-f1ee-4b37-93e6-deb5fb1101af"
+    }
+  },
+  {
+    "slug": "fiesta-fa-movistar-arena",
+    "artist": "Fiesta ¡FA!",
+    "venueSlug": "movistar-arena",
+    "citySlug": "buenos-aires",
+    "date": "2026-11-08",
+    "dateExact": true,
+    "doors": null,
+    "showTime": "21:00",
+    "type": "Recital",
+    "category": "recital",
+    "status": "confirmed",
+    "updatedAt": "2026-10-27",
+    "sources": [
+      {
+        "name": "movistar-arena",
+        "url": "https://www.movistararena.com.ar/show/fccf6c4f-f567-44e4-9c71-fad5fc93baa0",
+        "firstSeen": "2026-10-27",
+        "lastSeen": "2026-10-27"
+      }
+    ],
+    "externalIds": {
+      "movistar-arena": "fccf6c4f-f567-44e4-9c71-fad5fc93baa0"
+    }
+  },
+  {
+    "slug": "maria-becerra-movistar-arena",
+    "artist": "María Becerra",
+    "venueSlug": "movistar-arena",
+    "citySlug": "buenos-aires",
+    "date": "2026-11-13",
+    "dateExact": true,
+    "doors": null,
+    "showTime": "21:00",
+    "type": "Recital",
+    "category": "recital",
+    "status": "confirmed",
+    "updatedAt": "2026-10-27",
+    "sources": [
+      {
+        "name": "movistar-arena",
+        "url": "https://www.movistararena.com.ar/show/993a2d46-39d7-4455-b199-87a5a2dc9b83",
+        "firstSeen": "2026-10-27",
+        "lastSeen": "2026-10-27"
+      }
+    ],
+    "externalIds": {
+      "movistar-arena": "993a2d46-39d7-4455-b199-87a5a2dc9b83"
+    }
+  },
+  {
+    "slug": "las-pastillas-del-abuelo-movistar-arena",
+    "artist": "LAS PASTILLAS DEL ABUELO",
+    "venueSlug": "movistar-arena",
+    "citySlug": "buenos-aires",
+    "date": "2026-11-20",
+    "dateExact": true,
+    "doors": null,
+    "showTime": "21:00",
+    "type": "Recital",
+    "category": "recital",
+    "status": "confirmed",
+    "updatedAt": "2026-10-27",
+    "sources": [
+      {
+        "name": "movistar-arena",
+        "url": "https://www.movistararena.com.ar/show/0b8cc73b-3690-45fd-abf5-e5bb578aa8f1",
+        "firstSeen": "2026-10-27",
+        "lastSeen": "2026-10-27"
+      }
+    ],
+    "externalIds": {
+      "movistar-arena": "0b8cc73b-3690-45fd-abf5-e5bb578aa8f1"
+    }
+  },
+  {
+    "slug": "seru-giran-por-lebon-y-aznar-movistar-arena",
+    "artist": "SERU GIRAN POR LEBÓN Y AZNAR",
+    "venueSlug": "movistar-arena",
+    "citySlug": "buenos-aires",
+    "date": "2026-11-22",
+    "dateExact": true,
+    "doors": null,
+    "showTime": null,
+    "type": "Recital",
+    "category": "recital",
+    "status": "confirmed",
+    "updatedAt": "2026-10-27",
+    "sources": [
+      {
+        "name": "movistar-arena",
+        "url": "https://www.movistararena.com.ar/show/b2661cf1-3b4b-4100-aabb-59a73e7d315f",
+        "firstSeen": "2026-10-27",
+        "lastSeen": "2026-10-27"
+      }
+    ],
+    "externalIds": {
+      "movistar-arena": "b2661cf1-3b4b-4100-aabb-59a73e7d315f"
+    }
+  },
+  {
+    "slug": "zz-top-movistar-arena",
+    "artist": "ZZ TOP",
+    "venueSlug": "movistar-arena",
+    "citySlug": "buenos-aires",
+    "date": "2026-11-24",
+    "dateExact": true,
+    "doors": null,
+    "showTime": "21:00",
+    "type": "Recital",
+    "category": "recital",
+    "status": "confirmed",
+    "updatedAt": "2026-10-27",
+    "sources": [
+      {
+        "name": "movistar-arena",
+        "url": "https://www.movistararena.com.ar/show/9f0c55b0-3446-4ba6-a45e-5c52bdcf217b",
+        "firstSeen": "2026-10-27",
+        "lastSeen": "2026-10-27"
+      }
+    ],
+    "externalIds": {
+      "movistar-arena": "9f0c55b0-3446-4ba6-a45e-5c52bdcf217b"
+    }
+  },
+  {
+    "slug": "ulises-bueno-movistar-arena",
+    "artist": "ULISES BUENO",
+    "venueSlug": "movistar-arena",
+    "citySlug": "buenos-aires",
+    "date": "2026-11-25",
+    "dateExact": true,
+    "doors": null,
+    "showTime": "21:00",
+    "type": "Recital",
+    "category": "recital",
+    "status": "confirmed",
+    "updatedAt": "2026-10-27",
+    "sources": [
+      {
+        "name": "movistar-arena",
+        "url": "https://www.movistararena.com.ar/show/73c90fde-8571-4071-973d-518f5e9e7784",
+        "firstSeen": "2026-10-27",
+        "lastSeen": "2026-10-27"
+      }
+    ],
+    "externalIds": {
+      "movistar-arena": "73c90fde-8571-4071-973d-518f5e9e7784"
+    }
+  },
+  {
+    "slug": "paulo-londra-movistar-arena",
+    "artist": "Paulo Londra",
+    "venueSlug": "movistar-arena",
+    "citySlug": "buenos-aires",
+    "date": "2026-11-28",
+    "dateExact": true,
+    "doors": null,
+    "showTime": "21:00",
+    "type": "Recital",
+    "category": "recital",
+    "status": "confirmed",
+    "updatedAt": "2026-10-27",
+    "sources": [
+      {
+        "name": "movistar-arena",
+        "url": "https://www.movistararena.com.ar/show/638f2f90-0fe7-4db8-9d9d-79595bb349e4",
+        "firstSeen": "2026-10-27",
+        "lastSeen": "2026-10-27"
+      }
+    ],
+    "externalIds": {
+      "movistar-arena": "638f2f90-0fe7-4db8-9d9d-79595bb349e4"
+    }
+  },
+  {
     "slug": "ed-sheeran-tomas-duco",
     "artist": "Ed Sheeran",
     "venueSlug": "tomas-duco",
@@ -9,8 +384,210 @@
     "doors": null,
     "showTime": null,
     "type": "Recital",
+    "category": "recital",
+    "status": "confirmed",
     "performerType": "person",
     "updatedAt": "2026-10-27"
+  },
+  {
+    "slug": "power-up-orchestra-movistar-arena",
+    "artist": "Power Up Orchestra",
+    "venueSlug": "movistar-arena",
+    "citySlug": "buenos-aires",
+    "date": "2026-11-29",
+    "dateExact": true,
+    "doors": null,
+    "showTime": "21:00",
+    "type": "Recital",
+    "category": "recital",
+    "status": "confirmed",
+    "updatedAt": "2026-10-27",
+    "sources": [
+      {
+        "name": "movistar-arena",
+        "url": "https://www.movistararena.com.ar/show/ac204834-5e6a-4bc5-8184-38d0703b827b",
+        "firstSeen": "2026-10-27",
+        "lastSeen": "2026-10-27"
+      }
+    ],
+    "externalIds": {
+      "movistar-arena": "ac204834-5e6a-4bc5-8184-38d0703b827b"
+    }
+  },
+  {
+    "slug": "omar-courtz-movistar-arena",
+    "artist": "Omar Courtz",
+    "venueSlug": "movistar-arena",
+    "citySlug": "buenos-aires",
+    "date": "2026-11-30",
+    "dateExact": true,
+    "doors": null,
+    "showTime": "21:00",
+    "type": "Recital",
+    "category": "recital",
+    "status": "confirmed",
+    "updatedAt": "2026-10-27",
+    "sources": [
+      {
+        "name": "movistar-arena",
+        "url": "https://www.movistararena.com.ar/show/949f1877-625b-479f-893a-1ae09da0f00f",
+        "firstSeen": "2026-10-27",
+        "lastSeen": "2026-10-27"
+      }
+    ],
+    "externalIds": {
+      "movistar-arena": "949f1877-625b-479f-893a-1ae09da0f00f"
+    }
+  },
+  {
+    "slug": "babymetal-movistar-arena",
+    "artist": "BABYMETAL",
+    "venueSlug": "movistar-arena",
+    "citySlug": "buenos-aires",
+    "date": "2026-12-01",
+    "dateExact": true,
+    "doors": null,
+    "showTime": "21:00",
+    "type": "Recital",
+    "category": "recital",
+    "status": "confirmed",
+    "updatedAt": "2026-10-27",
+    "sources": [
+      {
+        "name": "movistar-arena",
+        "url": "https://www.movistararena.com.ar/show/28e5ef16-c201-4de7-97cb-cda401c661a3",
+        "firstSeen": "2026-10-27",
+        "lastSeen": "2026-10-27"
+      }
+    ],
+    "externalIds": {
+      "movistar-arena": "28e5ef16-c201-4de7-97cb-cda401c661a3"
+    }
+  },
+  {
+    "slug": "rata-blanca-movistar-arena",
+    "artist": "RATA BLANCA",
+    "venueSlug": "movistar-arena",
+    "citySlug": "buenos-aires",
+    "date": "2026-12-05",
+    "dateExact": true,
+    "doors": null,
+    "showTime": "21:00",
+    "type": "Recital",
+    "category": "recital",
+    "status": "confirmed",
+    "updatedAt": "2026-10-27",
+    "sources": [
+      {
+        "name": "movistar-arena",
+        "url": "https://www.movistararena.com.ar/show/4c068796-cba5-4014-a1f4-45232800782c",
+        "firstSeen": "2026-10-27",
+        "lastSeen": "2026-10-27"
+      }
+    ],
+    "externalIds": {
+      "movistar-arena": "4c068796-cba5-4014-a1f4-45232800782c"
+    }
+  },
+  {
+    "slug": "diego-torres-movistar-arena",
+    "artist": "Diego Torres",
+    "venueSlug": "movistar-arena",
+    "citySlug": "buenos-aires",
+    "date": "2026-12-06",
+    "dateExact": true,
+    "doors": null,
+    "showTime": "21:00",
+    "type": "Recital",
+    "category": "recital",
+    "status": "confirmed",
+    "updatedAt": "2026-10-27",
+    "sources": [
+      {
+        "name": "movistar-arena",
+        "url": "https://www.movistararena.com.ar/show/877f7a7a-5168-4eca-b226-9c0e1d7a9dbb",
+        "firstSeen": "2026-10-27",
+        "lastSeen": "2026-10-27"
+      }
+    ],
+    "externalIds": {
+      "movistar-arena": "877f7a7a-5168-4eca-b226-9c0e1d7a9dbb"
+    }
+  },
+  {
+    "slug": "desakta2-movistar-arena",
+    "artist": "DESAKTA2",
+    "venueSlug": "movistar-arena",
+    "citySlug": "buenos-aires",
+    "date": "2026-12-07",
+    "dateExact": true,
+    "doors": null,
+    "showTime": null,
+    "type": "Recital",
+    "category": "recital",
+    "status": "confirmed",
+    "updatedAt": "2026-10-27",
+    "sources": [
+      {
+        "name": "movistar-arena",
+        "url": "https://www.movistararena.com.ar/show/0a2c5d52-9784-4d3e-8a14-90e51ab02728",
+        "firstSeen": "2026-10-27",
+        "lastSeen": "2026-10-27"
+      }
+    ],
+    "externalIds": {
+      "movistar-arena": "0a2c5d52-9784-4d3e-8a14-90e51ab02728"
+    }
+  },
+  {
+    "slug": "angela-torres-movistar-arena",
+    "artist": "Angela Torres",
+    "venueSlug": "movistar-arena",
+    "citySlug": "buenos-aires",
+    "date": "2026-12-08",
+    "dateExact": true,
+    "doors": null,
+    "showTime": "21:00",
+    "type": "Recital",
+    "category": "recital",
+    "status": "confirmed",
+    "updatedAt": "2026-10-27",
+    "sources": [
+      {
+        "name": "movistar-arena",
+        "url": "https://www.movistararena.com.ar/show/b944238d-05f6-4bc2-8a43-0f4ca5fbbc2e",
+        "firstSeen": "2026-10-27",
+        "lastSeen": "2026-10-27"
+      }
+    ],
+    "externalIds": {
+      "movistar-arena": "b944238d-05f6-4bc2-8a43-0f4ca5fbbc2e"
+    }
+  },
+  {
+    "slug": "deep-purple-movistar-arena",
+    "artist": "Deep Purple",
+    "venueSlug": "movistar-arena",
+    "citySlug": "buenos-aires",
+    "date": "2026-12-10",
+    "dateExact": true,
+    "doors": null,
+    "showTime": "21:00",
+    "type": "Recital",
+    "category": "recital",
+    "status": "confirmed",
+    "updatedAt": "2026-10-27",
+    "sources": [
+      {
+        "name": "movistar-arena",
+        "url": "https://www.movistararena.com.ar/show/0d5bc217-094c-4880-9aa0-0adeee416837",
+        "firstSeen": "2026-10-27",
+        "lastSeen": "2026-10-27"
+      }
+    ],
+    "externalIds": {
+      "movistar-arena": "0d5bc217-094c-4880-9aa0-0adeee416837"
+    }
   },
   {
     "slug": "mana-estadio-monumental",
@@ -23,6 +600,8 @@
     "showTime": "21:00",
     "duration": "2 h 15 min",
     "type": "Recital",
+    "category": "recital",
+    "status": "confirmed",
     "performerType": "group",
     "plan": [
       {
@@ -95,6 +674,181 @@
     "updatedAt": "2026-10-27"
   },
   {
+    "slug": "gabriel-rolon-movistar-arena",
+    "artist": "GABRIEL ROLÓN",
+    "venueSlug": "movistar-arena",
+    "citySlug": "buenos-aires",
+    "date": "2026-12-11",
+    "dateExact": true,
+    "doors": null,
+    "showTime": "21:00",
+    "type": "Recital",
+    "category": "recital",
+    "status": "confirmed",
+    "updatedAt": "2026-10-27",
+    "sources": [
+      {
+        "name": "movistar-arena",
+        "url": "https://www.movistararena.com.ar/show/a2156fbf-be3e-4134-9547-1602faf1b9e9",
+        "firstSeen": "2026-10-27",
+        "lastSeen": "2026-10-27"
+      }
+    ],
+    "externalIds": {
+      "movistar-arena": "a2156fbf-be3e-4134-9547-1602faf1b9e9"
+    }
+  },
+  {
+    "slug": "alejo-igoa-movistar-arena",
+    "artist": "Alejo Igoa",
+    "venueSlug": "movistar-arena",
+    "citySlug": "buenos-aires",
+    "date": "2026-12-12",
+    "dateExact": true,
+    "doors": null,
+    "showTime": "16:00",
+    "type": "Recital",
+    "category": "recital",
+    "status": "confirmed",
+    "updatedAt": "2026-10-27",
+    "sources": [
+      {
+        "name": "movistar-arena",
+        "url": "https://www.movistararena.com.ar/show/5ced2568-3ac8-45a8-b3e0-0579ee8630d7",
+        "firstSeen": "2026-10-27",
+        "lastSeen": "2026-10-27"
+      }
+    ],
+    "externalIds": {
+      "movistar-arena": "5ced2568-3ac8-45a8-b3e0-0579ee8630d7"
+    }
+  },
+  {
+    "slug": "slayer-movistar-arena",
+    "artist": "Slayer",
+    "venueSlug": "movistar-arena",
+    "citySlug": "buenos-aires",
+    "date": "2026-12-14",
+    "dateExact": true,
+    "doors": null,
+    "showTime": "21:00",
+    "type": "Recital",
+    "category": "recital",
+    "status": "confirmed",
+    "updatedAt": "2026-10-27",
+    "sources": [
+      {
+        "name": "movistar-arena",
+        "url": "https://www.movistararena.com.ar/show/bed6943f-6662-4aa2-a507-781a8d6a643c",
+        "firstSeen": "2026-10-27",
+        "lastSeen": "2026-10-27"
+      }
+    ],
+    "externalIds": {
+      "movistar-arena": "bed6943f-6662-4aa2-a507-781a8d6a643c"
+    }
+  },
+  {
+    "slug": "k4os-movistar-arena",
+    "artist": "K4OS",
+    "venueSlug": "movistar-arena",
+    "citySlug": "buenos-aires",
+    "date": "2026-12-15",
+    "dateExact": true,
+    "doors": null,
+    "showTime": "21:00",
+    "type": "Recital",
+    "category": "recital",
+    "status": "confirmed",
+    "updatedAt": "2026-10-27",
+    "sources": [
+      {
+        "name": "movistar-arena",
+        "url": "https://www.movistararena.com.ar/show/48a4362e-0a04-4d67-a19b-d6298f7dd79c",
+        "firstSeen": "2026-10-27",
+        "lastSeen": "2026-10-27"
+      }
+    ],
+    "externalIds": {
+      "movistar-arena": "48a4362e-0a04-4d67-a19b-d6298f7dd79c"
+    }
+  },
+  {
+    "slug": "disney-movistar-arena",
+    "artist": "DISNEY",
+    "venueSlug": "movistar-arena",
+    "citySlug": "buenos-aires",
+    "date": "2026-12-22",
+    "dateExact": true,
+    "doors": null,
+    "showTime": "15:00",
+    "type": "Recital",
+    "category": "recital",
+    "status": "confirmed",
+    "updatedAt": "2026-10-27",
+    "sources": [
+      {
+        "name": "movistar-arena",
+        "url": "https://www.movistararena.com.ar/show/1a6f8aec-ffcc-45f6-bed1-7558e02ca206",
+        "firstSeen": "2026-10-27",
+        "lastSeen": "2026-10-27"
+      }
+    ],
+    "externalIds": {
+      "movistar-arena": "1a6f8aec-ffcc-45f6-bed1-7558e02ca206"
+    }
+  },
+  {
+    "slug": "rush-movistar-arena",
+    "artist": "Rush",
+    "venueSlug": "movistar-arena",
+    "citySlug": "buenos-aires",
+    "date": "2027-01-15",
+    "dateExact": true,
+    "doors": null,
+    "showTime": "21:00",
+    "type": "Recital",
+    "category": "recital",
+    "status": "confirmed",
+    "updatedAt": "2026-10-27",
+    "sources": [
+      {
+        "name": "movistar-arena",
+        "url": "https://www.movistararena.com.ar/show/ca784f55-cd9c-43d0-9c2d-6009849007bf",
+        "firstSeen": "2026-10-27",
+        "lastSeen": "2026-10-27"
+      }
+    ],
+    "externalIds": {
+      "movistar-arena": "ca784f55-cd9c-43d0-9c2d-6009849007bf"
+    }
+  },
+  {
+    "slug": "jack-johnson-movistar-arena",
+    "artist": "Jack Johnson",
+    "venueSlug": "movistar-arena",
+    "citySlug": "buenos-aires",
+    "date": "2027-02-05",
+    "dateExact": true,
+    "doors": null,
+    "showTime": "21:00",
+    "type": "Recital",
+    "category": "recital",
+    "status": "confirmed",
+    "updatedAt": "2026-10-27",
+    "sources": [
+      {
+        "name": "movistar-arena",
+        "url": "https://www.movistararena.com.ar/show/d0c8868f-c75a-42e4-8dcc-8e7b0f64d519",
+        "firstSeen": "2026-10-27",
+        "lastSeen": "2026-10-27"
+      }
+    ],
+    "externalIds": {
+      "movistar-arena": "d0c8868f-c75a-42e4-8dcc-8e7b0f64d519"
+    }
+  },
+  {
     "slug": "karol-g-estadio-monumental",
     "artist": "Karol G",
     "venueSlug": "estadio-monumental",
@@ -104,8 +858,85 @@
     "doors": null,
     "showTime": null,
     "type": "Recital",
+    "category": "recital",
+    "status": "confirmed",
     "performerType": "person",
     "updatedAt": "2026-10-27"
+  },
+  {
+    "slug": "tan-bionica-movistar-arena",
+    "artist": "Tan Bionica",
+    "venueSlug": "movistar-arena",
+    "citySlug": "buenos-aires",
+    "date": "2027-02-11",
+    "dateExact": true,
+    "doors": null,
+    "showTime": "21:00",
+    "type": "Recital",
+    "category": "recital",
+    "status": "confirmed",
+    "updatedAt": "2026-10-27",
+    "sources": [
+      {
+        "name": "movistar-arena",
+        "url": "https://www.movistararena.com.ar/show/148a7bae-bb0a-4efa-b4f8-aca6f46beb26",
+        "firstSeen": "2026-10-27",
+        "lastSeen": "2026-10-27"
+      }
+    ],
+    "externalIds": {
+      "movistar-arena": "148a7bae-bb0a-4efa-b4f8-aca6f46beb26"
+    }
+  },
+  {
+    "slug": "reik-movistar-arena",
+    "artist": "REIK",
+    "venueSlug": "movistar-arena",
+    "citySlug": "buenos-aires",
+    "date": "2027-02-14",
+    "dateExact": true,
+    "doors": null,
+    "showTime": "21:00",
+    "type": "Recital",
+    "category": "recital",
+    "status": "confirmed",
+    "updatedAt": "2026-10-27",
+    "sources": [
+      {
+        "name": "movistar-arena",
+        "url": "https://www.movistararena.com.ar/show/0341ac71-3461-44cf-93d7-07cec5217712",
+        "firstSeen": "2026-10-27",
+        "lastSeen": "2026-10-27"
+      }
+    ],
+    "externalIds": {
+      "movistar-arena": "0341ac71-3461-44cf-93d7-07cec5217712"
+    }
+  },
+  {
+    "slug": "laura-pausini-movistar-arena",
+    "artist": "Laura Pausini",
+    "venueSlug": "movistar-arena",
+    "citySlug": "buenos-aires",
+    "date": "2027-02-17",
+    "dateExact": true,
+    "doors": null,
+    "showTime": "21:00",
+    "type": "Recital",
+    "category": "recital",
+    "status": "confirmed",
+    "updatedAt": "2026-10-27",
+    "sources": [
+      {
+        "name": "movistar-arena",
+        "url": "https://www.movistararena.com.ar/show/3fb27135-7622-45e6-a54a-0b7de66250c2",
+        "firstSeen": "2026-10-27",
+        "lastSeen": "2026-10-27"
+      }
+    ],
+    "externalIds": {
+      "movistar-arena": "3fb27135-7622-45e6-a54a-0b7de66250c2"
+    }
   },
   {
     "slug": "foo-fighters-estadio-monumental",
@@ -117,8 +948,235 @@
     "doors": null,
     "showTime": null,
     "type": "Recital",
+    "category": "recital",
+    "status": "confirmed",
     "performerType": "group",
     "updatedAt": "2026-10-27"
+  },
+  {
+    "slug": "sin-bandera-movistar-arena",
+    "artist": "Sin Bandera",
+    "venueSlug": "movistar-arena",
+    "citySlug": "buenos-aires",
+    "date": "2027-02-27",
+    "dateExact": true,
+    "doors": null,
+    "showTime": "21:00",
+    "type": "Recital",
+    "category": "recital",
+    "status": "confirmed",
+    "updatedAt": "2026-10-27",
+    "sources": [
+      {
+        "name": "movistar-arena",
+        "url": "https://www.movistararena.com.ar/show/66a7cd0b-572d-42d8-bf00-d8a4e714f766",
+        "firstSeen": "2026-10-27",
+        "lastSeen": "2026-10-27"
+      }
+    ],
+    "externalIds": {
+      "movistar-arena": "66a7cd0b-572d-42d8-bf00-d8a4e714f766"
+    }
+  },
+  {
+    "slug": "ludovico-einaudi-movistar-arena",
+    "artist": "Ludovico Einaudi",
+    "venueSlug": "movistar-arena",
+    "citySlug": "buenos-aires",
+    "date": "2027-03-03",
+    "dateExact": true,
+    "doors": null,
+    "showTime": "21:00",
+    "type": "Recital",
+    "category": "recital",
+    "status": "confirmed",
+    "updatedAt": "2026-10-27",
+    "sources": [
+      {
+        "name": "movistar-arena",
+        "url": "https://www.movistararena.com.ar/show/c97f8e20-5eb1-4c8b-b30d-1c76cc565063",
+        "firstSeen": "2026-10-27",
+        "lastSeen": "2026-10-27"
+      }
+    ],
+    "externalIds": {
+      "movistar-arena": "c97f8e20-5eb1-4c8b-b30d-1c76cc565063"
+    }
+  },
+  {
+    "slug": "valeria-lynch-movistar-arena",
+    "artist": "VALERIA LYNCH",
+    "venueSlug": "movistar-arena",
+    "citySlug": "buenos-aires",
+    "date": "2027-03-12",
+    "dateExact": true,
+    "doors": null,
+    "showTime": "21:00",
+    "type": "Recital",
+    "category": "recital",
+    "status": "confirmed",
+    "updatedAt": "2026-10-27",
+    "sources": [
+      {
+        "name": "movistar-arena",
+        "url": "https://www.movistararena.com.ar/show/c7804086-b16f-4fa7-bffe-3ea2da520b9e",
+        "firstSeen": "2026-10-27",
+        "lastSeen": "2026-10-27"
+      }
+    ],
+    "externalIds": {
+      "movistar-arena": "c7804086-b16f-4fa7-bffe-3ea2da520b9e"
+    }
+  },
+  {
+    "slug": "love-the-90s-movistar-arena",
+    "artist": "LOVE THE 90S",
+    "venueSlug": "movistar-arena",
+    "citySlug": "buenos-aires",
+    "date": "2027-03-13",
+    "dateExact": true,
+    "doors": null,
+    "showTime": "18:30",
+    "type": "Recital",
+    "category": "recital",
+    "status": "confirmed",
+    "updatedAt": "2026-10-27",
+    "sources": [
+      {
+        "name": "movistar-arena",
+        "url": "https://www.movistararena.com.ar/show/ea7bd2f3-7305-4383-b1bf-031ad53c4ff3",
+        "firstSeen": "2026-10-27",
+        "lastSeen": "2026-10-27"
+      }
+    ],
+    "externalIds": {
+      "movistar-arena": "ea7bd2f3-7305-4383-b1bf-031ad53c4ff3"
+    }
+  },
+  {
+    "slug": "ha-ash-movistar-arena",
+    "artist": "Ha*Ash",
+    "venueSlug": "movistar-arena",
+    "citySlug": "buenos-aires",
+    "date": "2027-03-17",
+    "dateExact": true,
+    "doors": null,
+    "showTime": "21:00",
+    "type": "Recital",
+    "category": "recital",
+    "status": "confirmed",
+    "updatedAt": "2026-10-27",
+    "sources": [
+      {
+        "name": "movistar-arena",
+        "url": "https://www.movistararena.com.ar/show/1ece33a6-1f30-4b45-82bf-5a12f44edb1c",
+        "firstSeen": "2026-10-27",
+        "lastSeen": "2026-10-27"
+      }
+    ],
+    "externalIds": {
+      "movistar-arena": "1ece33a6-1f30-4b45-82bf-5a12f44edb1c"
+    }
+  },
+  {
+    "slug": "la-oreja-de-van-gogh-movistar-arena",
+    "artist": "La Oreja de Van Gogh",
+    "venueSlug": "movistar-arena",
+    "citySlug": "buenos-aires",
+    "date": "2027-03-19",
+    "dateExact": true,
+    "doors": null,
+    "showTime": "21:00",
+    "type": "Recital",
+    "category": "recital",
+    "status": "confirmed",
+    "updatedAt": "2026-10-27",
+    "sources": [
+      {
+        "name": "movistar-arena",
+        "url": "https://www.movistararena.com.ar/show/b469e89b-dfcc-4531-8b15-682a46e3f442",
+        "firstSeen": "2026-10-27",
+        "lastSeen": "2026-10-27"
+      }
+    ],
+    "externalIds": {
+      "movistar-arena": "b469e89b-dfcc-4531-8b15-682a46e3f442"
+    }
+  },
+  {
+    "slug": "paralamas-nonpalidece-movistar-arena",
+    "artist": "PARALAMAS NONPALIDECE",
+    "venueSlug": "movistar-arena",
+    "citySlug": "buenos-aires",
+    "date": "2027-03-23",
+    "dateExact": true,
+    "doors": null,
+    "showTime": null,
+    "type": "Recital",
+    "category": "recital",
+    "status": "confirmed",
+    "updatedAt": "2026-10-27",
+    "sources": [
+      {
+        "name": "movistar-arena",
+        "url": "https://www.movistararena.com.ar/show/46ef1dbf-7353-4e1f-82c8-7ff2334f7ca5",
+        "firstSeen": "2026-10-27",
+        "lastSeen": "2026-10-27"
+      }
+    ],
+    "externalIds": {
+      "movistar-arena": "46ef1dbf-7353-4e1f-82c8-7ff2334f7ca5"
+    }
+  },
+  {
+    "slug": "ricardo-montaner-movistar-arena",
+    "artist": "Ricardo Montaner",
+    "venueSlug": "movistar-arena",
+    "citySlug": "buenos-aires",
+    "date": "2027-03-24",
+    "dateExact": true,
+    "doors": null,
+    "showTime": "21:00",
+    "type": "Recital",
+    "category": "recital",
+    "status": "confirmed",
+    "updatedAt": "2026-10-27",
+    "sources": [
+      {
+        "name": "movistar-arena",
+        "url": "https://www.movistararena.com.ar/show/8b315418-c444-47e9-b7dc-235b3a36e9f6",
+        "firstSeen": "2026-10-27",
+        "lastSeen": "2026-10-27"
+      }
+    ],
+    "externalIds": {
+      "movistar-arena": "8b315418-c444-47e9-b7dc-235b3a36e9f6"
+    }
+  },
+  {
+    "slug": "camila-movistar-arena",
+    "artist": "Camila",
+    "venueSlug": "movistar-arena",
+    "citySlug": "buenos-aires",
+    "date": "2027-03-30",
+    "dateExact": true,
+    "doors": null,
+    "showTime": "21:00",
+    "type": "Recital",
+    "category": "recital",
+    "status": "confirmed",
+    "updatedAt": "2026-10-27",
+    "sources": [
+      {
+        "name": "movistar-arena",
+        "url": "https://www.movistararena.com.ar/show/c08cd965-43b9-4632-a077-d0f74d95c437",
+        "firstSeen": "2026-10-27",
+        "lastSeen": "2026-10-27"
+      }
+    ],
+    "externalIds": {
+      "movistar-arena": "c08cd965-43b9-4632-a077-d0f74d95c437"
+    }
   },
   {
     "slug": "montaner-movistar-arena",
@@ -130,6 +1188,8 @@
     "doors": null,
     "showTime": null,
     "type": "Recital",
+    "category": "recital",
+    "status": "confirmed",
     "performerType": "person",
     "updatedAt": "2026-10-27"
   },
@@ -143,6 +1203,8 @@
     "doors": null,
     "showTime": null,
     "type": "Recital",
+    "category": "recital",
+    "status": "confirmed",
     "performerType": "person",
     "updatedAt": "2026-10-27"
   },
@@ -156,7 +1218,384 @@
     "doors": null,
     "showTime": null,
     "type": "Recital",
+    "category": "recital",
+    "status": "confirmed",
     "performerType": "person",
     "updatedAt": "2026-10-27"
+  },
+  {
+    "slug": "jungle-movistar-arena",
+    "artist": "JUNGLE",
+    "venueSlug": "movistar-arena",
+    "citySlug": "buenos-aires",
+    "date": "2027-04-01",
+    "dateExact": true,
+    "doors": null,
+    "showTime": "21:00",
+    "type": "Recital",
+    "category": "recital",
+    "status": "confirmed",
+    "updatedAt": "2026-10-27",
+    "sources": [
+      {
+        "name": "movistar-arena",
+        "url": "https://www.movistararena.com.ar/show/dcfa7eff-1a0c-46e1-8168-fbd674982ff4",
+        "firstSeen": "2026-10-27",
+        "lastSeen": "2026-10-27"
+      }
+    ],
+    "externalIds": {
+      "movistar-arena": "dcfa7eff-1a0c-46e1-8168-fbd674982ff4"
+    }
+  },
+  {
+    "slug": "louis-tomlinson-movistar-arena",
+    "artist": "Louis Tomlinson",
+    "venueSlug": "movistar-arena",
+    "citySlug": "buenos-aires",
+    "date": "2027-04-02",
+    "dateExact": true,
+    "doors": null,
+    "showTime": "21:00",
+    "type": "Recital",
+    "category": "recital",
+    "status": "confirmed",
+    "updatedAt": "2026-10-27",
+    "sources": [
+      {
+        "name": "movistar-arena",
+        "url": "https://www.movistararena.com.ar/show/e54347b1-38ae-4d8f-952d-e96ffa248bb8",
+        "firstSeen": "2026-10-27",
+        "lastSeen": "2026-10-27"
+      }
+    ],
+    "externalIds": {
+      "movistar-arena": "e54347b1-38ae-4d8f-952d-e96ffa248bb8"
+    }
+  },
+  {
+    "slug": "palito-ortega-movistar-arena",
+    "artist": "PALITO ORTEGA",
+    "venueSlug": "movistar-arena",
+    "citySlug": "buenos-aires",
+    "date": "2027-04-03",
+    "dateExact": true,
+    "doors": null,
+    "showTime": "21:00",
+    "type": "Recital",
+    "category": "recital",
+    "status": "confirmed",
+    "updatedAt": "2026-10-27",
+    "sources": [
+      {
+        "name": "movistar-arena",
+        "url": "https://www.movistararena.com.ar/show/352ddb92-c8dc-4ac3-a1db-cfa90a25383d",
+        "firstSeen": "2026-10-27",
+        "lastSeen": "2026-10-27"
+      }
+    ],
+    "externalIds": {
+      "movistar-arena": "352ddb92-c8dc-4ac3-a1db-cfa90a25383d"
+    }
+  },
+  {
+    "slug": "pixies-movistar-arena",
+    "artist": "PIXIES",
+    "venueSlug": "movistar-arena",
+    "citySlug": "buenos-aires",
+    "date": "2027-04-04",
+    "dateExact": true,
+    "doors": null,
+    "showTime": "21:00",
+    "type": "Recital",
+    "category": "recital",
+    "status": "confirmed",
+    "updatedAt": "2026-10-27",
+    "sources": [
+      {
+        "name": "movistar-arena",
+        "url": "https://www.movistararena.com.ar/show/40a2e398-4362-44e7-b95d-f8a5007f5c12",
+        "firstSeen": "2026-10-27",
+        "lastSeen": "2026-10-27"
+      }
+    ],
+    "externalIds": {
+      "movistar-arena": "40a2e398-4362-44e7-b95d-f8a5007f5c12"
+    }
+  },
+  {
+    "slug": "ana-gabriel-movistar-arena",
+    "artist": "Ana Gabriel",
+    "venueSlug": "movistar-arena",
+    "citySlug": "buenos-aires",
+    "date": "2027-04-05",
+    "dateExact": true,
+    "doors": null,
+    "showTime": "21:00",
+    "type": "Recital",
+    "category": "recital",
+    "status": "confirmed",
+    "updatedAt": "2026-10-27",
+    "sources": [
+      {
+        "name": "movistar-arena",
+        "url": "https://www.movistararena.com.ar/show/114bfa04-810a-434c-a8cc-00d3916d45d0",
+        "firstSeen": "2026-10-27",
+        "lastSeen": "2026-10-27"
+      }
+    ],
+    "externalIds": {
+      "movistar-arena": "114bfa04-810a-434c-a8cc-00d3916d45d0"
+    }
+  },
+  {
+    "slug": "slash-movistar-arena",
+    "artist": "Slash",
+    "venueSlug": "movistar-arena",
+    "citySlug": "buenos-aires",
+    "date": "2027-04-07",
+    "dateExact": true,
+    "doors": null,
+    "showTime": "21:00",
+    "type": "Recital",
+    "category": "recital",
+    "status": "confirmed",
+    "updatedAt": "2026-10-27",
+    "sources": [
+      {
+        "name": "movistar-arena",
+        "url": "https://www.movistararena.com.ar/show/9afc9e0a-feef-4503-a66b-979406f0fa9d",
+        "firstSeen": "2026-10-27",
+        "lastSeen": "2026-10-27"
+      }
+    ],
+    "externalIds": {
+      "movistar-arena": "9afc9e0a-feef-4503-a66b-979406f0fa9d"
+    }
+  },
+  {
+    "slug": "luis-fonsi-movistar-arena",
+    "artist": "Luis Fonsi",
+    "venueSlug": "movistar-arena",
+    "citySlug": "buenos-aires",
+    "date": "2027-04-13",
+    "dateExact": true,
+    "doors": null,
+    "showTime": "21:00",
+    "type": "Recital",
+    "category": "recital",
+    "status": "confirmed",
+    "updatedAt": "2026-10-27",
+    "sources": [
+      {
+        "name": "movistar-arena",
+        "url": "https://www.movistararena.com.ar/show/29942a91-2789-460a-b611-97426be04d12",
+        "firstSeen": "2026-10-27",
+        "lastSeen": "2026-10-27"
+      }
+    ],
+    "externalIds": {
+      "movistar-arena": "29942a91-2789-460a-b611-97426be04d12"
+    }
+  },
+  {
+    "slug": "melendi-movistar-arena",
+    "artist": "MELENDI",
+    "venueSlug": "movistar-arena",
+    "citySlug": "buenos-aires",
+    "date": "2027-04-15",
+    "dateExact": true,
+    "doors": null,
+    "showTime": null,
+    "type": "Recital",
+    "category": "recital",
+    "status": "confirmed",
+    "updatedAt": "2026-10-27",
+    "sources": [
+      {
+        "name": "movistar-arena",
+        "url": "https://www.movistararena.com.ar/show/a2248853-4aab-4840-9500-72bd57adc0f5",
+        "firstSeen": "2026-10-27",
+        "lastSeen": "2026-10-27"
+      }
+    ],
+    "externalIds": {
+      "movistar-arena": "a2248853-4aab-4840-9500-72bd57adc0f5"
+    }
+  },
+  {
+    "slug": "kase-o-movistar-arena",
+    "artist": "KASE.O",
+    "venueSlug": "movistar-arena",
+    "citySlug": "buenos-aires",
+    "date": "2027-05-07",
+    "dateExact": true,
+    "doors": null,
+    "showTime": "21:00",
+    "type": "Recital",
+    "category": "recital",
+    "status": "confirmed",
+    "updatedAt": "2026-10-27",
+    "sources": [
+      {
+        "name": "movistar-arena",
+        "url": "https://www.movistararena.com.ar/show/18ca4329-9dc8-4fb7-9c5e-ef498a5c98b6",
+        "firstSeen": "2026-10-27",
+        "lastSeen": "2026-10-27"
+      }
+    ],
+    "externalIds": {
+      "movistar-arena": "18ca4329-9dc8-4fb7-9c5e-ef498a5c98b6"
+    }
+  },
+  {
+    "slug": "jay-wheeler-movistar-arena",
+    "artist": "Jay Wheeler",
+    "venueSlug": "movistar-arena",
+    "citySlug": "buenos-aires",
+    "date": "2027-05-19",
+    "dateExact": true,
+    "doors": null,
+    "showTime": "21:00",
+    "type": "Recital",
+    "category": "recital",
+    "status": "confirmed",
+    "updatedAt": "2026-10-27",
+    "sources": [
+      {
+        "name": "movistar-arena",
+        "url": "https://www.movistararena.com.ar/show/255b713b-438c-4781-a850-e050bde226d0",
+        "firstSeen": "2026-10-27",
+        "lastSeen": "2026-10-27"
+      }
+    ],
+    "externalIds": {
+      "movistar-arena": "255b713b-438c-4781-a850-e050bde226d0"
+    }
+  },
+  {
+    "slug": "cuarteto-de-nos-movistar-arena",
+    "artist": "CUARTETO DE NOS",
+    "venueSlug": "movistar-arena",
+    "citySlug": "buenos-aires",
+    "date": "2027-05-22",
+    "dateExact": true,
+    "doors": null,
+    "showTime": "21:00",
+    "type": "Recital",
+    "category": "recital",
+    "status": "confirmed",
+    "updatedAt": "2026-10-27",
+    "sources": [
+      {
+        "name": "movistar-arena",
+        "url": "https://www.movistararena.com.ar/show/17e0a8cb-489a-402c-8e08-75c7414e045c",
+        "firstSeen": "2026-10-27",
+        "lastSeen": "2026-10-27"
+      }
+    ],
+    "externalIds": {
+      "movistar-arena": "17e0a8cb-489a-402c-8e08-75c7414e045c"
+    }
+  },
+  {
+    "slug": "firemajor-buenos-aires-movistar-arena",
+    "artist": "FiReMAJOR Buenos Aires",
+    "venueSlug": "movistar-arena",
+    "citySlug": "buenos-aires",
+    "date": "2027-06-17",
+    "dateExact": true,
+    "doors": null,
+    "showTime": null,
+    "type": "Recital",
+    "category": "recital",
+    "status": "confirmed",
+    "updatedAt": "2026-10-27",
+    "sources": [
+      {
+        "name": "movistar-arena",
+        "url": "https://www.movistararena.com.ar/show/9a07aeaf-2aed-4e3d-a02e-62843ff9208e",
+        "firstSeen": "2026-10-27",
+        "lastSeen": "2026-10-27"
+      }
+    ],
+    "externalIds": {
+      "movistar-arena": "9a07aeaf-2aed-4e3d-a02e-62843ff9208e"
+    }
+  },
+  {
+    "slug": "hilary-duff-movistar-arena",
+    "artist": "Hilary Duff",
+    "venueSlug": "movistar-arena",
+    "citySlug": "buenos-aires",
+    "date": "2027-08-16",
+    "dateExact": true,
+    "doors": null,
+    "showTime": "21:00",
+    "type": "Recital",
+    "category": "recital",
+    "status": "confirmed",
+    "updatedAt": "2026-10-27",
+    "sources": [
+      {
+        "name": "movistar-arena",
+        "url": "https://www.movistararena.com.ar/show/f626738b-fc3f-42ec-83d4-77ad37bf591f",
+        "firstSeen": "2026-10-27",
+        "lastSeen": "2026-10-27"
+      }
+    ],
+    "externalIds": {
+      "movistar-arena": "f626738b-fc3f-42ec-83d4-77ad37bf591f"
+    }
+  },
+  {
+    "slug": "david-bisbal-movistar-arena",
+    "artist": "David Bisbal",
+    "venueSlug": "movistar-arena",
+    "citySlug": "buenos-aires",
+    "date": "2027-08-28",
+    "dateExact": true,
+    "doors": null,
+    "showTime": "21:00",
+    "type": "Recital",
+    "category": "recital",
+    "status": "confirmed",
+    "updatedAt": "2026-10-27",
+    "sources": [
+      {
+        "name": "movistar-arena",
+        "url": "https://www.movistararena.com.ar/show/f3b6943e-e25c-486a-8c61-078e7a71c64e",
+        "firstSeen": "2026-10-27",
+        "lastSeen": "2026-10-27"
+      }
+    ],
+    "externalIds": {
+      "movistar-arena": "f3b6943e-e25c-486a-8c61-078e7a71c64e"
+    }
+  },
+  {
+    "slug": "eros-ramazzotti-movistar-arena",
+    "artist": "Eros Ramazzotti",
+    "venueSlug": "movistar-arena",
+    "citySlug": "buenos-aires",
+    "date": "2027-11-06",
+    "dateExact": true,
+    "doors": null,
+    "showTime": "21:00",
+    "type": "Recital",
+    "category": "recital",
+    "status": "confirmed",
+    "updatedAt": "2026-10-27",
+    "sources": [
+      {
+        "name": "movistar-arena",
+        "url": "https://www.movistararena.com.ar/show/fc831d48-fbb5-4f8d-b25a-b031901e19ea",
+        "firstSeen": "2026-10-27",
+        "lastSeen": "2026-10-27"
+      }
+    ],
+    "externalIds": {
+      "movistar-arena": "fc831d48-fbb5-4f8d-b25a-b031901e19ea"
+    }
   }
 ]

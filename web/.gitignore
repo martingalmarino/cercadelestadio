@@ -43,5 +43,6 @@ next-env.d.ts
 
 # capturas de QA
 /.shots/
+/scripts/ingest/.cache/
 /test-results/
 /playwright-report/
