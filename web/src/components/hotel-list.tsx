@@ -35,9 +35,10 @@ export function HotelList({
   onActiveChange?: (slug: string) => void;
 }) {
   const rows = hotels.filter((hotel) => bookingHrefs[hotel.slug]);
+  const hasPrices = rows.some((hotel) => hotel.pricePerNight != null);
 
   return (
-    <table className={styles.table}>
+    <table className={hasPrices ? `${styles.table} ${styles.withPrices}` : styles.table}>
       <caption className={styles.caption}>{caption}</caption>
       <thead>
         <tr>
@@ -51,7 +52,7 @@ export function HotelList({
           <th scope="col" title={WALK_ESTIMATE}>
             Auto (est.)
           </th>
-          <th scope="col">Desde / noche</th>
+          {hasPrices ? <th scope="col">Desde / noche</th> : null}
           <th scope="col">Disponibilidad</th>
         </tr>
       </thead>
@@ -77,15 +78,11 @@ export function HotelList({
               <td className={styles.figure}>{formatKm(hotel.distanceKm)}</td>
               <td title={WALK_ESTIMATE}>{hotel.walkMinutes} min a pie</td>
               <td title={WALK_ESTIMATE}>{hotel.driveMinutes} min en auto</td>
-              <td className={styles.price}>
-                {hotel.pricePerNight == null ? (
-                  <ButtonLink href={href} sponsored>
-                    {label}
-                  </ButtonLink>
-                ) : (
-                  formatArs(hotel.pricePerNight)
-                )}
-              </td>
+              {hasPrices ? (
+                <td className={styles.price}>
+                  {hotel.pricePerNight == null ? "—" : formatArs(hotel.pricePerNight)}
+                </td>
+              ) : null}
               <td className={styles.action}>
                 <ButtonLink href={href} sponsored>
                   {label}

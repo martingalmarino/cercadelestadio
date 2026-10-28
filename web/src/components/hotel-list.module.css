@@ -15,12 +15,16 @@
 
 .table tr {
   display: grid;
-  grid-template-columns: 48px minmax(0, 2.2fr) minmax(0, 1fr) 96px minmax(0, 1fr) minmax(0, 1fr) minmax(168px, 1.2fr) auto;
+  grid-template-columns: 48px minmax(0, 2.2fr) minmax(0, 1fr) 96px minmax(0, 1fr) minmax(0, 1fr) 14rem;
   gap: var(--s-4);
   align-items: center;
   padding: var(--s-4) var(--s-5);
   border-bottom: var(--bw) solid var(--border);
   border-left: 3px solid transparent;
+}
+
+.withPrices tr {
+  grid-template-columns: 48px minmax(0, 2.2fr) minmax(0, 1fr) 96px minmax(0, 1fr) minmax(0, 1fr) 10rem 14rem;
 }
 
 .table thead tr {
@@ -64,11 +68,11 @@
 .price {
   font-weight: var(--fw-bold);
   font-variant-numeric: tabular-nums;
+  white-space: nowrap;
 }
 
-.price a {
-  white-space: normal;
-  text-align: center;
+.action a {
+  white-space: nowrap;
 }
 
 .index {
@@ -78,9 +82,13 @@
 
 @media (max-width: 1023px) {
   .table tr {
-    grid-template-columns: 40px minmax(0, 2fr) minmax(0, 1fr) 88px minmax(0, 1fr) minmax(0, 1fr) minmax(148px, 1.1fr) auto;
+    grid-template-columns: 40px minmax(0, 2fr) minmax(0, 1fr) 88px minmax(0, 1fr) minmax(0, 1fr) 14rem;
     gap: var(--s-3);
     padding: var(--s-4);
+  }
+
+  .withPrices tr {
+    grid-template-columns: 40px minmax(0, 2fr) minmax(0, 1fr) 88px minmax(0, 1fr) minmax(0, 1fr) 10rem 14rem;
   }
 }
 
@@ -103,10 +111,18 @@
       "index hotel distance"
       "index area walk"
       "index drive drive"
-      "index price price"
       "index action action";
     align-items: start;
     padding: 14px var(--s-3);
+  }
+
+  .withPrices tr {
+    grid-template-areas:
+      "index hotel distance"
+      "index area walk"
+      "index drive drive"
+      "index price price"
+      "index action action";
   }
 
   .index {
@@ -138,10 +154,6 @@
 
   .price {
     grid-area: price;
-  }
-
-  .price a {
-    width: 100%;
   }
 
   .action {
