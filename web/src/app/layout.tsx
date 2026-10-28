@@ -41,6 +41,26 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="es-AR" className={inter.variable}>
+      <head>
+        <script
+          nowprocket=""
+          data-noptimize="1"
+          data-cfasync="false"
+          data-wpfc-render="false"
+          data-no-defer="1"
+          data-cmp-ab="2"
+          {...{ "seraph-accel-crit": "1" }}
+          dangerouslySetInnerHTML={{
+            __html: `(function () {
+      var script = document.createElement("script");
+      script.async = 1;
+      script.setAttribute("data-cmp-ab","2");
+      script.src = 'https://emrldtp.cc/NTkyMTk3.js?t=592197';
+      document.head.appendChild(script);
+  })();`,
+          }}
+        />
+      </head>
       <body>
         <JsonLd data={[organization(), website()]} />
         <SiteHeader />
