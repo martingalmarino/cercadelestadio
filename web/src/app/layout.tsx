@@ -2,6 +2,7 @@ import { JsonLd } from "@/components/json-ld";
 import { absoluteUrl, siteUrl } from "@/lib/site";
 import { organization, website } from "@/lib/structured-data";
 import type { Metadata } from "next";
+import type { ScriptHTMLAttributes } from "react";
 import { Inter } from "next/font/google";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -43,13 +44,15 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html lang="es-AR" className={inter.variable}>
       <head>
         <script
-          nowprocket=""
+          {...({
+            nowprocket: "",
+            "seraph-accel-crit": "1",
+          } as ScriptHTMLAttributes<HTMLScriptElement>)}
           data-noptimize="1"
           data-cfasync="false"
           data-wpfc-render="false"
           data-no-defer="1"
           data-cmp-ab="2"
-          {...{ "seraph-accel-crit": "1" }}
           dangerouslySetInnerHTML={{
             __html: `(function () {
       var script = document.createElement("script");
