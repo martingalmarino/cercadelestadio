@@ -63,5 +63,6 @@ export type SourceRun = {
   name: string;
   ok: boolean;
   count?: number;
+  detail?: string;
   error?: string;
 };

@@ -2,6 +2,7 @@ import { readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { enabledSources, pressFeeds, sources } from "./config";
 import { pressSignals } from "./sources/signals-rss";
+import { lastSportsRead } from "./sources/thesportsdb";
 import { loadLocalEnv } from "./env";
 import { dedupe } from "./dedupe";
 import { fetchText } from "./http";
@@ -78,7 +79,15 @@ async function main() {
       });
       raw.push(...events);
       ranSources.push(source.name);
-      fuentes.push({ name: source.name, ok: true, count: events.length });
+      const stats = source.name === "thesportsdb" ? lastSportsRead() : null;
+      fuentes.push({
+        name: source.name,
+        ok: true,
+        count: events.length,
+        detail: stats
+          ? `${stats.read} eventos leídos, ${stats.matched} coincidieron con nuestros estadios`
+          : undefined,
+      });
     } catch (error) {
       const message = error instanceof Error ? error.message : "error desconocido";
       fuentes.push({ name: source.name, ok: false, error: message });

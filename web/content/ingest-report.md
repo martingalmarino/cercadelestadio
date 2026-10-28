@@ -3,18 +3,18 @@
 ## Fuentes
 
 - movistar-arena: 57 eventos
-- thesportsdb: 0 eventos
+- thesportsdb: 489 eventos leídos, 4 coincidieron con nuestros estadios
 
 ## Nuevos
 
-Ninguno.
+- Huracán vs Tigre (huracan-vs-tigre-tomas-duco): 2026-10-30 · confirmed
+- Vélez Sarsfield vs San Lorenzo (velez-sarsfield-vs-san-lorenzo-jose-amalfitani): 2026-10-31 · confirmed
+- Talleres de Córdoba vs Estudiantes de La Plata (talleres-de-cordoba-vs-estudiantes-de-la-plata-mario-kempes): 2026-11-08 · confirmed
+- Argentina vs Uruguay (argentina-vs-uruguay-estadio-monumental): 2026-11-13 · confirmed
 
 ## Cambiados
 
-- SERU GIRAN POR LEBÓN Y AZNAR (seru-giran-por-lebon-y-aznar-movistar-arena): showTime → 21:00
-- DESAKTA2 (desakta2-movistar-arena): showTime → 21:00
-- PARALAMAS NONPALIDECE (paralamas-nonpalidece-movistar-arena): showTime → 21:00
-- MELENDI (melendi-movistar-arena): showTime → 21:00
+Ninguno.
 
 ## A revisar
 

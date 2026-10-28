@@ -50,6 +50,31 @@
     }
   },
   {
+    "slug": "huracan-vs-tigre-tomas-duco",
+    "artist": "Huracán vs Tigre",
+    "venueSlug": "tomas-duco",
+    "citySlug": "buenos-aires",
+    "date": "2026-10-30",
+    "dateExact": true,
+    "doors": null,
+    "showTime": "19:00",
+    "type": "Partido",
+    "category": "partido",
+    "status": "confirmed",
+    "updatedAt": "2026-10-27",
+    "sources": [
+      {
+        "name": "thesportsdb",
+        "url": "https://www.thesportsdb.com/event/2398168",
+        "firstSeen": "2026-10-27",
+        "lastSeen": "2026-10-27"
+      }
+    ],
+    "externalIds": {
+      "thesportsdb": "2398168"
+    }
+  },
+  {
     "slug": "el-plan-de-la-mariposa-movistar-arena",
     "artist": "EL PLAN DE LA MARIPOSA",
     "venueSlug": "movistar-arena",
@@ -72,6 +97,31 @@
     ],
     "externalIds": {
       "movistar-arena": "e8d9be02-d7f6-4354-92cc-ba7d7413a4fd"
+    }
+  },
+  {
+    "slug": "velez-sarsfield-vs-san-lorenzo-jose-amalfitani",
+    "artist": "Vélez Sarsfield vs San Lorenzo",
+    "venueSlug": "jose-amalfitani",
+    "citySlug": "buenos-aires",
+    "date": "2026-10-31",
+    "dateExact": true,
+    "doors": null,
+    "showTime": "19:15",
+    "type": "Partido",
+    "category": "partido",
+    "status": "confirmed",
+    "updatedAt": "2026-10-27",
+    "sources": [
+      {
+        "name": "thesportsdb",
+        "url": "https://www.thesportsdb.com/event/2398175",
+        "firstSeen": "2026-10-27",
+        "lastSeen": "2026-10-27"
+      }
+    ],
+    "externalIds": {
+      "thesportsdb": "2398175"
     }
   },
   {
@@ -222,6 +272,56 @@
     ],
     "externalIds": {
       "movistar-arena": "fccf6c4f-f567-44e4-9c71-fad5fc93baa0"
+    }
+  },
+  {
+    "slug": "talleres-de-cordoba-vs-estudiantes-de-la-plata-mario-kempes",
+    "artist": "Talleres de Córdoba vs Estudiantes de La Plata",
+    "venueSlug": "mario-kempes",
+    "citySlug": "cordoba",
+    "date": "2026-11-08",
+    "dateExact": true,
+    "doors": null,
+    "showTime": null,
+    "type": "Partido",
+    "category": "partido",
+    "status": "confirmed",
+    "updatedAt": "2026-10-27",
+    "sources": [
+      {
+        "name": "thesportsdb",
+        "url": "https://www.thesportsdb.com/event/2398188",
+        "firstSeen": "2026-10-27",
+        "lastSeen": "2026-10-27"
+      }
+    ],
+    "externalIds": {
+      "thesportsdb": "2398188"
+    }
+  },
+  {
+    "slug": "argentina-vs-uruguay-estadio-monumental",
+    "artist": "Argentina vs Uruguay",
+    "venueSlug": "estadio-monumental",
+    "citySlug": "buenos-aires",
+    "date": "2026-11-13",
+    "dateExact": true,
+    "doors": null,
+    "showTime": null,
+    "type": "Partido",
+    "category": "partido",
+    "status": "confirmed",
+    "updatedAt": "2026-10-27",
+    "sources": [
+      {
+        "name": "thesportsdb",
+        "url": "https://www.thesportsdb.com/event/2623096",
+        "firstSeen": "2026-10-27",
+        "lastSeen": "2026-10-27"
+      }
+    ],
+    "externalIds": {
+      "thesportsdb": "2623096"
     }
   },
   {

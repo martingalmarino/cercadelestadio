@@ -80,9 +80,12 @@ function aliasIndex(aliases: Record<string, string[]>) {
   return hits;
 }
 
+const venueExclusions = ["jose fierro"];
+
 export function matchVenue(venueName: string, aliases: Record<string, string[]>) {
   const folded = fold(venueName);
   if (!folded) return null;
+  if (venueExclusions.some((phrase) => folded.includes(phrase))) return null;
   const hits = aliasIndex(aliases);
   const exact = hits.find((hit) => hit.phrase === folded);
   if (exact) return exact.venueSlug;

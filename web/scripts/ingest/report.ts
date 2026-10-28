@@ -35,6 +35,7 @@ export function renderReport(input: ReportInput) {
       ? "Ninguna fuente habilitada.\n"
       : `${input.fuentes
           .map((source) => {
+            if (source.ok && source.detail) return `- ${source.name}: ${source.detail}`;
             if (source.ok) return `- ${source.name}: ${source.count ?? 0} eventos`;
             return `- ${source.name}: error. ${source.error ?? "falló"}`;
           })
