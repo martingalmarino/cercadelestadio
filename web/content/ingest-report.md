@@ -7,7 +7,7 @@
 
 ## Nuevos
 
-- Pitbull (pitbull-movistar-arena-2027-02-13): 2027-02-13 · confirmed
+- Pitbull (pitbull-movistar-arena): 2027-02-13 · confirmed
 
 ## Nuevas funciones
 
