@@ -5,6 +5,8 @@ import type { SourceRun, UnmatchedEvent } from "./types";
 export type ReportInput = {
   now: Date;
   nuevos: MergeNote[];
+  nuevasFunciones: MergeNote[];
+  reprogramados: MergeNote[];
   cambiados: MergeNote[];
   revisar: MergeNote[];
   unmatched: UnmatchedEvent[];
@@ -60,6 +62,12 @@ ${fuentes}
 ## Nuevos
 
 ${lines(input.nuevos.map(note))}
+## Nuevas funciones
+
+${lines(input.nuevasFunciones.map(note))}
+## Reprogramados
+
+${lines(input.reprogramados.map(note))}
 ## Cambiados
 
 ${lines(input.cambiados.map(note))}

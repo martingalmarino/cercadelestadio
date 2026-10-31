@@ -159,4 +159,171 @@ describe("merge", () => {
     expect(result.state.misses["movistar-arena::mana-estadio-monumental"]).toBe(1);
     expect(result.revisar).toEqual([]);
   });
+
+  it("agrega una función nueva y no pisa la fecha del id viejo", () => {
+    const uuid = "52226495-ef0d-441b-8bfe-253eba7d7d0c";
+    const result = merge({
+      existing: [
+        existing({
+          slug: "andres-calamaro-movistar-arena",
+          artist: "Andres Calamaro",
+          venueSlug: "movistar-arena",
+          date: "2026-10-30",
+          externalIds: { "movistar-arena": uuid },
+        }),
+      ],
+      incoming: [
+        incoming({
+          artist: "Andres Calamaro",
+          venueSlug: "movistar-arena",
+          date: "2026-11-23",
+          showTime: "21:00",
+          sources: [
+            {
+              name: "movistar-arena",
+              url: "https://www.movistararena.com.ar/show/52226495-ef0d-441b-8bfe-253eba7d7d0c",
+              externalId: `${uuid}#2026-11-23`,
+              kind: "venue",
+            },
+          ],
+        }),
+      ],
+      state: { misses: {} },
+      ranSources: ["movistar-arena"],
+      now,
+    });
+    expect(result.events).toHaveLength(2);
+    const previous = result.events.find((event) => event.slug === "andres-calamaro-movistar-arena");
+    const created = result.events.find((event) => event.slug.endsWith("-2026-11-23"));
+    expect(previous?.date).toBe("2026-10-30");
+    expect(previous?.externalIds?.["movistar-arena"]).toBe(uuid);
+    expect(created?.slug).toBe("andres-calamaro-movistar-arena-2026-11-23");
+    expect(created?.date).toBe("2026-11-23");
+    expect(result.nuevasFunciones).toEqual([
+      {
+        slug: "andres-calamaro-movistar-arena-2026-11-23",
+        artist: "Andres Calamaro",
+        detail: "nueva función 2026-11-23 21:00 (otras: 2026-10-30)",
+      },
+    ]);
+    expect(result.nuevos).toEqual([]);
+    expect(result.cambiados).toEqual([]);
+    expect(result.reprogramados).toEqual([]);
+  });
+
+  it("migra el id viejo cuando la función es la misma", () => {
+    const uuid = "52226495-ef0d-441b-8bfe-253eba7d7d0c";
+    const result = merge({
+      existing: [
+        existing({
+          date: "2026-10-30",
+          externalIds: { "movistar-arena": uuid },
+        }),
+      ],
+      incoming: [
+        incoming({
+          date: "2026-10-30",
+          showTime: "21:00",
+          sources: [
+            {
+              name: "movistar-arena",
+              url: "https://example.com/a",
+              externalId: `${uuid}#2026-10-30`,
+              kind: "venue",
+            },
+          ],
+        }),
+      ],
+      state: { misses: {} },
+      ranSources: ["movistar-arena"],
+      now,
+    });
+    expect(result.events).toHaveLength(1);
+    expect(result.events[0].date).toBe("2026-10-30");
+    expect(result.events[0].slug).toBe("mana-estadio-monumental");
+    expect(result.events[0].externalIds?.["movistar-arena"]).toBe(`${uuid}#2026-10-30`);
+    expect(result.nuevos).toEqual([]);
+    expect(result.nuevasFunciones).toEqual([]);
+  });
+
+  it("reprograma un partido cuando el id coincide y la fecha cambia", () => {
+    const result = merge({
+      existing: [
+        existing({
+          slug: "huracan-vs-tigre-tomas-duco",
+          artist: "Huracán vs Tigre",
+          venueSlug: "tomas-duco",
+          date: "2026-10-30",
+          showTime: "19:00",
+          category: "partido",
+          type: "Partido",
+          sources: [
+            {
+              name: "thesportsdb",
+              url: "https://www.thesportsdb.com/event/2398168",
+              firstSeen: "2026-10-27",
+              lastSeen: "2026-10-28",
+            },
+          ],
+          externalIds: { thesportsdb: "2398168" },
+        }),
+      ],
+      incoming: [
+        incoming({
+          artist: "Huracán vs Tigre",
+          venueSlug: "tomas-duco",
+          date: "2026-11-02",
+          showTime: "19:00",
+          category: "partido",
+          sources: [
+            {
+              name: "thesportsdb",
+              url: "https://www.thesportsdb.com/event/2398168",
+              externalId: "2398168",
+              kind: "fixture",
+            },
+          ],
+        }),
+      ],
+      state: { misses: {} },
+      ranSources: ["thesportsdb"],
+      now,
+    });
+    expect(result.events).toHaveLength(1);
+    expect(result.events[0].date).toBe("2026-11-02");
+    expect(result.events[0].slug).toBe("huracan-vs-tigre-tomas-duco");
+    expect(result.reprogramados).toEqual([
+      {
+        slug: "huracan-vs-tigre-tomas-duco",
+        artist: "Huracán vs Tigre",
+        detail: "reprogramado 2026-10-30 → 2026-11-02",
+      },
+    ]);
+    expect(result.cambiados).toEqual([]);
+    expect(result.nuevos).toEqual([]);
+  });
+
+  it("no suma misses de una función que ya pasó", () => {
+    const first = merge({
+      existing: [existing({ date: "2026-10-01", status: "confirmed" })],
+      incoming: [],
+      state: { misses: {} },
+      ranSources: ["movistar-arena"],
+      now,
+    });
+    expect(first.events[0].status).toBe("past");
+    expect(first.revisar).toEqual([]);
+    expect(first.state.misses).toEqual({});
+
+    const again = merge({
+      existing: first.events,
+      incoming: [],
+      state: first.state,
+      ranSources: ["movistar-arena"],
+      now,
+    });
+    expect(again.events[0].status).toBe("past");
+    expect(again.revisar).toEqual([]);
+    expect(again.state.misses).toEqual({});
+  });
 });

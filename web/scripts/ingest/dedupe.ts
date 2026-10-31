@@ -29,6 +29,13 @@ function mergeSources(groups: SourceRef[][]) {
   return [...byName.values()].sort((a, b) => a.name.localeCompare(b.name));
 }
 
+function differentFunction(left: NormalizedEvent, right: NormalizedEvent) {
+  return left.sources.some((source) => {
+    const other = right.sources.find((item) => item.name === source.name);
+    return !!other?.externalId && !!source.externalId && other.externalId !== source.externalId;
+  });
+}
+
 function collapse(group: NormalizedEvent[]): NormalizedEvent {
   return group.reduce((acc, event) => ({
     artist: preferArtist(acc.artist, event.artist),
@@ -54,7 +61,9 @@ export function dedupe(events: NormalizedEvent[]) {
   for (const group of buckets.values()) {
     const clusters: NormalizedEvent[][] = [];
     for (const event of group) {
-      const cluster = clusters.find((items) => items.some((item) => sameArtist(item.artist, event.artist)));
+      const cluster = clusters.find((items) =>
+        items.some((item) => sameArtist(item.artist, event.artist) && !differentFunction(item, event)),
+      );
       if (cluster) cluster.push(event);
       else clusters.push([event]);
     }

@@ -60,4 +60,15 @@ describe("dedupe", () => {
     ]);
     expect(result).toHaveLength(3);
   });
+
+  it("no une dos funciones del mismo día con distinto id", () => {
+    const result = dedupe([
+      event({ sources: [{ name: "movistar-arena", url: "https://example.com/a", externalId: "uuid#2026-11-23T21:00", kind: "venue" }] }),
+      event({
+        showTime: "23:00",
+        sources: [{ name: "movistar-arena", url: "https://example.com/a", externalId: "uuid#2026-11-23T23:00", kind: "venue" }],
+      }),
+    ]);
+    expect(result).toHaveLength(2);
+  });
 });
