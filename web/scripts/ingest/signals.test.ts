@@ -56,6 +56,8 @@ describe("señales de prensa", () => {
     const report = renderReport({
       now: new Date("2026-10-27T15:00:00Z"),
       nuevos: [],
+      nuevasFunciones: [],
+      reprogramados: [],
       cambiados: [],
       revisar: [],
       unmatched: [],
@@ -65,6 +67,38 @@ describe("señales de prensa", () => {
     });
     expect(report).toContain("## Posibles anuncios");
     expect(report).toContain("Indie Hoy: error. HTTP 500");
+    expect(report).toContain("## Nuevas funciones");
+    expect(report).toContain("## Reprogramados");
     expect(report).not.toContain("slug");
+  });
+
+  it("lista nuevas funciones y reprogramados", () => {
+    const report = renderReport({
+      now: new Date("2026-10-27T15:00:00Z"),
+      nuevos: [],
+      nuevasFunciones: [
+        {
+          slug: "andres-calamaro-movistar-arena-2026-11-23",
+          artist: "Andres Calamaro",
+          detail: "nueva función 2026-11-23 21:00 (otras: 2026-10-30)",
+        },
+      ],
+      reprogramados: [
+        {
+          slug: "huracan-vs-tigre-tomas-duco",
+          artist: "Huracán vs Tigre",
+          detail: "reprogramado 2026-10-30 → 2026-11-02",
+        },
+      ],
+      cambiados: [],
+      revisar: [],
+      unmatched: [],
+      fuentes: [],
+    });
+    expect(report.indexOf("## Nuevas funciones")).toBeGreaterThan(report.indexOf("## Nuevos"));
+    expect(report.indexOf("## Reprogramados")).toBeGreaterThan(report.indexOf("## Nuevas funciones"));
+    expect(report.indexOf("## Cambiados")).toBeGreaterThan(report.indexOf("## Reprogramados"));
+    expect(report).toContain("Andres Calamaro (andres-calamaro-movistar-arena-2026-11-23): nueva función 2026-11-23 21:00 (otras: 2026-10-30)");
+    expect(report).toContain("Huracán vs Tigre (huracan-vs-tigre-tomas-duco): reprogramado 2026-10-30 → 2026-11-02");
   });
 });

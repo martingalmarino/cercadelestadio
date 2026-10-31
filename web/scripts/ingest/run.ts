@@ -116,6 +116,8 @@ async function main() {
   const report = renderReport({
     now,
     nuevos: result.nuevos,
+    nuevasFunciones: result.nuevasFunciones,
+    reprogramados: result.reprogramados,
     cambiados: result.cambiados,
     revisar: result.revisar,
     unmatched: normalized.unmatched,
@@ -126,7 +128,7 @@ async function main() {
   await writeFile(reportFile, report);
   console.log(reportFile);
   console.log(
-    `Nuevos: ${result.nuevos.length}. Cambiados: ${result.cambiados.length}. A revisar: ${result.revisar.length}. Sin venue: ${normalized.unmatched.length}.`,
+    `Nuevos: ${result.nuevos.length}. Nuevas funciones: ${result.nuevasFunciones.length}. Reprogramados: ${result.reprogramados.length}. Cambiados: ${result.cambiados.length}. A revisar: ${result.revisar.length}. Sin venue: ${normalized.unmatched.length}.`,
   );
 }
 
