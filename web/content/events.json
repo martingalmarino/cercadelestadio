@@ -2322,30 +2322,5 @@
     "externalIds": {
       "movistar-arena": "f3b6943e-e25c-486a-8c61-078e7a71c64e#2027-08-28"
     }
-  },
-  {
-    "slug": "eros-ramazzotti-movistar-arena",
-    "artist": "Eros Ramazzotti",
-    "venueSlug": "movistar-arena",
-    "citySlug": "buenos-aires",
-    "date": "2027-11-06",
-    "dateExact": true,
-    "doors": null,
-    "showTime": "21:00",
-    "type": "Recital",
-    "category": "recital",
-    "status": "confirmed",
-    "updatedAt": "2026-10-27",
-    "sources": [
-      {
-        "name": "movistar-arena",
-        "url": "https://www.movistararena.com.ar/show/fc831d48-fbb5-4f8d-b25a-b031901e19ea",
-        "firstSeen": "2026-10-27",
-        "lastSeen": "2026-10-28"
-      }
-    ],
-    "externalIds": {
-      "movistar-arena": "fc831d48-fbb5-4f8d-b25a-b031901e19ea"
-    }
   }
 ]

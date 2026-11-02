@@ -326,4 +326,58 @@ describe("merge", () => {
     expect(again.revisar).toEqual([]);
     expect(again.state.misses).toEqual({});
   });
+
+  it("marca formato viejo si el id sin fecha no coincide con ninguna función vigente", () => {
+    const uuid = "fc831d48-fbb5-4f8d-b25a-b031901e19ea";
+    const result = merge({
+      existing: [
+        existing({
+          slug: "eros-ramazzotti-movistar-arena",
+          artist: "Eros Ramazzotti",
+          venueSlug: "movistar-arena",
+          date: "2027-11-06",
+          showTime: "21:00",
+          sources: [
+            {
+              name: "movistar-arena",
+              url: `https://www.movistararena.com.ar/show/${uuid}`,
+              firstSeen: "2026-10-27",
+              lastSeen: "2026-10-28",
+            },
+          ],
+          externalIds: { "movistar-arena": uuid },
+        }),
+      ],
+      incoming: [
+        incoming({
+          artist: "Eros Ramazzotti",
+          venueSlug: "movistar-arena",
+          date: "2026-11-06",
+          showTime: "21:00",
+          sources: [
+            {
+              name: "movistar-arena",
+              url: `https://www.movistararena.com.ar/show/${uuid}`,
+              externalId: `${uuid}#2026-11-06`,
+              kind: "venue",
+            },
+          ],
+        }),
+      ],
+      state: { misses: {} },
+      ranSources: ["movistar-arena"],
+      now,
+    });
+    const legacy = result.events.find((event) => event.slug === "eros-ramazzotti-movistar-arena");
+    expect(legacy?.status).toBe("confirmed");
+    expect(legacy?.date).toBe("2027-11-06");
+    expect(legacy?.externalIds?.["movistar-arena"]).toBe(uuid);
+    expect(result.revisar).toEqual([
+      {
+        slug: "eros-ramazzotti-movistar-arena",
+        artist: "Eros Ramazzotti",
+        detail: "formato viejo sin función coincidente; posible fecha mal cargada (vigentes: 2026-11-06)",
+      },
+    ]);
+  });
 });

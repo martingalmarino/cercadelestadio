@@ -313,6 +313,26 @@ export function merge(input: MergeInput): MergeResult {
       if (event.status === "past" || isFinished(event.date, nowMs)) continue;
       const count = (misses[key] ?? 0) + 1;
       misses[key] = count;
+      const storedId = event.externalIds?.[sourceName];
+      const sameBase = storedId && functionId(storedId) == null
+        ? input.incoming.filter((item) =>
+            item.sources.some(
+              (source) =>
+                source.name === sourceName &&
+                source.externalId != null &&
+                baseExternalId(source.externalId) === storedId,
+            ),
+          )
+        : [];
+      if (sameBase.length > 0 && !sameBase.some((item) => item.date === event.date)) {
+        const vigentes = [...new Set(sameBase.map((item) => item.date))].sort().join(", ");
+        revisar.push({
+          slug: event.slug,
+          artist: event.artist,
+          detail: `formato viejo sin función coincidente; posible fecha mal cargada (vigentes: ${vigentes})`,
+        });
+        continue;
+      }
       if (count >= 2) {
         revisar.push({
           slug: event.slug,
