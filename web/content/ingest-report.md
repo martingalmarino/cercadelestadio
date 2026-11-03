@@ -1,17 +1,17 @@
-# Ingesta 2026-11-01
+# Ingesta 2026-11-03
 
 ## Fuentes
 
 - movistar-arena: 79 eventos
-- thesportsdb: 489 eventos leídos, 2 coincidieron con nuestros estadios
+- thesportsdb: 489 eventos leídos, 1 coincidieron con nuestros estadios
 
 ## Nuevos
 
-Ninguno.
+- Chapeaux en vivo (chapeaux-en-vivo-movistar-arena-2027-01-21): 2027-01-21 · confirmed
 
 ## Nuevas funciones
 
-- Hilary Duff (hilary-duff-movistar-arena-2027-08-17): nueva función 2027-08-17 21:00 (otras: 2027-08-16)
+Ninguno.
 
 ## Reprogramados
 
@@ -19,12 +19,11 @@ Ninguno.
 
 ## Cambiados
 
-- EL PLAN DE LA MARIPOSA (el-plan-de-la-mariposa-movistar-arena): pasó a past
-- Vélez Sarsfield vs San Lorenzo (velez-sarsfield-vs-san-lorenzo-jose-amalfitani): pasó a past
+- Jesse & Joy (jesse-joy-movistar-arena): pasó a past
 
 ## A revisar
 
-- Eros Ramazzotti (eros-ramazzotti-movistar-arena): falta en movistar-arena desde hace 2 corridas
+Ninguno.
 
 ## Sin venue
 
@@ -32,4 +31,4 @@ Ninguno.
 
 ## Posibles anuncios
 
-- movistar-arena — Juan Subirá, de Bersuit Vergarabat: los 25 años de Hijos del culo, la pelea que pudo haber tenido un desenlace trágico y la posibilidad de que Cordera vuelva a la banda — https://www.lanacion.com.ar/espectaculos/musica/juan-subira-de-bersuit-vergarabat-los-25-anos-de-hijos-del-culo-la-pelea-que-pudo-haber-tenido-un-nid30102026/ — La Nación Espectáculos
+- movistar-arena — Quién toca en el Movistar Arena hoy: todos los recitales de noviembre 2026 en la Argentina — https://www.lanacion.com.ar/espectaculos/quien-toca-en-el-movistar-arena-hoy-todos-los-recitales-de-noviembre-2026-en-la-argentina-nid01112026/ — La Nación Espectáculos
