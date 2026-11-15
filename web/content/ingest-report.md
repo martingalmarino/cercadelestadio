@@ -1,17 +1,17 @@
-# Ingesta 2026-11-14
+# Ingesta 2026-11-15
 
 ## Fuentes
 
-- movistar-arena: 80 eventos
+- movistar-arena: 79 eventos
 - thesportsdb: 489 eventos leídos, 1 coincidieron con nuestros estadios
 
 ## Nuevos
 
-- Argentina vs Costa Rica (argentina-vs-costa-rica-mario-kempes-2026-11-17): 2026-11-17 · confirmed
+Ninguno.
 
 ## Nuevas funciones
 
-- DISNEY (disney-movistar-arena-2026-12-23): nueva función 2026-12-23 20:00 (otras: 2026-12-22)
+Ninguno.
 
 ## Reprogramados
 
@@ -19,13 +19,14 @@ Ninguno.
 
 ## Cambiados
 
-- Argentina vs Uruguay (argentina-vs-uruguay-estadio-monumental): pasó a past
-- María Becerra (maria-becerra-movistar-arena): pasó a past
+- María Becerra (maria-becerra-movistar-arena-2026-11-14): pasó a past
 
 ## A revisar
 
-- DISNEY (disney-movistar-arena-2026-12-22-2): falta en movistar-arena desde hace 5 corridas
-- Eros Ramazzotti (eros-ramazzotti-movistar-arena-2027-11-06): falta en movistar-arena desde hace 3 corridas
+- DISNEY (disney-movistar-arena-2026-12-22-2): falta en movistar-arena desde hace 6 corridas
+- Eros Ramazzotti (eros-ramazzotti-movistar-arena-2027-11-06): falta en movistar-arena desde hace 4 corridas
+- River Plate vs Lanús (river-plate-vs-lanus-estadio-monumental-2026-11-22): falta en thesportsdb desde hace 2 corridas
+- Vélez Sarsfield vs Belgrano (velez-sarsfield-vs-belgrano-jose-amalfitani-2026-11-22): falta en thesportsdb desde hace 2 corridas
 
 ## Sin venue
 
@@ -33,4 +34,4 @@ Ninguno.
 
 ## Posibles anuncios
 
-Ninguno.
+- movistar-arena — María Becerra abrió su serie de diez shows 360° en el Movistar Arena con invitados, un desfile inclusivo con Martita Fort y una propuesta de casamiento — https://www.clarin.com/espectaculos/maria-becerra-abrio-serie-shows-360-movistar-arena-invitados-desfile-inclusivo-martita-fort-propuesta-casamiento_0_vWZsLQCuRW.html — Clarín Espectáculos
