@@ -48,9 +48,9 @@ function missKey(source: string, slug: string) {
 function functionId(externalId: string) {
   const hash = externalId.indexOf("#");
   if (hash <= 0) return null;
-  const match = /^(\d{4}-\d{2}-\d{2})(?:T(?:[01]\d|2[0-3]):[0-5]\d)?$/.exec(externalId.slice(hash + 1));
+  const match = /^(\d{4}-\d{2}-\d{2})(?:T((?:[01]\d|2[0-3]):[0-5]\d))?$/.exec(externalId.slice(hash + 1));
   if (!match) return null;
-  return { base: externalId.slice(0, hash), date: match[1] };
+  return { base: externalId.slice(0, hash), date: match[1], time: match[2] ?? null };
 }
 
 function baseExternalId(externalId: string) {
@@ -63,6 +63,22 @@ function sameStoredId(current: string, incoming: string, currentDate: string, in
   return parsed != null && current === parsed.base && parsed.date === incomingDate && currentDate === incomingDate;
 }
 
+function preferExternalId(current: string | undefined, incoming: string) {
+  if (!current || current === incoming) return incoming;
+  const cur = functionId(current);
+  const inc = functionId(incoming);
+  if (
+    cur &&
+    inc &&
+    cur.base === inc.base &&
+    cur.date === inc.date
+  ) {
+    if (cur.time && !inc.time) return current;
+    if (inc.time && !cur.time) return incoming;
+  }
+  return incoming;
+}
+
 function idsConflict(item: ShowEvent, event: NormalizedEvent) {
   return event.sources.some((source) => {
     const current = item.externalIds?.[source.name];
@@ -71,7 +87,17 @@ function idsConflict(item: ShowEvent, event: NormalizedEvent) {
   });
 }
 
-function findExisting(existing: ShowEvent[], event: NormalizedEvent, used: Set<string>) {
+function sameShowTime(a: string | null | undefined, b: string | null | undefined) {
+  const left = hasText(a) ? a!.trim() : null;
+  const right = hasText(b) ? b!.trim() : null;
+  return left === right;
+}
+
+type FindResult =
+  | { event: ShowEvent; exactId: boolean }
+  | { ignore: true };
+
+function findExisting(existing: ShowEvent[], event: NormalizedEvent, used: Set<string>): FindResult | null {
   const free = (item: ShowEvent) => !used.has(item.slug);
   for (const source of event.sources) {
     if (!source.externalId) continue;
@@ -87,6 +113,32 @@ function findExisting(existing: ShowEvent[], event: NormalizedEvent, used: Set<s
       if (legacy) return { event: legacy, exactId: false };
     }
   }
+
+  for (const source of event.sources) {
+    if (!source.externalId) continue;
+    const parsed = functionId(source.externalId);
+    if (!parsed || parsed.date !== event.date) continue;
+
+    const sameListingSameDay = existing.filter((item) => {
+      if (item.date !== event.date) return false;
+      const current = item.externalIds?.[source.name];
+      if (!current) return false;
+      return baseExternalId(current) === parsed.base;
+    });
+
+    const byDateAndTime = sameListingSameDay.find(
+      (item) => free(item) && sameShowTime(item.showTime, event.showTime),
+    );
+    if (byDateAndTime) return { event: byDateAndTime, exactId: false };
+
+    const dateOnlyIncoming = parsed.time == null && !hasText(event.showTime);
+    if (dateOnlyIncoming && sameListingSameDay.length > 0) {
+      const undated = sameListingSameDay.find((item) => free(item) && !hasText(item.showTime));
+      if (undated) return { event: undated, exactId: false };
+      return { ignore: true };
+    }
+  }
+
   const key = dedupeKey(event.artist, event.venueSlug, event.date);
   const exact = existing.find(
     (item) =>
@@ -148,7 +200,7 @@ function applySources(event: ShowEvent, sources: SourceRef[], seenOn: string) {
         lastSeen: seenOn,
       };
     }
-    if (source.externalId) ids[source.name] = source.externalId;
+    if (source.externalId) ids[source.name] = preferExternalId(ids[source.name], source.externalId);
   }
   event.sources = next;
   event.externalIds = ids;
@@ -203,10 +255,14 @@ export function merge(input: MergeInput): MergeResult {
   const nuevasFunciones: MergeNote[] = [];
   const reprogramados: MergeNote[] = [];
   const cambiados: MergeNote[] = [];
+  const revisarLocked: MergeNote[] = [];
   const events = input.existing.map((event) => event);
 
   for (const incoming of input.incoming) {
     const found = findExisting(events, incoming, used);
+    if (found && "ignore" in found) {
+      continue;
+    }
     if (!found) {
       const others = relatedFunctions(events, incoming);
       const created = createEvent(incoming, taken, seenOn, nowMs);
@@ -238,13 +294,23 @@ export function merge(input: MergeInput): MergeResult {
     const index = events.indexOf(current);
     const next = structuredClone(current);
     const details: string[] = [];
+    const lockedDateMismatch =
+      found.exactId && next.date !== incoming.date && next.dateLocked === true;
     const reprogramado =
-      found.exactId && next.date !== incoming.date
+      found.exactId && next.date !== incoming.date && next.dateLocked !== true
         ? { from: next.date, to: incoming.date }
         : null;
     if (reprogramado) {
       next.date = incoming.date;
       next.dateExact = true;
+    }
+    if (lockedDateMismatch) {
+      const sourceName = incoming.sources[0]?.name ?? "fuente";
+      revisarLocked.push({
+        slug: next.slug,
+        artist: next.artist,
+        detail: `la fuente ${sourceName} trae fecha ${incoming.date}, pero la fecha está fijada en ${next.date}`,
+      });
     }
     if (next.venueSlug !== incoming.venueSlug) {
       details.push(`venue ${next.venueSlug ?? "sin venue"} → ${incoming.venueSlug}`);
@@ -300,7 +366,7 @@ export function merge(input: MergeInput): MergeResult {
   }
 
   const misses = { ...input.state.misses };
-  const revisar: MergeNote[] = [];
+  const revisar: MergeNote[] = [...revisarLocked];
   for (const sourceName of input.ranSources) {
     const saw = seen.get(sourceName) ?? new Set<string>();
     for (const event of events) {
