@@ -63,6 +63,7 @@ export const showEventSchema = z.object({
   citySlug: z.string().min(1),
   date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
   dateExact: z.boolean(),
+  dateLocked: z.boolean().optional(),
   doors: z.string().nullable(),
   showTime: z.string().nullable(),
   duration: z.string().optional(),

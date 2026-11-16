@@ -380,4 +380,188 @@ describe("merge", () => {
       },
     ]);
   });
+
+  it("no duplica una función con la misma fecha y hora", () => {
+    const uuid = "5ced2568-3ac8-45a8-b3e0-0579ee8630d7";
+    const result = merge({
+      existing: [
+        existing({
+          slug: "alejo-igoa-movistar-arena",
+          artist: "Alejo Igoa",
+          venueSlug: "movistar-arena",
+          date: "2026-12-12",
+          showTime: "16:00",
+          externalIds: { "movistar-arena": `${uuid}#2026-12-12T16:00` },
+        }),
+      ],
+      incoming: [
+        incoming({
+          artist: "Alejo Igoa",
+          venueSlug: "movistar-arena",
+          date: "2026-12-12",
+          showTime: "16:00",
+          sources: [
+            {
+              name: "movistar-arena",
+              url: `https://www.movistararena.com.ar/show/${uuid}`,
+              externalId: `${uuid}#2026-12-12T16:00`,
+              kind: "venue",
+            },
+          ],
+        }),
+      ],
+      state: { misses: {} },
+      ranSources: ["movistar-arena"],
+      now,
+    });
+    expect(result.events).toHaveLength(1);
+    expect(result.nuevasFunciones).toEqual([]);
+    expect(result.nuevos).toEqual([]);
+  });
+
+  it("crea función nueva si la hora es distinta el mismo día", () => {
+    const uuid = "5ced2568-3ac8-45a8-b3e0-0579ee8630d7";
+    const result = merge({
+      existing: [
+        existing({
+          slug: "alejo-igoa-movistar-arena",
+          artist: "Alejo Igoa",
+          venueSlug: "movistar-arena",
+          date: "2026-12-12",
+          showTime: "16:00",
+          externalIds: { "movistar-arena": `${uuid}#2026-12-12T16:00` },
+        }),
+      ],
+      incoming: [
+        incoming({
+          artist: "Alejo Igoa",
+          venueSlug: "movistar-arena",
+          date: "2026-12-12",
+          showTime: "21:00",
+          sources: [
+            {
+              name: "movistar-arena",
+              url: `https://www.movistararena.com.ar/show/${uuid}`,
+              externalId: `${uuid}#2026-12-12T21:00`,
+              kind: "venue",
+            },
+          ],
+        }),
+      ],
+      state: { misses: {} },
+      ranSources: ["movistar-arena"],
+      now,
+    });
+    expect(result.events).toHaveLength(2);
+    expect(result.nuevasFunciones).toHaveLength(1);
+    expect(result.nuevasFunciones[0].detail).toContain("21:00");
+  });
+
+  it("ignora id solo-fecha si ese día ya tiene funciones con hora", () => {
+    const uuid = "1a6f8aec-ffcc-45f6-bed1-7558e02ca206";
+    const result = merge({
+      existing: [
+        existing({
+          slug: "disney-movistar-arena",
+          artist: "DISNEY",
+          venueSlug: "movistar-arena",
+          date: "2026-12-22",
+          showTime: "15:00",
+          externalIds: { "movistar-arena": `${uuid}#2026-12-22T15:00` },
+        }),
+        existing({
+          slug: "disney-movistar-arena-2026-12-22",
+          artist: "DISNEY",
+          venueSlug: "movistar-arena",
+          date: "2026-12-22",
+          showTime: "20:00",
+          externalIds: { "movistar-arena": `${uuid}#2026-12-22T20:00` },
+        }),
+      ],
+      incoming: [
+        incoming({
+          artist: "DISNEY",
+          venueSlug: "movistar-arena",
+          date: "2026-12-22",
+          showTime: null,
+          sources: [
+            {
+              name: "movistar-arena",
+              url: `https://www.movistararena.com.ar/show/${uuid}`,
+              externalId: `${uuid}#2026-12-22`,
+              kind: "venue",
+            },
+          ],
+        }),
+      ],
+      state: { misses: {} },
+      ranSources: ["movistar-arena"],
+      now,
+    });
+    expect(result.events).toHaveLength(2);
+    expect(result.events.map((event) => event.externalIds?.["movistar-arena"]).sort()).toEqual([
+      `${uuid}#2026-12-22T15:00`,
+      `${uuid}#2026-12-22T20:00`,
+    ]);
+    expect(result.events.map((event) => event.showTime).sort()).toEqual(["15:00", "20:00"]);
+    expect(result.nuevasFunciones).toEqual([]);
+    expect(result.nuevos).toEqual([]);
+  });
+
+  it("no pisa una fecha con dateLocked aunque el id coincida", () => {
+    const result = merge({
+      existing: [
+        existing({
+          slug: "velez-sarsfield-vs-belgrano-jose-amalfitani-2026-11-20",
+          artist: "Vélez Sarsfield vs Belgrano",
+          venueSlug: "jose-amalfitani",
+          date: "2026-11-20",
+          showTime: "20:00",
+          dateLocked: true,
+          category: "partido",
+          type: "Partido",
+          sources: [
+            {
+              name: "thesportsdb",
+              url: "https://www.thesportsdb.com/event/2627819",
+              firstSeen: "2026-11-11",
+              lastSeen: "2026-11-12",
+            },
+          ],
+          externalIds: { thesportsdb: "2627819" },
+        }),
+      ],
+      incoming: [
+        incoming({
+          artist: "Vélez Sarsfield vs Belgrano",
+          venueSlug: "jose-amalfitani",
+          date: "2026-11-22",
+          showTime: null,
+          category: "partido",
+          sources: [
+            {
+              name: "thesportsdb",
+              url: "https://www.thesportsdb.com/event/2627819",
+              externalId: "2627819",
+              kind: "fixture",
+            },
+          ],
+        }),
+      ],
+      state: { misses: {} },
+      ranSources: ["thesportsdb"],
+      now,
+    });
+    expect(result.events).toHaveLength(1);
+    expect(result.events[0].date).toBe("2026-11-20");
+    expect(result.events[0].showTime).toBe("20:00");
+    expect(result.reprogramados).toEqual([]);
+    expect(result.revisar).toEqual([
+      {
+        slug: "velez-sarsfield-vs-belgrano-jose-amalfitani-2026-11-20",
+        artist: "Vélez Sarsfield vs Belgrano",
+        detail: "la fuente thesportsdb trae fecha 2026-11-22, pero la fecha está fijada en 2026-11-20",
+      },
+    ]);
+  });
 });

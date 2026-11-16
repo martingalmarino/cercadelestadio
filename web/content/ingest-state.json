@@ -1,9 +1,6 @@
 {
   "misses": {
     "thesportsdb::argentina-vs-uruguay-estadio-monumental": 7,
-    "movistar-arena::disney-movistar-arena-2026-12-22-2": 6,
-    "movistar-arena::eros-ramazzotti-movistar-arena-2027-11-06": 4,
-    "thesportsdb::river-plate-vs-lanus-estadio-monumental-2026-11-22": 2,
-    "thesportsdb::velez-sarsfield-vs-belgrano-jose-amalfitani-2026-11-22": 2
+    "thesportsdb::river-plate-vs-lanus-estadio-monumental-2026-11-22": 2
   }
 }

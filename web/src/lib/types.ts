@@ -118,6 +118,7 @@ export type ShowEvent = {
   citySlug: string;
   date: string;
   dateExact: boolean;
+  dateLocked?: boolean;
   doors: string | null;
   showTime: string | null;
   duration?: string;
